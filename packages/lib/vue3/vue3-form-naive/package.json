@@ -17,7 +17,7 @@
     ],
     "dependencies": {
         "@lljj/vjsf-utils": "1.14.0",
-        "@snema/vue3-form-core": "1.14.0"
+        "@snema/vue3-form-core": "1.14.1"
     },
     "typings": "types/index.d.ts",
     "files": [

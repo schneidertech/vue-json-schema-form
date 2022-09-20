@@ -1,6 +1,6 @@
 {
     "name": "@snema/vue3-form-core",
-    "version": "1.14.0",
+    "version": "1.14.1",
     "description": " Vue3 JsonSchemaformvue3",
     "main": "src/index.js",
     "module": "src/index.js",
