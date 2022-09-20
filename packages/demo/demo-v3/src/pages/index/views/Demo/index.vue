@@ -25,7 +25,7 @@
                         style="width: 70px; margin-right: 6px;"
                         size="small"
                     ></el-slider>
-                    <span style="font-size: 13px;">wrapperCol：</span>
+                    <span style="font-size: 13px;">wrapperCol</span>
                     <el-slider
                         v-model="formProps.wrapperColSpan"
                         :min="5"
@@ -47,44 +47,44 @@
                     style="margin-right: 6px;"
                     size="small"
                 >
-                    底部
+
                 </el-checkbox>
                 <el-select
                     v-model="formProps.layoutColumn"
-                    placeholder="布局"
+                    placeholder=""
                     size="small"
                     style="margin-right: 6px;width: 100px;"
                 >
                     <el-option
                         :value="1"
-                        label="一列显示"
+                        label=""
                     ></el-option>
                     <el-option
                         :value="2"
-                        label="二列显示"
+                        label=""
                     ></el-option>
                     <el-option
                         :value="3"
-                        label="三列显示"
+                        label=""
                     ></el-option>
                 </el-select>
                 <el-select
                     v-model="formProps.labelPosition"
-                    placeholder="对其"
+                    placeholder=""
                     size="small"
                     style="margin-right: 6px;width: 96px;"
                 >
                     <el-option
                         value="top"
-                        label="Label上"
+                        label="Label"
                     ></el-option>
                     <el-option
                         value="left"
-                        label="Label左"
+                        label="Label"
                     ></el-option>
                     <el-option
                         value="right"
-                        label="Label右"
+                        label="Label"
                     ></el-option>
                 </el-select>
                 <el-button
@@ -93,7 +93,7 @@
                     size="small"
                     @click="handlePreview"
                 >
-                    分享
+
                 </el-button>
             </div>
         </EditorHeader>
@@ -174,7 +174,7 @@
                                 class="clearfix"
                             >
                                 <span>
-                                    生成表单Ui库：
+                                    Ui
                                     <el-select
                                         v-model="curVueForm"
                                         placeholder="ui"
@@ -238,7 +238,7 @@ const VueAntForm = defineAsyncComponent(async () => {
     return {
         name: 'antFormWrap',
         setup(props, { attrs, slots }) {
-            // hack 动态install antDv，因为我不知其它地方如何获取 vue app
+            // hack install antDv vue app
             if (!installedAntdv) {
                 const instance = getCurrentInstance();
                 instance.appContext.app.use(antdv.default);
@@ -263,7 +263,7 @@ const VueNaiveForm = defineAsyncComponent(async () => {
     return {
         name: 'naiveFormWrap',
         setup(props, { attrs, slots }) {
-            // hack 动态install naive，因为我不知其它地方如何获取 vue app
+            // hack install naive vue app
             if (!installedNaive) {
                 const instance = getCurrentInstance();
                 instance.appContext.app.use(naive.default);
@@ -453,7 +453,7 @@ export default {
             try {
                 this[vmKey] = val ? JSON.parse(val) : {};
             } catch (e) {
-                // 无法解析时不更新数据
+                //
                 // this[vmKey] = {};
             }
         },
@@ -471,7 +471,7 @@ export default {
                 // nothing ...
             }
 
-            // 还原 labelWidth
+            //  labelWidth
             if (queryParamsObj.formProps && queryParamsObj.formProps.labelWidth) {
                 queryParamsObj.formProps.labelWidth = parseFloat(queryParamsObj.formProps.labelWidth) / 4;
             }
@@ -538,7 +538,7 @@ export default {
             const url = `${window.location.origin}${window.location.pathname}${genRoute.href}`;
 
             if (this.clipboard(url)) {
-                this.$message.success('复制预览地址成功');
+                this.$message.success('');
             }
         }
     }

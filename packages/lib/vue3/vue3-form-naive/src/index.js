@@ -43,7 +43,7 @@ const globalOptions = {
                 const formRef = ref(null);
                 if (attrs.setFormRef) {
                     onMounted(() => {
-                        // form置一个 validate 方法
+                        // form validate
                         formRef.value.$$validate = (callBack) => {
                             formRef.value.validate((errors) => {
                                 if (errors) {
@@ -66,7 +66,7 @@ const globalOptions = {
 
                     return h(vueUtils.resolveComponent('n-form'), {
                         ref: formRef,
-                        model: model.value, // 不会自动解包
+                        model: model.value, //
                         ...labelPositionMap[labelPosition || 'top'],
                         ...otherAttrs
                     }, slots);
@@ -104,7 +104,7 @@ const globalOptions = {
         }),
     },
     HELPERS: {
-        // 是否mini显示 description
+        // mini description
         isMiniDes(formProps) {
             return formProps && ['left', 'right'].includes(formProps.labelPosition);
         }

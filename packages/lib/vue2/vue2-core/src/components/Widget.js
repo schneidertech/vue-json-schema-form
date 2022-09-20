@@ -14,13 +14,13 @@ export default {
     name: 'Widget',
     inject: ['genFormProvide'],
     props: {
-        // 是否同步formData的值，默认表单元素都需要
-        // oneOf anyOf 中的select属于formData之外的数据
+        // formData
+        // oneOf anyOf selectformData
         isFormData: {
             type: Boolean,
             default: true
         },
-        // isFormData = false时需要传入当前 value 否则会通过 curNodePath 自动计算
+        // isFormData = false value  curNodePath
         curValue: {
             type: null,
             default: 0
@@ -41,7 +41,7 @@ export default {
             type: Object,
             default: () => ({})
         },
-        // 自定义校验
+        //
         customRule: {
             type: Function,
             default: null
@@ -54,13 +54,13 @@ export default {
             type: Boolean,
             default: false
         },
-        // 解决 JSON Schema和实际输入元素中空字符串 required 判定的差异性
-        // 元素输入为 '' 使用 emptyValue 的值
+        //  JSON Schema required
+        //  ''  emptyValue
         emptyValue: {
             type: null,
             default: undefined
         },
-        // 部分场景可能需要格式化值，如vue .number 修饰符
+        // vue .number
         formatValue: {
             type: [Function],
             default: val => ({
@@ -127,12 +127,12 @@ export default {
             type: Object,
             default: () => ({})
         },
-        widgetListeners: null, // widget组件 emits
+        widgetListeners: null, // widget emits
         formProps: null,
         getWidget: null,
-        renderScopedSlots: null, // 作用域插槽
-        renderChildren: null, // 子节点 插槽
-        globalOptions: null, // 全局配置
+        renderScopedSlots: null, //
+        renderChildren: null, //
+        globalOptions: null, //
         onChange: null
     },
     computed: {
@@ -144,7 +144,7 @@ export default {
                 return this.curValue;
             },
             set(value) {
-                // 大多组件删除为空值会重置为null。
+                // null
                 const trueValue = (value === '' || value === null) ? this.emptyValue : value;
                 if (this.isFormData) {
                     setPathVal(this.rootFormData, this.curNodePath, trueValue);
@@ -155,13 +155,13 @@ export default {
         }
     },
     created() {
-        // 枚举类型默认值为第一个选项
+        //
         if (this.uiProps.enumOptions
             && this.uiProps.enumOptions.length > 0
             && this.value === undefined
             && this.value !== this.uiProps.enumOptions[0]
         ) {
-            // array 渲染为多选框时默认为空数组
+            // array
             if (this.schema.items) {
                 this.value = [];
             } else if (this.required && this.formProps.defaultSelectFirstOption) {
@@ -174,7 +174,7 @@ export default {
 
         const { curNodePath } = this.$props;
 
-        // 判断是否为根节点
+        //
         const isRootNode = isRootNodePath(curNodePath);
 
         const isMiniDes = self.formProps && self.formProps.isMiniDes;
@@ -223,7 +223,7 @@ export default {
             } : {})
         };
 
-        // 运行配置回退到 属性名
+        //
         const label = fallbackLabel(self.label, (self.widget && this.genFormProvide.fallbackLabel), curNodePath);
 
         return h(
@@ -238,14 +238,14 @@ export default {
                 props: {
                     ...self.labelWidth ? { labelWidth: self.labelWidth } : {},
                     ...this.isFormData ? {
-                        // 这里对根节点打特殊标志，绕过elementUi无prop属性不校验
+                        // elementUiprop
                         prop: isRootNode ? '__$$root' : path2prop(curNodePath),
                         rules: [
                             {
                                 validator(rule, value, callback) {
                                     if (isRootNode) value = self.rootFormData;
 
-                                    // 校验是通过对schema逐级展开校验 这里只捕获根节点错误
+                                    // schema
                                     const errors = validateFormDataAndTransformMsg({
                                         formData: value,
                                         schema: self.$props.schema,
@@ -257,7 +257,7 @@ export default {
                                     });
                                     if (errors.length > 0) return callback(errors[0].message);
 
-                                    // customRule 如果存在自定义校验
+                                    // customRule
                                     const curCustomRule = self.$props.customRule;
                                     if (curCustomRule && (typeof curCustomRule === 'function')) {
                                         return curCustomRule({
@@ -276,7 +276,7 @@ export default {
                     } : {},
                 },
                 scopedSlots: {
-                    // 错误只能显示一行，多余...
+                    // ...
                     error: props => (props.error ? h('div', {
                         class: {
                             formItemErrorBox: true
@@ -301,9 +301,9 @@ export default {
                 ]) : null,
 
                 // description
-                // 非mini模式显示 description
+                // mini description
                 !miniDesModel ? descriptionVNode : null,
-                h( // 关键输入组件
+                h( //
                     self.widget,
                     {
                         style: self.widgetStyle,
@@ -325,17 +325,17 @@ export default {
                                     self.widgetListeners['hook:mounted'].apply(this, [...arguments]);
                                 }
 
-                                // 提供一种特殊的配置 允许直接访问到 widget vm
+                                //   widget vm
                                 if (self.getWidget && typeof self.getWidget === 'function') {
                                     self.getWidget.call(null, self.$refs.widgetRef);
                                 }
                             },
                             input(event) {
                                 const formatValue = self.formatValue(event);
-                                // 默认用户输入变了都是需要更新form数据保持同步，唯一特例 input number
-                                // 为了兼容 number 小数点后0结尾的数据场景
-                                // 比如 1. 1.010 这类特殊数据输入是不需要触发 新值的设置，否则会导致schema校验为非数字
-                                // 但由于element为了解另外的问题，会在nextTick时强制同步dom的值等于vm的值所以无法通过这种方式来hack，这里旧的这份逻辑依旧保留 不过update一直为true
+                                // form input number
+                                //  number 0
+                                //  1. 1.010  schema
+                                // elementnextTickdomvmhack updatetrue
                                 const preVal = self.value;
                                 if (formatValue.update && preVal !== formatValue.value) {
                                     self.value = formatValue.value;

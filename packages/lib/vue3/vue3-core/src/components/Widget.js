@@ -18,13 +18,13 @@ import {
 export default {
     name: 'Widget',
     props: {
-        // 是否同步formData的值，默认表单元素都需要
-        // oneOf anyOf 中的select属于formData之外的数据
+        // formData
+        // oneOf anyOf selectformData
         isFormData: {
             type: Boolean,
             default: true
         },
-        // isFormData = false时需要传入当前 value 否则会通过 curNodePath 自动计算
+        // isFormData = false value  curNodePath
         curValue: {
             type: null,
             default: 0
@@ -45,7 +45,7 @@ export default {
             type: Object,
             default: () => ({})
         },
-        // 自定义校验
+        //
         customRule: {
             type: Function,
             default: null
@@ -58,8 +58,8 @@ export default {
             type: Boolean,
             default: false
         },
-        // 解决 JSON Schema和实际输入元素中空字符串 required 判定的差异性
-        // 元素输入为 '' 使用 emptyValue 的值
+        //  JSON Schema required
+        //  ''  emptyValue
         emptyValue: {
             type: null,
             default: undefined
@@ -125,8 +125,8 @@ export default {
         },
         formProps: null,
         getWidget: null,
-        renderScopedSlots: null, // 作用域插槽
-        globalOptions: null, // 全局配置
+        renderScopedSlots: null, //
+        globalOptions: null, //
         onChange: null
     },
     emits: ['otherDataChange'],
@@ -140,7 +140,7 @@ export default {
                 return props.curValue;
             },
             set(value) {
-                // 大多组件删除为空值会重置为null。
+                // null
                 const trueValue = (value === '' || value === null) ? props.emptyValue : value;
                 if (props.isFormData) {
                     setPathVal(props.rootFormData, props.curNodePath, trueValue);
@@ -150,13 +150,13 @@ export default {
             }
         });
 
-        // 枚举类型默认值为第一个选项
+        //
         if (props.uiProps.enumOptions
             && props.uiProps.enumOptions.length > 0
             && widgetValue.value === undefined
             && widgetValue.value !== props.uiProps.enumOptions[0]
         ) {
-            // array 渲染为多选框时默认为空数组
+            // array
             if (props.schema.items) {
                 widgetValue.value = [];
             } else if (props.required && props.formProps.defaultSelectFirstOption) {
@@ -164,9 +164,9 @@ export default {
             }
         }
 
-        // 获取到widget组件实例
+        // widget
         const widgetRef = ref(null);
-        // 提供一种特殊的配置 允许直接访问到 widget vm
+        //   widget vm
         if (typeof props.getWidget === 'function') {
             watch(widgetRef, () => {
                 props.getWidget.call(null, widgetRef.value);
@@ -174,7 +174,7 @@ export default {
         }
 
         return () => {
-            // 判断是否为根节点
+            //
             const isRootNode = isRootNodePath(props.curNodePath);
 
             const isMiniDes = props.formProps && props.formProps.isMiniDes;
@@ -215,7 +215,7 @@ export default {
                 } : {})
             };
 
-            // 运行配置回退到 属性名
+            //
             const label = fallbackLabel(props.label, (props.widget && genFormProvide.fallbackLabel.value), props.curNodePath);
             return h(
                 resolveComponent(COMPONENT_MAP.formItem),
@@ -229,14 +229,14 @@ export default {
 
                     ...props.labelWidth ? { labelWidth: props.labelWidth } : {},
                     ...props.isFormData ? {
-                        // 这里对根节点打特殊标志，绕过elementUi无prop属性不校验
+                        // elementUiprop
                         prop: isRootNode ? '__$$root' : path2prop(props.curNodePath),
                         rules: [
                             {
                                 validator(rule, value, callback) {
                                     if (isRootNode) value = props.rootFormData;
 
-                                    // 校验是通过对schema逐级展开校验 这里只捕获根节点错误
+                                    // schema
                                     const errors = validateFormDataAndTransformMsg({
                                         formData: value,
                                         schema: props.schema,
@@ -247,13 +247,13 @@ export default {
                                         propPath: path2prop(props.curNodePath)
                                     });
 
-                                    // 存在校验不通过字段
+                                    //
                                     if (errors.length > 0) {
                                         if (callback) return callback(errors[0].message);
                                         return Promise.reject(errors[0].message);
                                     }
 
-                                    // customRule 如果存在自定义校验
+                                    // customRule
                                     const curCustomRule = props.customRule;
                                     if (curCustomRule && (typeof curCustomRule === 'function')) {
                                         return curCustomRule({
@@ -264,7 +264,7 @@ export default {
                                         });
                                     }
 
-                                    // 校验成功
+                                    //
                                     if (callback) return callback();
                                     return Promise.resolve();
                                 },
@@ -274,7 +274,7 @@ export default {
                     } : {},
                 },
                 {
-                    // 错误只能显示一行，多余...
+                    // ...
                     error: slotProps => (slotProps.error ? h('div', {
                         class: {
                             formItemErrorBox: true
@@ -284,8 +284,8 @@ export default {
 
                     // label
                     /*
-                        TODO:这里slot如果从无到有会导致无法正常渲染出元素 怀疑是vue3 bug
-                        如果使用 error 的形式渲染，ElementPlus label labelWrap 未做判断，使用 slots.default?.() 会得到 undefined
+                        TODO:slot vue3 bug
+                         error ElementPlus label labelWrap  slots.default?.()  undefined
                     */
                     ...label ? {
                         label: () => h('span', {
@@ -303,11 +303,11 @@ export default {
                     // default
                     default: otherAttrs => [
                         // description
-                        // 非mini模式显示 description
+                        // mini description
                         ...(!miniDesModel && descriptionVNode) ? [descriptionVNode] : [],
 
                         ...props.widget ? [
-                            h( // 关键输入组件
+                            h( //
                                 resolveComponent(props.widget),
                                 {
                                     style: props.widgetStyle,
@@ -334,7 +334,7 @@ export default {
                                     ...otherAttrs ? (() => Object.keys(otherAttrs).reduce((pre, k) => {
                                         pre[k] = otherAttrs[k];
 
-                                        // 保证ui配置同名方法 ui方法先执行
+                                        // ui ui
                                         [
                                             props.widgetAttrs[k],
                                             props.uiProps[k]

@@ -2,16 +2,16 @@ declare namespace schemaValidate {
     /** schemaajvformData */
     function ajvValidateFormData(options: object): object;
 
-    /** formData 并转换错误信息 */
+    /** formData  */
     function validateFormDataAndTransformMsg(options: object): object;
 
-    /** schema 是否通过校验 */
+    /** schema  */
     function isValid(schema: object, data: any): boolean;
 
-    /** ajv validate 方法 */
+    /** ajv validate  */
     function ajvValid(schema: object, data: any): boolean;
 
-    /** oneOf anyOf 通过formData的值来找到当前匹配项索引 */
+    /** oneOf anyOf formData */
     function getMatchingOption(formData: object, options: object, rootSchema: object): boolean;
 }
 

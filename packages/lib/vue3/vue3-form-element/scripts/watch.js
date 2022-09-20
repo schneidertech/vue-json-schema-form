@@ -25,11 +25,11 @@ const watcher = rollup.watch({
 
 watcher.on('event', (event) => {
     // event.code can be one of:
-    //   START        — the watcher is (re)starting
-    //   BUNDLE_START — building an individual bundle
-    //   BUNDLE_END   — finished building a bundle
-    //   END          — finished building all bundles
-    //   ERROR        — encountered an error while bundling
+    //   START         the watcher is (re)starting
+    //   BUNDLE_START  building an individual bundle
+    //   BUNDLE_END    finished building a bundle
+    //   END           finished building all bundles
+    //   ERROR         encountered an error while bundling
     console.log(`Watch Event Code: ${event.code}`);
 });
 

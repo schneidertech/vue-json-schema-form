@@ -5,7 +5,7 @@
             type="primary"
             @click="$emit('toDemo')"
         >
-             Playground 证
+             Playground
         </el-button>
         <JsonPrettyPrint :json-string="genCode"></JsonPrettyPrint>
     </div>
@@ -43,7 +43,7 @@ export default {
             pre.removeAttribute('contenteditable');
             setTimeout(() => {
                 this.copied = false;
-                this.$message.success('复制成功');
+                this.$message.success('');
             }, 300);
         }
     }

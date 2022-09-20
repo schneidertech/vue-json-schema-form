@@ -1,5 +1,5 @@
 /**
- * 供 ::: demo xxx ::: 语法，用于构建 markdown 中的示例
+ *  ::: demo xxx :::  markdown
  */
 const path = require('path')
 const renderDemoBlock = require('./common/render')

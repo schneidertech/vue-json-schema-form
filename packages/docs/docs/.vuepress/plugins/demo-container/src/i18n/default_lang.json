@@ -4,9 +4,9 @@
         "demo-block": {
             "online-run": "",
             "hide-text": "",
-            "show-text": "显示代码",
-            "copy-text": "复制代码",
-            "copy-success": "复制成功"
+            "show-text": "",
+            "copy-text": "",
+            "copy-success": ""
         }
     },
     {

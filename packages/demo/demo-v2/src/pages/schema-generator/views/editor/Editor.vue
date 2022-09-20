@@ -35,7 +35,7 @@
                         <EditorToolBar
                             :drag-group="dragOptions.group"
                             :config-tools="configTools"
-                            @onFilter="$message.error('数目已达上限！')"
+                            @onFilter="$message.error('')"
                         >
                         </EditorToolBar>
                     </div>
@@ -88,14 +88,14 @@
                         v-if="componentList.length === 0"
                         :class="$style.tipBox"
                     >
-                        <p>拖拽左侧栏的组件进行添加</p>
+                        <p></p>
                     </div>
                 </div>
                 <div :class="$style.rightForm">
                     <el-tabs v-model="activeName">
                         <el-tab-pane
                             v-if="curEditorItem"
-                            label="组件配置"
+                            label=""
                             name="compConfig"
                         >
                             <VueJsonFrom
@@ -113,7 +113,7 @@
                             </VueJsonFrom>
                         </el-tab-pane>
                         <el-tab-pane
-                            label="表单配置"
+                            label=""
                             name="formConfig"
                         >
                             <VueJsonFrom
@@ -180,7 +180,7 @@ export default {
             loading: false,
             configTools,
             rootFormData: {},
-            curEditorItem: null, // 选中的formItem
+            curEditorItem: null, // formItem
             componentList: [],
             FormConfSchema,
             formConfig: {},
@@ -232,8 +232,8 @@ export default {
             const defaultConfig = {
                 formFooter: {
                     show: true,
-                    okBtn: '保存',
-                    cancelBtn: '取消'
+                    okBtn: '',
+                    cancelBtn: ''
                 },
                 formProps: {
                     inline: false,
@@ -243,7 +243,7 @@ export default {
                 }
             };
 
-            // 不做深度
+            //
             const filter = (obj, defaultObj) => Object.keys(obj).reduce((pre, cur) => {
                 if (!(obj[cur] === defaultObj[cur])) {
                     pre[cur] = obj[cur];
@@ -263,7 +263,7 @@ export default {
             const instance = componentWithDialog({
                 VueComponent: VueJsonFrom,
                 dialogProps: {
-                    title: '预览展示',
+                    title: '',
                     width: '1000px'
                 },
                 componentProps: {
@@ -288,14 +288,14 @@ export default {
             const instance = componentWithDialog({
                 VueComponent: ImportSchemaView,
                 dialogProps: {
-                    title: '导入Schema',
+                    title: 'Schema',
                     width: '1000px'
                 },
                 componentListeners: {
                     onImport: (code) => {
                         try {
                             const data = jsonSchema2ComponentList(code, this.configTools);
-                            if (!data) return this.$message.warning('请先输入导入Schema');
+                            if (!data) return this.$message.warning('Schema');
 
                             const { errorNode, componentList, formConfig } = data;
                             this.componentList = componentList;
@@ -304,10 +304,10 @@ export default {
 
                             instance.close();
 
-                            // 存在导入失败的部分节点
+                            //
                             if (errorNode.length > 0 && Array.isArray(errorNode)) {
                                 return this.$msgbox({
-                                    title: '如下节点导入失败，请检查数据',
+                                    title: '',
                                     message: this.$createElement(
                                         'div', {
                                             style: {
@@ -321,7 +321,7 @@ export default {
 
                             return undefined;
                         } catch (e) {
-                            this.$alert(e.message, '导入失败，详细查看控制台');
+                            this.$alert(e.message, '');
                             throw e;
                         }
                     }
@@ -332,7 +332,7 @@ export default {
             componentWithDialog({
                 VueComponent: ExportSchemaView,
                 dialogProps: {
-                    title: '导出Schema',
+                    title: 'Schema',
                     width: '1000px'
                 },
                 componentProps: {
@@ -378,7 +378,7 @@ export default {
         --right-form-width: 380px;
         --drag-area-width: auto;
     }
-    /*预览模式 同步样式重置*/
+    /* */
     .container {
         position: relative;
         box-sizing: border-box;

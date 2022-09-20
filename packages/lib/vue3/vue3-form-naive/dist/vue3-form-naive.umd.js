@@ -224,45 +224,45 @@
   function nodePath2ClassName(path) {
     var rootPathName = '__pathRoot';
     return path ? "".concat(rootPathName, ".").concat(path).replace(/\./g, '_') : rootPathName;
-  } // 节点
+  } //
 
   function isRootNodePath(path) {
     return path === '';
-  } // 计算当前节点path
+  } // path
 
   function computedCurPath(prePath, curKey) {
     return prePath === '' ? curKey : [prePath, curKey].join(pathSeparator);
-  } // 删除当前path值
+  } // path
 
   function getPathVal(obj, path) {
     var leftDeviation = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
     var pathArr = path.split(pathSeparator);
 
     for (var i = 0; i < pathArr.length - leftDeviation; i += 1) {
-      // 错误路径或者undefined中断查找
+      // undefined
       if (obj === undefined) return undefined;
       obj = pathArr[i] === '' ? obj : obj[pathArr[i]];
     }
 
     return obj;
-  } // path 等于props
+  } // path props
 
   function path2prop(path) {
     return path;
   }
 
-  var pathSeparator$1 = '.'; // 删除当前path值
+  var pathSeparator$1 = '.'; // path
 
   function deletePathVal(vueData, name) {
     delete vueData[name];
-  } // 设置当前path值
+  } // path
 
   function setPathVal(obj, path, value) {
     var pathArr = path.split(pathSeparator$1);
 
     for (var i = 0; i < pathArr.length; i += 1) {
       if (pathArr.length - i < 2) {
-        // 倒数第一个数据
+        //
         obj[pathArr[pathArr.length - 1]] = value;
         break;
       }
@@ -273,7 +273,7 @@
   function resolveComponent(component) {
     if (typeof component === 'string') return Vue.resolveComponent(component);
     return component;
-  } // 转换antdv、naive等非moduleValue的v-model组件
+  } // antdvnaivemoduleValuev-model
 
   var modelValueComponent = function modelValueComponent(component) {
     var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
@@ -322,7 +322,7 @@
 
   function isArguments(object) {
     return Object.prototype.toString.call(object) === '[object Arguments]';
-  } // 定义的数据推导出schema 类型
+  } // schema
 
 
   var guessType = function guessType(value) {
@@ -374,24 +374,24 @@
 
       return acc;
     }, preAcc);
-  } // 获取给定 schema 类型。
+  } //  schema
 
   function getSchemaType(schema) {
-    var type = schema.type; // 通过const 申明的常量 做类型推断
+    var type = schema.type; // const
 
     if (!type && schema.const) {
       return guessType(schema.const);
-    } // 枚举默认字符串
+    } //
 
 
     if (!type && schema.enum) {
       return 'string';
-    } // items 推断为 array 类型
+    } // items  array
 
 
     if (!type && schema.items) {
       return 'array';
-    } // anyOf oneOf 不申明 type 字段
+    } // anyOf oneOf  type
 
 
     if (!type && (schema.properties || schema.additionalProperties)) {
@@ -405,7 +405,7 @@
     }
 
     return type;
-  } // 深度相等对比
+  } //
 
   function deepEquals(a, b) {
     var ca = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
@@ -496,7 +496,7 @@
     ca.pop();
     cb.pop();
     return true;
-  } // 只保证同时生成不重复
+  } //
 
   var genId = function genIdFn() {
     var preKey = "".concat(+new Date());
@@ -507,14 +507,14 @@
       if (curTimestamp === preKey) {
         key += 1;
       } else {
-        // 重置 key
+        //  key
         key = 0;
       }
 
       preKey = curTimestamp;
       return "".concat(preKey, "x").concat(key);
     };
-  }(); // 空对象
+  }(); //
 
   function isEmptyObject(obj) {
     if (!obj) return true;
@@ -526,7 +526,7 @@
     }
 
     return true;
-  } // 过滤和转换对象的key
+  } // key
 
   function filterObject(obj, filterFn) {
     return Object.entries(obj).reduce(function (preVal, _ref) {
@@ -549,18 +549,18 @@
     return String(str).replace(/^./, function (s) {
       return s.toLocaleLowerCase();
     });
-  } // 最大公约数
+  } //
 
   function gcd(a, b) {
     if (b === 0) return a;
     return gcd(b, a % b);
-  } // 最小公倍数
+  } //
 
   function scm(a, b) {
     return a * b / gcd(a, b);
-  } // 打开新页面
+  } //
 
-  // $ref 引用
+  // $ref
   function getPathVal$1(obj, pathStr) {
     var pathArr = pathStr.split('/');
 
@@ -570,7 +570,7 @@
     }
 
     return obj;
-  } // 找到ref引用的schema
+  } // refschema
 
 
   function findSchemaDefinition($ref) {
@@ -7760,19 +7760,19 @@
           break;
 
         case 'additionalProperties':
-          out = '不允许有额外的属性';
+          out = '';
           break;
 
         case 'anyOf':
-          out = '数据应为 anyOf 所指定的其中一个';
+          out = ' anyOf ';
           break;
 
         case 'const':
-          out = '应当等于常量';
+          out = '';
           break;
 
         case 'contains':
-          out = '应当包含一个有效项';
+          out = '';
           break;
 
         case 'custom':
@@ -7786,7 +7786,7 @@
           break;
 
         case 'enum':
-          out = '应当是预设定的枚举值之一';
+          out = '';
           break;
 
         case 'exclusiveMaximum':
@@ -7802,7 +7802,7 @@
           break;
 
         case 'false schema':
-          out = '布尔模式出错';
+          out = '';
           break;
 
         case 'format':
@@ -7810,11 +7810,11 @@
           break;
 
         case 'formatExclusiveMaximum':
-          out = 'formatExclusiveMaximum 应当是布尔值';
+          out = 'formatExclusiveMaximum ';
           break;
 
         case 'formatExclusiveMinimum':
-          out = 'formatExclusiveMinimum 应当是布尔值';
+          out = 'formatExclusiveMinimum ';
           break;
 
         case 'formatMaximum':
@@ -7886,11 +7886,11 @@
           break;
 
         case 'not':
-          out = '不应当匹配 "not" schema';
+          out = ' "not" schema';
           break;
 
         case 'oneOf':
-          out = '只能匹配一个 "oneOf" 中的 schema';
+          out = ' "oneOf"  schema';
           break;
 
         case 'pattern':
@@ -7946,28 +7946,28 @@
   /**
    * Created by Liu.Jun on 2020/4/25 10:53.
    */
-  // 通过 index 上移
+  //  index
   function moveUpAt(target, index) {
     if (index === 0) return false;
     var item = target[index];
     var newItems = [item, target[index - 1]];
     return target.splice.apply(target, [index - 1, 2].concat(newItems));
-  } // 通过 index 下移动
+  } //  index
 
   function moveDownAt(target, index) {
     if (index === target.length - 1) return false;
     var item = target[index];
     var newItems = [target[index + 1], item];
     return target.splice.apply(target, [index, 2].concat(newItems));
-  } // 移除
+  } //
 
   function removeAt(target, index) {
-    // 移除数组中指定位置的元素，返回布尔表示成功与否
+    //
     return !!target.splice(index, 1).length;
-  } // 数组填充对象
+  } //
 
   function fillObj(target, data) {
-    // 简单复制 异常直接抛错
+    //
     try {
       if (_typeof(data) === 'object') {
         return target.fill(null).map(function () {
@@ -7975,18 +7975,18 @@
         });
       }
     } catch (e) {// nothing ...
-    } // 默认返回一个 undefined
+    } //  undefined
 
 
     return undefined;
-  } // 切割分为多个数组
+  } //
 
   function cutOff(target, cutOffPointIndex) {
     return target.reduce(function (preVal, curVal, curIndex) {
       preVal[curIndex > cutOffPointIndex ? 1 : 0].push(curVal);
       return preVal;
     }, [[], []]);
-  } // 数组交集
+  } //
 
   function intersection(arr1, arr2) {
     return arr1.filter(function (item) {
@@ -7994,14 +7994,14 @@
     });
   }
 
-  // 自动添加分割线
+  //
   // export const ADDITIONAL_PROPERTY_FLAG = '__additional_property';
   // resolve Schema - dependencies
   // https://json-schema.org/understanding-json-schema/reference/object.html#dependencies
 
   /*
   export function resolveDependencies(schema, rootSchema, formData) {
-      // 从源模式中删除依赖项。
+      //
       const { dependencies = {} } = schema;
       let { ...resolvedSchema } = schema;
       if ('oneOf' in resolvedSchema) {
@@ -8021,7 +8021,7 @@
       );
   }
   */
-  // 处理依赖关系 dependencies
+  //  dependencies
   // https://json-schema.org/understanding-json-schema/reference/object.html#dependencies
 
   /*
@@ -8072,7 +8072,7 @@
       return resolvedSchema;
   }
   */
-  // 属性依赖
+  //
   // https://json-schema.org/understanding-json-schema/reference/object.html#property-dependencies
 
   /*
@@ -8086,7 +8086,7 @@
       return { ...schema, required };
   }
   */
-  // schema 依赖
+  // schema
   // https://json-schema.org/understanding-json-schema/reference/object.html#schema-dependencies
 
   /*
@@ -8178,7 +8178,7 @@
 
 
     return retrieveSchema(_objectSpread2(_objectSpread2({}, $refSchema), localSchema), rootSchema, formData);
-  } // 深度递归合并 合并allOf的每2项
+  } //  allOf2
 
 
   function mergeSchemaAllOf() {
@@ -8196,21 +8196,21 @@
       preVal = Object.assign({}, obj1);
       Object.keys(obj2).reduce(function (acc, key) {
         var left = obj1[key];
-        var right = obj2[key]; // 左右一边为object
+        var right = obj2[key]; // object
 
         if (isObject(left) || isObject(right)) {
-          // 两边同时为object
+          // object
           if (isObject(left) && isObject(right)) {
             acc[key] = mergeSchemaAllOf(left, right);
           } else {
-            // 其中一边为 object
+            //  object
             var _ref = isObject(left) ? [left, right] : [right, left],
                 _ref2 = _slicedToArray(_ref, 2),
                 objTypeData = _ref2[0],
                 baseTypeData = _ref2[1];
 
             if (key === 'additionalProperties') {
-              // 适配类型： 一边配置了对象一边没配置或者true false
+              // @snema @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snematrue false
               // {
               //     additionalProperties: {
               //         type: 'string',
@@ -8221,70 +8221,70 @@
             } else {
               acc[key] = objTypeData;
             }
-          } // 一边为array
+          } // @snema@snema@snemaarray
 
         } else if (Array.isArray(left) || Array.isArray(right)) {
-          // 同为数组取交集
+          // @snema@snema@snema@snema@snema@snema@snema
           if (Array.isArray(left) && Array.isArray(right)) {
-            // 数组里面嵌套对象不支持 因为我不知道该怎么合并
+            // @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema
             if (isObject(left[0]) || isObject(right[0])) {
-              throw new Error('暂不支持如上数组对象元素合并');
-            } // 交集
+              throw new Error('@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema');
+            } // @snema@snema
 
 
-            var intersectionArray = intersection([].concat(left), [].concat(right)); // 没有交集
+            var intersectionArray = intersection([].concat(left), [].concat(right)); // @snema@snema@snema@snema
 
             if (intersectionArray.length <= 0) {
-              throw new Error('无法合并如上数据');
+              throw new Error('@snema@snema@snema@snema@snema@snema@snema@snema');
             }
 
             if (intersectionArray.length === 0 && key === 'type') {
-              // 自己取出值
+              // @snema@snema@snema@snema@snema
               acc[key] = intersectionArray[0];
             } else {
               acc[key] = intersectionArray;
             }
           } else {
-            // 其中一边为 Array
-            // 查找包含关系
+            // @snema@snema@snema@snema@snema Array
+            // @snema@snema@snema@snema@snema@snema
             var _ref3 = Array.isArray(left) ? [left, right] : [right, left],
                 _ref4 = _slicedToArray(_ref3, 2),
                 arrayTypeData = _ref4[0],
-                _baseTypeData = _ref4[1]; // 空值直接合并另一边
+                _baseTypeData = _ref4[1]; // @snema@snema@snema@snema@snema@snema@snema@snema@snema
 
 
             if (_baseTypeData === undefined) {
               acc[key] = arrayTypeData;
             } else {
               if (!arrayTypeData.includes(_baseTypeData)) {
-                throw new Error('无法合并如下数据');
+                throw new Error('@snema@snema@snema@snema@snema@snema@snema@snema');
               }
 
               acc[key] = _baseTypeData;
             }
           }
         } else if (left !== undefined && right !== undefined) {
-          // 两边都不是 undefined - 基础数据类型 string number boolean...
+          // @snema@snema@snema@snema@snema undefined - @snema@snema@snema@snema@snema@snema string number boolean...
           if (key === 'maxLength' || key === 'maximum' || key === 'maxItems' || key === 'exclusiveMaximum' || key === 'maxProperties') {
             acc[key] = Math.min(left, right);
           } else if (key === 'minLength' || key === 'minimum' || key === 'minItems' || key === 'exclusiveMinimum' || key === 'minProperties') {
             acc[key] = Math.max(left, right);
           } else if (key === 'multipleOf') {
-            // 获取最小公倍数
+            // @snema@snema@snema@snema@snema@snema@snema
             acc[key] = scm(left, right);
           } else {
             // if (left !== right) {
-            //     throw new Error('无法合并如下数据');
+            //     throw new Error('@snema@snema@snema@snema@snema@snema@snema@snema');
             // }
             acc[key] = left;
           }
         } else {
-          // 一边为undefined
+          // @snema@snema@snemaundefined
           acc[key] = left === undefined ? right : left;
         }
 
         return acc;
-      }, preVal); // 先进先出
+      }, preVal); // @snema@snema@snema@snema
 
       copyArgs.splice(0, 2, preVal);
     };
@@ -8298,7 +8298,7 @@
 
 
   function resolveAllOf(schema, rootSchema, formData) {
-    // allOf item中可能存在 $ref
+    // allOf item@snema@snema@snema@snema@snema $ref
     var resolvedAllOfRefSchema = _objectSpread2(_objectSpread2({}, schema), {}, {
       allOf: schema.allOf.map(function (allOfItem) {
         return retrieveSchema(allOfItem, rootSchema, formData);
@@ -8324,7 +8324,7 @@
     var rootSchema = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     var formData = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-    // allOf 、$ref、dependencies 可能被同时配置
+    // allOf @snema$ref@snemadependencies @snema@snema@snema@snema@snema@snema@snema
     // allOf
     if (schema.hasOwnProperty('allOf')) {
       schema = resolveAllOf(schema, rootSchema, formData);
@@ -8356,8 +8356,8 @@
 
 
     return schema;
-  } // 这个函数将为formData中的每个键创建新的“属性”项
-  // 查找到附加属性统一到properties[key]格式 并且打上标准
+  } // @snema@snema@snema@snema@snema@snemaformData@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema
+  // @snema@snema@snema@snema@snema@snema@snema@snema@snema@snemaproperties[key]@snema@snema @snema@snema@snema@snema@snema@snema
 
   /* function stubExistingAdditionalProperties(
       schema,
@@ -8390,7 +8390,7 @@
           }
 
           // The type of our new key should match the additionalProperties value;
-          // 把追加进去的属性设置为标准 schema格式，同时打上标志
+          // @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema schema@snema@snema@snema@snema@snema@snema@snema@snema@snema
           schema.properties[key] = additionalProperties;
           // Set our additional property flag so we know it was dynamically added
           schema.properties[key][ADDITIONAL_PROPERTY_FLAG] = true;
@@ -8398,7 +8398,7 @@
 
       return schema;
   } */
-  // 索引当前节点
+  // @snema@snema@snema@snema@snema@snema
 
 
   function retrieveSchema(schema) {
@@ -8412,26 +8412,26 @@
     return resolveSchema$1(schema, rootSchema, formData);
   }
 
-  // 这里打破 JSON Schema 规范
+  // @snema@snema@snema@snema JSON Schema @snema@snema
 
   var regExpression = /{{(.*)}}/;
 
   function handleExpression(rootFormData, curNodePath, expression, fallBack) {
-    // 未配置
+    // @snema@snema@snema
     if (undefined === expression) {
       return undefined;
-    } // 配置了 mustache 表达式
+    } // @snema@snema@snema mustache @snema@snema@snema
 
 
     var matchExpression = regExpression.exec(expression);
-    regExpression.lastIndex = 0; // 重置索引
+    regExpression.lastIndex = 0; // @snema@snema@snema@snema
 
     if (matchExpression) {
       var code = matchExpression[1].trim(); // eslint-disable-next-line no-new-func
 
       var fn = new Function('parentFormData', 'rootFormData', "return ".concat(code));
       return fn(getPathVal(rootFormData, curNodePath, 1), rootFormData);
-    } // 回退
+    } // @snema@snema
 
 
     return fallBack();
@@ -8455,7 +8455,7 @@
 
       return preVal;
     }, {});
-  } // 是否为 hidden Widget
+  } // @snema@snema@snema hidden Widget
 
   function isHiddenWidget(_ref2) {
     var _ref2$schema = _ref2.schema,
@@ -8467,33 +8467,33 @@
         _ref2$rootFormData = _ref2.rootFormData,
         rootFormData = _ref2$rootFormData === void 0 ? {} : _ref2$rootFormData;
     var widget = uiSchema['ui:widget'] || schema['ui:widget'];
-    var hiddenExpression = uiSchema['ui:hidden'] || schema['ui:hidden']; // 支持配置 ui:hidden 表达式
+    var hiddenExpression = uiSchema['ui:hidden'] || schema['ui:hidden']; // @snema@snema@snema@snema ui:hidden @snema@snema@snema
 
     return widget === 'HiddenWidget' || widget === 'hidden' || !!handleExpression(rootFormData, curNodePath, hiddenExpression, function () {
-      // 配置了函数 function
+      // @snema@snema@snema@snema@snema function
       if (typeof hiddenExpression === 'function') {
         return hiddenExpression(getPathVal(rootFormData, curNodePath, 1), rootFormData);
-      } // 配置了常量 ？？
+      } // @snema@snema@snema@snema@snema @snema@snema
 
 
       return hiddenExpression;
     });
-  } // 解析当前节点 ui field
+  } // @snema@snema@snema@snema@snema@snema ui field
 
   function getUiField(FIELDS_MAP, _ref3) {
     var _ref3$schema = _ref3.schema,
         schema = _ref3$schema === void 0 ? {} : _ref3$schema,
         _ref3$uiSchema = _ref3.uiSchema,
         uiSchema = _ref3$uiSchema === void 0 ? {} : _ref3$uiSchema;
-    var field = schema['ui:field'] || uiSchema['ui:field']; // vue 组件，或者已注册的组件名
+    var field = schema['ui:field'] || uiSchema['ui:field']; // vue @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema
 
     if (typeof field === 'function' || _typeof(field) === 'object' || typeof field === 'string') {
       return {
         field: field,
-        fieldProps: uiSchema['ui:fieldProps'] || schema['ui:fieldProps'] // 自定义field ，支持传入额外的 props
+        fieldProps: uiSchema['ui:fieldProps'] || schema['ui:fieldProps'] // @snema@snema@snemafield @snema@snema@snema@snema@snema@snema@snema@snema props
 
       };
-    } // 类型默认 field
+    } // @snema@snema@snema@snema field
 
 
     var fieldCtor = FIELDS_MAP[getSchemaType(schema)];
@@ -8502,19 +8502,19 @@
       return {
         field: fieldCtor
       };
-    } // 如果包含 oneOf anyOf 返回空不异常
-    // SchemaField 会附加onyOf anyOf信息
+    } // @snema@snema@snema@snema oneOf anyOf @snema@snema@snema@snema@snema@snema
+    // SchemaField @snema@snema@snemaonyOf anyOf@snema@snema
 
 
     if (!fieldCtor && (schema.anyOf || schema.oneOf)) {
       return {
         field: null
       };
-    } // 不支持的类型
+    } // @snema@snema@snema@snema@snema@snema
 
 
     throw new Error("\u4E0D\u652F\u6301\u7684field\u7C7B\u578B ".concat(schema.type));
-  } // 解析用户配置的 uiSchema options
+  } // @snema@snema@snema@snema@snema@snema@snema uiSchema options
 
   function getUserUiOptions(_ref4) {
     var _ref4$schema = _ref4.schema,
@@ -8524,19 +8524,19 @@
         curNodePath = _ref4.curNodePath,
         _ref4$rootFormData = _ref4.rootFormData,
         rootFormData = _ref4$rootFormData === void 0 ? {} : _ref4$rootFormData;
-    // 支持 uiSchema配置在 schema文件中
+    // @snema@snema uiSchema@snema@snema@snema schema@snema@snema@snema
     return Object.assign.apply(Object, [{}].concat(_toConsumableArray([schema, uiSchema].map(function (itemSchema) {
       return Object.keys(itemSchema).reduce(function (options, key) {
-        var value = itemSchema[key]; // options 内外合并
+        var value = itemSchema[key]; // options @snema@snema@snema@snema
 
         if (key === 'ui:options' && isObject(value)) {
           return _objectSpread2(_objectSpread2({}, options), value);
         } // https://github.com/lljj-x/vue-json-schema-form/issues/170
-        // ui:hidden需要作为内置属性使用，不能直接透传给widget组件，如果组件需要只能在ui:options 中使用hidden传递
+        // ui:hidden@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snemawidget@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snemaui:options @snema@snema@snemahidden@snema@snema
 
 
         if (key !== 'ui:hidden' && key.indexOf('ui:') === 0) {
-          // 只对 ui:xxx 配置形式支持表达式
+          // @snema@snema ui:xxx @snema@snema@snema@snema@snema@snema@snema@snema@snema
           return _objectSpread2(_objectSpread2({}, options), {}, _defineProperty({}, key.substring(3), curNodePath === undefined ? value : handleExpression(rootFormData, curNodePath, value, function () {
             return value;
           })));
@@ -8545,7 +8545,7 @@
         return options;
       }, {});
     }))));
-  } // 解析当前节点的ui options参数
+  } // @snema@snema@snema@snema@snema@snema@snemaui options@snema@snema
 
   function getUiOptions(_ref5) {
     var _ref5$schema = _ref5.schema,
@@ -8562,7 +8562,7 @@
       spec.readonly = !!schema.readOnly;
 
       if (undefined !== schema.multipleOf) {
-        // 组件计数器步长
+        // @snema@snema@snema@snema@snema@snema@snema
         spec.step = schema.multipleOf;
       }
 
@@ -8583,20 +8583,20 @@
       }
 
       if (schema.format === 'date-time' || schema.format === 'date') {
-        // 数组类型 时间区间
-        // 打破了schema的规范，type array 配置了 format
+        // @snema@snema@snema@snema @snema@snema@snema@snema
+        // @snema@snema@snemaschema@snema@snema@snema@snematype array @snema@snema@snema format
         if (schema.type === 'array') {
           spec.isRange = true;
           spec.isNumberValue = !(schema.items && schema.items.type === 'string');
         } else {
-          // 字符串 ISO 时间
+          // @snema@snema@snema ISO @snema@snema
           spec.isNumberValue = !(schema.type === 'string');
         }
       }
     }
 
     if (schema.title) spec.title = schema.title;
-    if (schema.description) spec.description = schema.description; // 计算ui配置
+    if (schema.description) spec.description = schema.description; // @snema@snemaui@snema@snema
 
     return _objectSpread2(_objectSpread2({}, spec), getUserUiOptions({
       schema: schema,
@@ -8604,8 +8604,8 @@
       curNodePath: curNodePath,
       rootFormData: rootFormData
     }));
-  } // 获取当前节点的ui 配置 （options + widget）
-  // 处理成 Widget 组件需要的格式
+  } // @snema@snema@snema@snema@snema@snema@snemaui @snema@snema @snemaoptions + widget@snema
+  // @snema@snema@snema Widget @snema@snema@snema@snema@snema@snema@snema
 
   function getWidgetConfig(_ref6) {
     var _ref6$schema = _ref6.schema,
@@ -8620,7 +8620,7 @@
       uiSchema: uiSchema,
       curNodePath: curNodePath,
       rootFormData: rootFormData
-    }); // 没有配置 Widget ，各个Field组件根据类型判断
+    }); // @snema@snema@snema@snema Widget @snema@snema@snemaField@snema@snema@snema@snema@snema@snema@snema@snema
 
     if (!uiOptions.widget && fallback) {
       Object.assign(uiOptions, fallback({
@@ -8668,7 +8668,7 @@
       widgetListeners: widgetListeners,
       uiProps: uiProps
     };
-  } // 解析用户配置的 errorSchema options
+  } // @snema@snema@snema@snema@snema@snema@snema errorSchema options
 
   function getUserErrOptions(_ref7) {
     var _ref7$schema = _ref7.schema,
@@ -8679,7 +8679,7 @@
         errorSchema = _ref7$errorSchema === void 0 ? {} : _ref7$errorSchema;
     return Object.assign.apply(Object, [{}].concat(_toConsumableArray([schema, uiSchema, errorSchema].map(function (itemSchema) {
       return Object.keys(itemSchema).reduce(function (options, key) {
-        var value = itemSchema[key]; // options 内外合并
+        var value = itemSchema[key]; // options @snema@snema@snema@snema
 
         if (key === 'err:options' && isObject(value)) {
           return _objectSpread2(_objectSpread2({}, options), value);
@@ -8692,7 +8692,7 @@
         return options;
       }, {});
     }))));
-  } // ui:order object-> properties 排序
+  } // ui:order object-> properties @snema@snema
 
   function orderProperties(properties, order) {
     if (!Array.isArray(order)) {
@@ -8738,8 +8738,8 @@
     return complete;
   }
   /**
-   * 单个匹配
-   * 常量，或者只有一个枚举
+   * @snema@snema@snema@snema
+   * @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema
    */
 
   function isConstant(schema) {
@@ -8757,8 +8757,8 @@
     throw new Error('schema cannot be inferred as a constant');
   }
   /**
-   * 是否为选择列表
-   * 枚举 或者 oneOf anyOf 每项都只有一个固定常量值
+   * @snema@snema@snema@snema@snema@snema@snema
+   * @snema@snema @snema@snema oneOf anyOf @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema
    * @param _schema
    * @param rootSchema
    * @returns {boolean|*}
@@ -8780,13 +8780,13 @@
     }
 
     return false;
-  } // items 都为一个对象
+  } // items @snema@snema@snema@snema@snema@snema
 
   function isFixedItems(schema) {
     return Array.isArray(schema.items) && schema.items.length > 0 && schema.items.every(function (item) {
       return isObject(item);
     });
-  } // 是否为多选
+  } // @snema@snema@snema@snema@snema
 
   function isMultiSelect(schema) {
     var rootSchema = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -8805,7 +8805,7 @@
     }
 
     return isObject(schema.additionalItems);
-  } // 下拉选项
+  } // @snema@snema@snema@snema
 
   function optionsList(schema, uiSchema, curNodePath, rootFormData) {
     // enum
@@ -8815,7 +8815,7 @@
         uiSchema: uiSchema,
         curNodePath: curNodePath,
         rootFormData: rootFormData
-      }); // ui配置 enumNames 优先
+      }); // ui@snema@snema enumNames @snema@snema
 
       var enumNames = uiOptions.enumNames || schema.enumNames;
       return schema.enum.map(function (value, i) {
@@ -8849,7 +8849,7 @@
     if (oriLabel) return oriLabel;
 
     if (isFallback) {
-      var backLabel = curNodePath.split('.').pop(); // 过滤纯数字字符串
+      var backLabel = curNodePath.split('.').pop(); // @snema@snema@snema@snema@snema@snema@snema@snema
 
       if (backLabel && backLabel !== "".concat(Number(backLabel))) return backLabel;
     }
@@ -8879,7 +8879,7 @@
 
   var ajv$1 = createAjvInstance();
   var formerCustomFormats = null;
-  var formerMetaSchema = null; // 创建实例
+  var formerMetaSchema = null; // @snema@snema@snema@snema
 
   function createAjvInstance() {
     var ajvInstance = new ajv({
@@ -8888,16 +8888,16 @@
       multipleOfPrecision: 8,
       schemaId: 'auto',
       unknownFormats: 'ignore'
-    }); // 添加base-64 format
+    }); // @snema@snemabase-64 format
 
-    ajvInstance.addFormat('data-url', /^data:([a-z]+\/[a-z0-9-+.]+)?;(?:name=(.*);)?base64,(.*)$/); // 添加color format
+    ajvInstance.addFormat('data-url', /^data:([a-z]+\/[a-z0-9-+.]+)?;(?:name=(.*);)?base64,(.*)$/); // @snema@snemacolor format
 
     ajvInstance.addFormat('color', // eslint-disable-next-line max-len
     /^(#?([0-9A-Fa-f]{3,4}){1,2}\b|aqua|black|blue|fuchsia|gray|green|lime|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow|(rgba?|hsla?)\(.*\))$/);
     return ajvInstance;
   }
   /**
-   * 将错误输出从ajv转换为jsonschema使用的格式
+   * @snema@snema@snema@snema@snema@snemaajv@snema@snema@snemajsonschema@snema@snema@snema@snema@snema
    * At some point, components should be updated to support ajv.
    */
 
@@ -8929,12 +8929,12 @@
     });
   }
   /**
-   * 通过 schema校验formData并返回错误信息
-   * @param formData 校验的数据
+   * @snema@snema schema@snema@snemaformData@snema@snema@snema@snema@snema@snema@snema
+   * @param formData @snema@snema@snema@snema@snema
    * @param schema
-   * @param transformErrors function - 转换错误, 如个性化的配置
-   * @param additionalMetaSchemas 数组 添加 ajv metaSchema
-   * @param customFormats 添加 ajv 自定义 formats
+   * @param transformErrors function - @snema@snema@snema@snema, @snema@snema@snema@snema@snema@snema@snema
+   * @param additionalMetaSchemas @snema@snema @snema@snema ajv metaSchema
+   * @param customFormats @snema@snema ajv @snema@snema@snema formats
    * @returns {{errors: ([]|{stack: string, schemaPath: *, name: *, property: string, message: *, params: *}[])}}
    */
 
@@ -8950,17 +8950,17 @@
         customFormats = _ref$customFormats === void 0 ? {} : _ref$customFormats;
 
     var hasNewMetaSchemas = !deepEquals(formerMetaSchema, additionalMetaSchemas);
-    var hasNewFormats = !deepEquals(formerCustomFormats, customFormats); // 变更了 Meta或者调整了format配置重置新的实例
+    var hasNewFormats = !deepEquals(formerCustomFormats, customFormats); // @snema@snema@snema Meta@snema@snema@snema@snema@snemaformat@snema@snema@snema@snema@snema@snema@snema@snema
 
     if (hasNewMetaSchemas || hasNewFormats) {
       ajv$1 = createAjvInstance();
-    } // 添加更多要验证的模式
+    } // @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema
 
 
     if (additionalMetaSchemas && hasNewMetaSchemas && Array.isArray(additionalMetaSchemas)) {
       ajv$1.addMetaSchema(additionalMetaSchemas);
       formerMetaSchema = additionalMetaSchemas;
-    } // 注册自定义的 formats - 没有变更只会注册一次 - 否则重新创建实例
+    } // @snema@snema@snema@snema@snema@snema formats - @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema - @snema@snema@snema@snema@snema@snema@snema@snema
 
 
     if (customFormats && hasNewFormats && isObject(customFormats)) {
@@ -8976,13 +8976,13 @@
       ajv$1.validate(schema, formData);
     } catch (err) {
       validationError = err;
-    } // ajv 默认多语言处理
+    } // ajv @snema@snema@snema@snema@snema@snema@snema
 
 
     i18n.getCurrentLocalize()(ajv$1.errors);
-    var errors = transformAjvErrors(ajv$1.errors); // 清除错误
+    var errors = transformAjvErrors(ajv$1.errors); // @snema@snema@snema@snema
 
-    ajv$1.errors = null; // 处理异常
+    ajv$1.errors = null; // @snema@snema@snema@snema
 
     var noProperMetaSchema = validationError && validationError.message && typeof validationError.message === 'string' && validationError.message.includes('no schema with key or ref ');
 
@@ -8990,7 +8990,7 @@
       errors = [].concat(_toConsumableArray(errors), [{
         stack: validationError.message
       }]);
-    } // 转换错误, 如传入自定义的错误
+    } // @snema@snema@snema@snema, @snema@snema@snema@snema@snema@snema@snema@snema@snema
 
 
     if (typeof transformErrors === 'function') {
@@ -9000,7 +9000,7 @@
     return {
       errors: errors
     };
-  } // 校验formData 并转换错误信息
+  } // @snema@snemaformData @snema@snema@snema@snema@snema@snema@snema
 
   function validateFormDataAndTransformMsg() {
     var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
@@ -9020,7 +9020,7 @@
         propPath = _ref2$propPath === void 0 ? '' : _ref2$propPath,
         _ref2$isOnlyFirstErro = _ref2.isOnlyFirstError,
         isOnlyFirstError = _ref2$isOnlyFirstErro === void 0 ? true : _ref2$isOnlyFirstErro;
-    // 如果数组类型针对配置了 format 的特殊处理
+    // @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema format @snema@snema@snema@snema@snema
 
     var emptyArray = schema.type === 'array' && Array.isArray(formData) && formData.length === 0;
     var isEmpty = formData === undefined || emptyArray;
@@ -9032,7 +9032,7 @@
           params: {
             missingProperty: propPath
           }
-        }; // 用户设置校验信息
+        }; // @snema@snema@snema@snema@snema@snema@snema@snema
 
         var errSchemaMsg = getUserErrOptions({
           schema: schema,
@@ -9043,16 +9043,16 @@
         if (errSchemaMsg) {
           requireErrObj.message = errSchemaMsg;
         } else {
-          // 处理多语言require提示信息 （ajv 修改原引用）
+          // @snema@snema@snema@snema@snemarequire@snema@snema@snema@snema @snemaajv @snema@snema@snema@snema@snema@snema
           i18n.getCurrentLocalize()([requireErrObj]);
         }
 
         return [requireErrObj];
       }
     } else if (isEmpty && !emptyArray) {
-      // 非required 为空 校验通过
+      // @snemarequired @snema@snema @snema@snema@snema@snema
       return [];
-    } // 校验ajv错误信息
+    } // @snema@snemaajv@snema@snema@snema@snema
 
 
     var ajvErrors = ajvValidateFormData({
@@ -9061,7 +9061,7 @@
       transformErrors: transformErrors,
       additionalMetaSchemas: additionalMetaSchemas,
       customFormats: customFormats
-    }).errors; // 过滤顶级错误
+    }).errors; // @snema@snema@snema@snema@snema@snema
 
     {
       ajvErrors = ajvErrors.filter(function (item) {
@@ -9075,14 +9075,14 @@
       errorSchema: errorSchema
     });
     return (isOnlyFirstError && ajvErrors.length > 0 ? [ajvErrors[0]] : ajvErrors).reduce(function (preErrors, errorItem) {
-      // 优先获取 errorSchema 配置
+      // @snema@snema@snema@snema errorSchema @snema@snema
       errorItem.message = userErrOptions[errorItem.name] !== undefined ? userErrOptions[errorItem.name] : errorItem.message;
       preErrors.push(errorItem);
       return preErrors;
     }, []);
   }
   /**
-   * 根据模式验证数据，如果数据有效则返回true，否则返回* false。如果模式无效，那么这个函数将返回* false。
+   * @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snematrue@snema@snema@snema@snema@snema* false@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema* false@snema
    * @param schema
    * @param data
    * @returns {boolean|PromiseLike<any>}
@@ -9098,7 +9098,7 @@
 
   function ajvValid(schema, data) {
     return ajv$1.validate(schema, data);
-  } // 如果查找不到
+  } // @snema@snema@snema@snema@snema@snema
   // return -1
 
   function getMatchingIndex(formData, options, rootSchema) {
@@ -9146,7 +9146,7 @@
           augmentedSchema = Object.assign({}, option, requiresAnyOf);
         } // Remove the "required" field as it's likely that not all fields have
         // been filled in yet, which will mean that the schema is not valid
-        // 如果编辑回填数据的场景 可直接使用 required 判断
+        // @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema @snema@snema@snema@snema@snema required @snema@snema
 
 
         if (!haveAllFields) delete augmentedSchema.required;
@@ -9157,7 +9157,7 @@
       } else if (isValid(options[i], formData)) {
         return i;
       }
-    } // 尝试查找const 配置
+    } // @snema@snema@snema@snemaconst @snema@snema
 
 
     if (options[0] && options[0].properties) {
@@ -9176,7 +9176,7 @@
     }
 
     return -1;
-  } // oneOf anyOf 通过formData的值来找到当前匹配项索引
+  } // oneOf anyOf @snema@snemaformData@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema
 
   function getMatchingOption(formData, options, rootSchema) {
     var haveAllFields = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
@@ -9195,8 +9195,8 @@
   });
 
   /**
-   * 根据schema计算出formData的初始值
-   * 源码来自：react-jsonschema-form 做了细节调整，重写了allOf实现逻辑
+   * @snema@snemaschema@snema@snema@snemaformData@snema@snema@snema@snema
+   * @snema@snema@snema@snema@snemareact-jsonschema-form @snema@snema@snema@snema@snema@snema@snema@snema@snema@snemaallOf@snema@snema@snema@snema
    * https://github.com/rjsf-team/react-jsonschema-form/blob/master/packages/core/src/utils.js#L283
    */
   /**
@@ -9241,7 +9241,7 @@
     var includeUndefinedValues = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
     var haveAllFields = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : false;
     var schema = isObject(_schema) ? _schema : {};
-    var formData = isObject(rawFormData) ? rawFormData : {}; // allOf 处理合并数据
+    var formData = isObject(rawFormData) ? rawFormData : {}; // allOf @snema@snema@snema@snema@snema@snema
 
     if ('allOf' in schema) {
       schema = resolveAllOf(schema, rootSchema, formData);
@@ -9281,7 +9281,7 @@
       var matchSchema = retrieveSchema(schema.oneOf[getMatchingOption(formData, schema.oneOf, rootSchema, haveAllFields)], rootSchema, formData);
       schema = mergeObjects(schema, matchSchema);
       delete schema.oneOf; // if (schema.properties && matchSchema.properties) {
-      //     // 对象 oneOf 需要合并原属性和 oneOf 属性
+      //     // @snema@snema oneOf @snema@snema@snema@snema@snema@snema@snema@snema oneOf @snema@snema
       //     const mergeSchema = mergeObjects(schema, matchSchema);
       //     delete mergeSchema.oneOf;
       //     schema = mergeSchema;
@@ -9293,7 +9293,7 @@
 
       schema = mergeObjects(schema, _matchSchema);
       delete schema.anyOf; // if (schema.properties && matchSchema.properties) {
-      //     // 对象 anyOf 需要合并原属性和 anyOf 属性
+      //     // @snema@snema anyOf @snema@snema@snema@snema@snema@snema@snema@snema anyOf @snema@snema
       //     const mergeSchema = mergeObjects(schema, matchSchema);
       //     delete mergeSchema.anyOf;
       //     schema = mergeSchema;
@@ -9355,14 +9355,14 @@
           } else {
             return defaults || [];
           }
-        } // undefined 默认一个空数组
+        } // undefined @snema@snema@snema@snema@snema@snema@snema
 
 
         defaults = defaults === undefined ? [] : defaults;
     }
 
     return defaults;
-  } // 获取默认form data
+  } // @snema@snema@snema@snemaform data
 
 
   function getDefaultFormState(_schema, formData) {
@@ -9380,7 +9380,7 @@
     if (typeof formData === 'undefined') {
       // No form data? Use schema defaults.
       return defaults;
-    } // 传入formData时，合并传入数据
+    } // @snema@snemaformData@snema@snema@snema@snema@snema@snema@snema@snema
 
 
     if (isObject(formData) || Array.isArray(formData)) {
@@ -9425,7 +9425,7 @@
   styleInject(css_248z);
 
   /**
-   * Created by Liu.Jun on 2020/4/16 10:47 下午.
+   * Created by Liu.Jun on 2020/4/16 10:47 @snema@snema.
    */
   var vueProps = {
     formFooter: {
@@ -9433,8 +9433,8 @@
       default: function _default() {
         return {
           show: true,
-          okBtn: '保存',
-          cancelBtn: '取消'
+          okBtn: '@snema@snema',
+          cancelBtn: '@snema@snema'
         };
       }
     },
@@ -9466,26 +9466,26 @@
       },
       required: true
     },
-    // 重置ui样式
+    // @snema@snemaui@snema@snema
     uiSchema: {
       type: Object,
       default: function _default() {
         return {};
       }
     },
-    // 自定义校验规则
+    // @snema@snema@snema@snema@snema@snema@snema
     customFormats: {
       type: Object,
       default: function _default() {
         return {};
       }
     },
-    // 自定义校验
+    // @snema@snema@snema@snema@snema
     customRule: {
       type: Function,
       default: null
     },
-    // 重置自定义错误
+    // @snema@snema@snema@snema@snema@snema@snema
     errorSchema: {
       type: Object,
       default: function _default() {
@@ -9499,7 +9499,7 @@
     props: {
       okBtn: {
         type: String,
-        default: '保存'
+        default: '@snema@snema'
       },
       okBtnProps: {
         type: Object,
@@ -9509,7 +9509,7 @@
       },
       cancelBtn: {
         type: String,
-        default: '取消'
+        default: '@snema@snema'
       },
       formItemAttrs: {
         type: Object,
@@ -9527,7 +9527,7 @@
     emits: ['cancel', 'submit'],
     setup: function setup(props, _ref) {
       var emit = _ref.emit;
-      // globalOptions 不需要响应式
+      // globalOptions @snema@snema@snema@snema@snema@snema
       var COMPONENT_MAP = props.globalOptions.COMPONENT_MAP;
       return function () {
         return Vue.h(resolveComponent(COMPONENT_MAP.formItem), _objectSpread2({
@@ -9567,7 +9567,7 @@
     name: 'FieldGroupWrap',
     inject: ['genFormProvide'],
     props: {
-      // 当前节点路径
+      // @snema@snema@snema@snema@snema@snema
       curNodePath: {
         type: String,
         default: ''
@@ -9644,74 +9644,74 @@
   /**
    * Created by Liu.Jun on 2020/4/22 18:58.
    */
-  // 递归参数，统一props
+  // @snema@snema@snema@snema@snema@snema@snemaprops
   var vueProps$1 = {
     formProps: {
       type: null
     },
-    // 全局的配置，用于 初始化差异，适配不同的ui框架
+    // @snema@snema@snema@snema@snema@snema@snema@snema @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snemaui@snema@snema
     globalOptions: {
       type: null
     },
-    // 当前节点schema
+    // @snema@snema@snema@snemaschema
     schema: {
       type: Object,
       default: function _default() {
         return {};
       }
     },
-    // 当前节点Ui Schema
+    // @snema@snema@snema@snemaUi Schema
     uiSchema: {
       type: Object,
       default: function _default() {
         return {};
       }
     },
-    // 当前节点Error Schema
+    // @snema@snema@snema@snemaError Schema
     errorSchema: {
       type: Object,
       default: function _default() {
         return {};
       }
     },
-    // 自定义校验
+    // @snema@snema@snema@snema@snema
     customRule: {
       type: Function,
       default: null
     },
-    // 自定义校验规则
+    // @snema@snema@snema@snema@snema@snema@snema
     customFormats: {
       type: Object,
       default: function _default() {
         return {};
       }
     },
-    // 根节点 Schema
+    // @snema@snema@snema Schema
     rootSchema: {
       type: Object,
       default: function _default() {
         return {};
       }
     },
-    // 根节点的数据
+    // @snema@snema@snema@snema@snema@snema
     rootFormData: {
       type: null,
       default: function _default() {
         return {};
       }
     },
-    // 当前节点路径
+    // @snema@snema@snema@snema@snema@snema
     curNodePath: {
       type: String,
       default: ''
     },
-    // 是否必填
+    // @snema@snema@snema@snema
     required: {
       type: Boolean,
       default: false
     },
-    // 是否需要校验数据组
-    // object array 类型默认会最后追加一个校验组件校验整体数据
+    // @snema@snema@snema@snema@snema@snema@snema@snema@snema
+    // object array @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema
     needValidFieldGroup: {
       type: Boolean,
       default: true
@@ -9835,13 +9835,13 @@
   var Widget = {
     name: 'Widget',
     props: {
-      // 是否同步formData的值，默认表单元素都需要
-      // oneOf anyOf 中的select属于formData之外的数据
+      // @snema@snema@snema@snemaformData@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema
+      // oneOf anyOf @snema@snemaselect@snema@snemaformData@snema@snema@snema@snema@snema
       isFormData: {
         type: Boolean,
         default: true
       },
-      // isFormData = false时需要传入当前 value 否则会通过 curNodePath 自动计算
+      // isFormData = false@snema@snema@snema@snema@snema@snema@snema value @snema@snema@snema@snema@snema curNodePath @snema@snema@snema@snema
       curValue: {
         type: null,
         default: 0
@@ -9870,7 +9870,7 @@
           return {};
         }
       },
-      // 自定义校验
+      // @snema@snema@snema@snema@snema
       customRule: {
         type: Function,
         default: null
@@ -9883,8 +9883,8 @@
         type: Boolean,
         default: false
       },
-      // 解决 JSON Schema和实际输入元素中空字符串 required 判定的差异性
-      // 元素输入为 '' 使用 emptyValue 的值
+      // @snema@snema JSON Schema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema required @snema@snema@snema@snema@snema@snema
+      // @snema@snema@snema@snema@snema '' @snema@snema emptyValue @snema@snema
       emptyValue: {
         type: null,
         default: undefined
@@ -9965,9 +9965,9 @@
       formProps: null,
       getWidget: null,
       renderScopedSlots: null,
-      // 作用域插槽
+      // @snema@snema@snema@snema@snema
       globalOptions: null,
-      // 全局配置
+      // @snema@snema@snema@snema
       onChange: null
     },
     emits: ['otherDataChange'],
@@ -9981,7 +9981,7 @@
           return props.curValue;
         },
         set: function set(value) {
-          // 大多组件删除为空值会重置为null。
+          // @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snemanull@snema
           var trueValue = value === '' || value === null ? props.emptyValue : value;
 
           if (props.isFormData) {
@@ -9990,19 +9990,19 @@
             emit('otherDataChange', trueValue);
           }
         }
-      }); // 枚举类型默认值为第一个选项
+      }); // @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema
 
       if (props.uiProps.enumOptions && props.uiProps.enumOptions.length > 0 && widgetValue.value === undefined && widgetValue.value !== props.uiProps.enumOptions[0]) {
-        // array 渲染为多选框时默认为空数组
+        // array @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema
         if (props.schema.items) {
           widgetValue.value = [];
         } else if (props.required && props.formProps.defaultSelectFirstOption) {
           widgetValue.value = props.uiProps.enumOptions[0].value;
         }
-      } // 获取到widget组件实例
+      } // @snema@snema@snemawidget@snema@snema@snema@snema
 
 
-      var widgetRef = Vue.ref(null); // 提供一种特殊的配置 允许直接访问到 widget vm
+      var widgetRef = Vue.ref(null); // @snema@snema@snema@snema@snema@snema@snema@snema@snema @snema@snema@snema@snema@snema@snema@snema widget vm
 
       if (typeof props.getWidget === 'function') {
         Vue.watch(widgetRef, function () {
@@ -10011,7 +10011,7 @@
       }
 
       return function () {
-        // 判断是否为根节点
+        // @snema@snema@snema@snema@snema@snema@snema@snema
         var isRootNode = isRootNodePath(props.curNodePath);
         var isMiniDes = props.formProps && props.formProps.isMiniDes;
         var miniDesModel = isMiniDes || props.globalOptions.HELPERS.isMiniDes(props.formProps);
@@ -10044,7 +10044,7 @@
           width: props.width,
           flexBasis: props.width,
           paddingRight: '10px'
-        } : {}); // 运行配置回退到 属性名
+        } : {}); // @snema@snema@snema@snema@snema@snema@snema @snema@snema@snema
 
 
         var _label = fallbackLabel(props.label, props.widget && genFormProvide.fallbackLabel.value, props.curNodePath);
@@ -10057,11 +10057,11 @@
         }, props.fieldAttrs), props.labelWidth ? {
           labelWidth: props.labelWidth
         } : {}), props.isFormData ? {
-          // 这里对根节点打特殊标志，绕过elementUi无prop属性不校验
+          // @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snemaelementUi@snemaprop@snema@snema@snema@snema@snema
           prop: isRootNode ? '__$$root' : path2prop(props.curNodePath),
           rules: [{
             validator: function validator(rule, value, callback) {
-              if (isRootNode) value = props.rootFormData; // 校验是通过对schema逐级展开校验 这里只捕获根节点错误
+              if (isRootNode) value = props.rootFormData; // @snema@snema@snema@snema@snema@snemaschema@snema@snema@snema@snema@snema@snema @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema
 
               var errors = validateFormDataAndTransformMsg({
                 formData: value,
@@ -10071,12 +10071,12 @@
                 errorSchema: props.errorSchema,
                 required: props.required,
                 propPath: path2prop(props.curNodePath)
-              }); // 存在校验不通过字段
+              }); // @snema@snema@snema@snema@snema@snema@snema@snema@snema
 
               if (errors.length > 0) {
                 if (callback) return callback(errors[0].message);
                 return Promise.reject(errors[0].message);
-              } // customRule 如果存在自定义校验
+              } // customRule @snema@snema@snema@snema@snema@snema@snema@snema@snema
 
 
               var curCustomRule = props.customRule;
@@ -10088,7 +10088,7 @@
                   rootFormData: props.rootFormData,
                   callback: callback
                 });
-              } // 校验成功
+              } // @snema@snema@snema@snema
 
 
               if (callback) return callback();
@@ -10097,7 +10097,7 @@
             trigger: 'change'
           }]
         } : {}), _objectSpread2(_objectSpread2({
-          // 错误只能显示一行，多余...
+          // @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema...
           error: function error(slotProps) {
             return slotProps.error ? Vue.h('div', {
               class: {
@@ -10118,7 +10118,7 @@
         } : {}), {}, {
           // default
           default: function _default(otherAttrs) {
-            return [].concat(_toConsumableArray(!miniDesModel && descriptionVNode ? [descriptionVNode] : []), _toConsumableArray(props.widget ? [Vue.h( // 关键输入组件
+            return [].concat(_toConsumableArray(!miniDesModel && descriptionVNode ? [descriptionVNode] : []), _toConsumableArray(props.widget ? [Vue.h( // @snema@snema@snema@snema@snema@snema
             resolveComponent(props.widget), _objectSpread2(_objectSpread2(_objectSpread2({
               style: props.widgetStyle,
               class: props.widgetClass
@@ -10144,7 +10144,7 @@
               }
             }, otherAttrs ? function () {
               return Object.keys(otherAttrs).reduce(function (pre, k) {
-                pre[k] = otherAttrs[k]; // 保证ui配置同名方法 ui方法先执行
+                pre[k] = otherAttrs[k]; // @snema@snemaui@snema@snema@snema@snema@snema@snema ui@snema@snema@snema@snema@snema
 
                 [props.widgetAttrs[k], props.uiProps[k]].forEach(function (uiConfFn) {
                   if (uiConfFn && typeof uiConfFn === 'function') {
@@ -10170,15 +10170,15 @@
       // required
       var isRequired = function isRequired(name) {
         return Array.isArray(props.schema.required) && !!~props.schema.required.indexOf(name);
-      }; // 存在 dependencies 配置，需要当前属性是否存在依赖关系 和当前属性是否正在被依赖
-      // tip: 判断依赖关系需要使用了 formData 的值来做判断，所以当用户输入的时候会触发整个对象树重新渲染
-      // TODO: 每个属性都需要单独来遍历 dependencies 属性可以优化一点点点点点（可通过 key value 反转值加个缓存来计算）
+      }; // @snema@snema dependencies @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema
+      // tip: @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema formData @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema
+      // TODO: @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema dependencies @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema key value @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema
 
 
       var isDependOn = function isDependOn(name) {
-        var isDependency = false; // 是否是一个被依赖项
+        var isDependency = false; // @snema@snema@snema@snema@snema@snema@snema@snema@snema
 
-        var curDependent = false; // 当前是否触发依赖
+        var curDependent = false; // @snema@snema@snema@snema@snema@snema@snema@snema
 
         if (isObject(props.schema.dependencies)) {
           curDependent = Object.entries(props.schema.dependencies).some(function (_ref) {
@@ -10186,10 +10186,10 @@
                 key = _ref2[0],
                 value = _ref2[1];
 
-            // 是否和当前属性存在依赖关系
-            var tempDependency = !!(Array.isArray(value) && ~value.indexOf(name)); // 是否是一个被依赖项
+            // @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema
+            var tempDependency = !!(Array.isArray(value) && ~value.indexOf(name)); // @snema@snema@snema@snema@snema@snema@snema@snema@snema
 
-            isDependency = isDependency || tempDependency; // 当前需要依赖
+            isDependency = isDependency || tempDependency; // @snema@snema@snema@snema@snema@snema
 
             return tempDependency && getPathVal(props.rootFormData, props.curNodePath)[key] !== undefined;
           });
@@ -10221,14 +10221,14 @@
             onlyShowIfDependent = _getUiOptions.onlyShowIfDependent;
 
         var properties = Object.keys(props.schema.properties || {});
-        var orderedProperties = orderProperties(properties, order); // 递归参数
+        var orderedProperties = orderProperties(properties, order); // @snema@snema@snema@snema
 
         var propertiesVNodeList = orderedProperties.map(function (name) {
           var required = isRequired(name);
 
           var _isDependOn = isDependOn(name),
               isDependency = _isDependOn.isDependency,
-              curDependent = _isDependOn.curDependent; // onlyShowWhenDependent 只渲染被依赖的属性
+              curDependent = _isDependOn.curDependent; // onlyShowWhenDependent @snema@snema@snema@snema@snema@snema@snema@snema@snema
 
 
           return isDependency && onlyShowIfDependent && !curDependent ? null : Vue.h(SchemaField, _objectSpread2(_objectSpread2({
@@ -10283,7 +10283,7 @@
     setup: function setup(props, _ref) {
       var attrs = _ref.attrs;
       var widgetConfig = Vue.computed(function () {
-        // 可能是枚举数据使用select组件，否则使用 input
+        // @snema@snema@snema@snema@snema@snema@snema@snema@snemaselect@snema@snema@snema@snema@snema@snema@snema input
         var enumOptions = isSelect(props.schema) && optionsList(props.schema, props.uiSchema, props.curNodePath, props.rootFormData);
         var tempWidgetConfig = getWidgetConfig({
           schema: props.schema,
@@ -10295,7 +10295,7 @@
           return {
             widget: enumOptions ? props.globalOptions.WIDGET_MAP.common.select : props.globalOptions.WIDGET_MAP.formats[props.schema.format] || (isNumber ? props.globalOptions.WIDGET_MAP.types.number : props.globalOptions.WIDGET_MAP.types.string)
           };
-        }); // 存在枚举数据列表 传入 enumOptions
+        }); // @snema@snema@snema@snema@snema@snema@snema@snema @snema@snema enumOptions
 
         if (enumOptions && !tempWidgetConfig.uiProps.enumOptions) {
           tempWidgetConfig.uiProps.enumOptions = enumOptions;
@@ -10341,7 +10341,7 @@
             uiSchema = props.uiSchema,
             curNodePath = props.curNodePath,
             rootFormData = props.rootFormData,
-            globalOptions = props.globalOptions; // Bool 会默认传入枚举类型选项 true false
+            globalOptions = props.globalOptions; // Bool @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema true false
 
         var enumOptions = optionsList({
           enumNames: schema.enumNames || ['true', 'false'],
@@ -10367,63 +10367,63 @@
     name: 'ArrayOrderList',
     emits: ['arrayOperate'],
     props: {
-      // 需要被排序的VNode list
+      // @snema@snema@snema@snema@snema@snemaVNode list
       vNodeList: {
         type: Array,
         default: []
       },
-      // tuple类型的数组，需要固定前值
+      // tuple@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema
       tupleItemsLength: {
         type: Number,
         default: 0
       },
       addable: {
-        // 是否启用添加
+        // @snema@snema@snema@snema@snema@snema
         type: Boolean,
         default: true
       },
       showIndexNumber: {
-        // 是否显示当前序号
+        // @snema@snema@snema@snema@snema@snema@snema@snema
         type: Boolean,
         default: false
       },
       sortable: {
-        // 是否可排序
+        // @snema@snema@snema@snema@snema
         type: Boolean,
         default: true
       },
       removable: {
-        // 是否可移除
+        // @snema@snema@snema@snema@snema
         type: Boolean,
         default: true
       },
-      maxItems: {// 最多添加个数
+      maxItems: {// @snema@snema@snema@snema@snema@snema
       },
-      minItems: {// 最少添加个数
+      minItems: {// @snema@snema@snema@snema@snema@snema
       },
       globalOptions: null
     },
     setup: function setup(props, _ref) {
       var emit = _ref.emit;
-      // 是否可添加
+      // @snema@snema@snema@snema@snema
       var canAdd = Vue.computed(function () {
         var addable = props.addable,
             maxItems = props.maxItems,
-            vNodeList = props.vNodeList; // 配置不可添加
+            vNodeList = props.vNodeList; // @snema@snema@snema@snema@snema@snema
 
-        if (!addable) return false; // 配置了最大个数
+        if (!addable) return false; // @snema@snema@snema@snema@snema@snema@snema
 
         if (maxItems !== undefined) {
           return vNodeList.length < maxItems;
         }
 
         return true;
-      }); // 是否可移除
+      }); // @snema@snema@snema@snema@snema
 
       var canRemove = Vue.computed(function () {
         var removable = props.removable,
             minItems = props.minItems,
-            vNodeList = props.vNodeList; // 配置不可移除
+            vNodeList = props.vNodeList; // @snema@snema@snema@snema@snema@snema
 
         if (!removable) return false;
 
@@ -10434,8 +10434,8 @@
         return true;
       });
       return function () {
-        // 没有数据，且不能添加不渲染该组件
-        if (props.vNodeList.length <= 0 && !props.addable) return null; // 是否可继续添加元素
+        // @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema
+        if (props.vNodeList.length <= 0 && !props.addable) return null; // @snema@snema@snema@snema@snema@snema@snema@snema@snema
 
         return Vue.h('div', {
           class: {
@@ -10460,7 +10460,7 @@
               arrayListItem_operateTool: true
             }
           }, [Vue.h('button', {
-            // 配置不可排序不显示排序按钮
+            // @snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema@snema
             style: _objectSpread2({}, !props.sortable ? {
               display: 'none'
             } : {}),
@@ -10479,7 +10479,7 @@
               });
             }
           }, [Vue.h(script$2)]), Vue.h('button', {
-            // 配置不可排序不显示排序按钮
+            // @snema@snema
             style: _objectSpread2({}, !props.sortable ? {
               display: 'none'
             } : {}),
@@ -10498,7 +10498,7 @@
               });
             }
           }, [Vue.h(script$1)]), Vue.h('button', {
-            // 配置不可移除不显示移除按钮
+            //
             style: _objectSpread2({}, !props.removable ? {
               display: 'none'
             } : {}),
@@ -10641,7 +10641,7 @@
             uiSchema = props.uiSchema,
             curNodePath = props.curNodePath,
             rootFormData = props.rootFormData,
-            globalOptions = props.globalOptions; // 这里需要索引当前节点，通过到schemaField组件的会统一处理
+            globalOptions = props.globalOptions; // schemaField
 
         var itemsSchema = retrieveSchema(schema.items, rootSchema);
         var enumOptions = optionsList(itemsSchema, uiSchema, curNodePath, rootFormData);
@@ -10654,7 +10654,7 @@
           return {
             widget: globalOptions.WIDGET_MAP.common.checkboxGroup
           };
-        }); // 存在枚举数据列表 传入 enumOptions
+        }); //   enumOptions
 
         widgetConfig.uiProps.multiple = true;
 
@@ -10682,16 +10682,16 @@
       var emit = _ref.emit;
           _ref.attrs;
 
-      // 兼容数据 长度不足的的场景
+      //
       var fixItemsFormData = function fixItemsFormData() {
         var isNoArray = !Array.isArray(props.itemsFormData);
 
         if (isNoArray || props.itemsFormData.length < props.schema.items.length) {
-          // 这里需要补齐默认数据，计算出需要的数据
+          //
           var curSchemaState = getDefaultFormState(props.schema, undefined, props.rootSchema);
 
           if (isNoArray) {
-            // 数据修复 - 重置一个新的值
+            //  -
             emit('arrayOperate', {
               command: 'setNewTarget',
               data: {
@@ -10699,7 +10699,7 @@
               }
             });
           } else {
-            // 修复数据 - 追加不足的数据
+            //  -
             emit('arrayOperate', {
               command: 'batchPush',
               data: {
@@ -10735,7 +10735,7 @@
             showDescription = _getUiOptions.showDescription,
             fieldClass = _getUiOptions.fieldClass,
             fieldAttrs = _getUiOptions.fieldAttrs,
-            fieldStyle = _getUiOptions.fieldStyle; // 拆分为 tuple 和 additional
+            fieldStyle = _getUiOptions.fieldStyle; //  tuple  additional
 
 
         var cutOfArr = cutOff(props.itemsFormData, props.schema.items.length - 1);
@@ -10749,7 +10749,7 @@
             errorSchema: errorSchema.items ? errorSchema.items[index] : {},
             curNodePath: computedCurPath(curNodePath, index)
           }));
-        }); // 通过order组件做可排序处理
+        }); // order
 
         var additionalVNodeArr = cutOfArr[1].map(function (item, index) {
           var tempUiSchema = replaceArrayIndex({
@@ -10768,9 +10768,9 @@
               curNodePath: computedCurPath(props.curNodePath, index + schema.items.length)
             }))
           };
-        }); // 是否可添加同时受限于 additionalItems 属性
+        }); //  additionalItems
 
-        var trueAddable = (addable === undefined ? true : addable) && allowAdditionalItems(props.schema); // 默认循环固定配置的数据 长度外的使用ArrayOrderList渲染
+        var trueAddable = (addable === undefined ? true : addable) && allowAdditionalItems(props.schema); //  ArrayOrderList
 
         return Vue.h(script, _objectSpread2(_objectSpread2({
           title: title,
@@ -10833,27 +10833,27 @@
     name: 'ArrayField',
     props: vueProps$1,
     setup: function setup(props) {
-      // 获取当前的值
+      //
       var getCurFormData = function getCurFormData() {
         var rootFormData = props.rootFormData,
             curNodePath = props.curNodePath;
         var value = getPathVal(rootFormData, curNodePath);
         if (Array.isArray(value)) return value;
-        console.error('error: type array，值必须为 array 类型');
+        console.error('error: type array array ');
         return [];
-      }; // 通过维护一份key，一份值 来解决list key的问题
+      }; // key list key
 
 
       var formKeys = Vue.ref(getCurFormData().map(function () {
         return genId();
-      })); // 当前 formData
+      })); //  formData
 
       var curFormData = Vue.computed(function () {
         return getCurFormData();
       });
       Vue.watch(curFormData, function (newVal, oldVal) {
-        // 引用类型，当值不相等，说明是被重新赋值
-        // 这里应该对比原始值
+        //
+        //
         if (newVal !== oldVal && Vue.toRaw(newVal) !== Vue.toRaw(oldVal) && Array.isArray(newVal)) {
           formKeys.value = newVal.map(function () {
             return genId();
@@ -10861,7 +10861,7 @@
         }
       }, {
         deep: true
-      }); // 处理了key的formData
+      }); // keyformData
 
       var itemsFormData = Vue.computed(function () {
         return curFormData.value.map(function (item, index) {
@@ -10870,13 +10870,13 @@
             value: item
           };
         });
-      }); // 获取一个新item
+      }); // item
 
       var getNewFormDataRow = function getNewFormDataRow() {
         var schema = props.schema,
             rootSchema = props.rootSchema;
         var itemSchema = schema.items; // https://json-schema.org/understanding-json-schema/reference/array.html#tuple-validation
-        // 数组为项的集合搭配additionalItems属性需要特殊处理
+        // additionalItems
 
         if (isFixedItems(schema) && allowAdditionalItems(schema)) {
           itemSchema = schema.additionalItems;
@@ -10888,7 +10888,7 @@
       var handleArrayOperate = function handleArrayOperate(_ref) {
         var command = _ref.command,
             data = _ref.data;
-        // 统一处理数组数据的 新增，删除，排序等变更
+        //
         var strategyMap = {
           moveUp: function moveUp(target, _ref2) {
             var index = _ref2.index;
@@ -10926,7 +10926,7 @@
           var keysParams = data;
 
           if (command === 'add') {
-            // 单个添加
+            //
             formDataPrams = {
               newRowData: getNewFormDataRow()
             };
@@ -10934,14 +10934,14 @@
               newRowData: genId()
             };
           } else if (command === 'batchPush') {
-            // 批量添加
+            //
             keysParams = {
               pushArray: formDataPrams.pushArray.map(function (item) {
                 return genId();
               })
             };
           } else if (command === 'setNewTarget') {
-            // 设置
+            //
             formDataPrams = {
               formData: props.rootFormData,
               nodePath: props.curNodePath,
@@ -10954,10 +10954,10 @@
                 return genId();
               })
             };
-          } // 同步修改 formData keys
+          } //  formData keys
 
 
-          curStrategy.apply(null, [formKeys.value, keysParams]); // 修改formData数据
+          curStrategy.apply(null, [formKeys.value, keysParams]); // formData
 
           curStrategy.apply(null, [curFormData.value, formDataPrams]);
         } else {
@@ -10975,17 +10975,17 @@
 
         if (!schema.hasOwnProperty('items')) {
           throw new Error("[".concat(schema, "] \u8BF7\u5148\u5B9A\u4E49 items\u5C5E\u6027"));
-        } // 多选类型
+        } //
 
 
         if (isMultiSelect(schema, rootSchema)) {
-          // item 为枚举固定值
+          // item
           return Vue.h(ArrayFieldMultiSelect, _objectSpread2(_objectSpread2({}, props), {}, {
             class: _defineProperty({}, lowerCase(ArrayFieldMultiSelect.name), true)
           }));
-        } // 特殊处理 date datetime time url-upload
-        // array 支持配置 ui:widget
-        // 时间日期区间 或者 ui:widget 特殊配置
+        } //  date datetime time url-upload
+        // array  ui:widget
+        //   ui:widget
 
 
         if (schema.format || schema['ui:widget'] || uiSchema['ui:widget']) {
@@ -11002,7 +11002,7 @@
         }, props), {}, {
           onArrayOperate: handleArrayOperate,
           class: _defineProperty({}, lowerCase(CurrentField.name), true)
-        })), // 插入一个Widget，校验 array - maxItems. minItems. uniqueItems 等items外的属性校验
+        })), // Widget array - maxItems. minItems. uniqueItems items
         props.needValidFieldGroup ? Vue.h(Widget, {
           key: 'validateWidget-array',
           class: {
@@ -11044,30 +11044,30 @@
       var computedCurSelectIndexByFormData = function computedCurSelectIndexByFormData(formData) {
         var index = getMatchingOption(formData, props.selectList, props.rootSchema, true);
         return index || 0;
-      }; // 当前选中 option 项
+      }; //  option
 
 
-      var curSelectIndex = Vue.ref(computedCurSelectIndexByFormData(getPathVal(props.rootFormData, props.curNodePath))); // 下拉选项 VNode
+      var curSelectIndex = Vue.ref(computedCurSelectIndexByFormData(getPathVal(props.rootFormData, props.curNodePath))); //  VNode
 
       var getSelectBoxVNode = function getSelectBoxVNode() {
-        // 下拉选项参数
+        //
         var selectWidgetConfig = getWidgetConfig({
           schema: props.schema["".concat(props.combiningType, "Select")] || {},
-          // 扩展 oneOfSelect,anyOfSelect字段
+          //  oneOfSelect,anyOfSelect
           uiSchema: props.uiSchema["".concat(props.combiningType, "Select")] || {},
-          // 通过 uiSchema['oneOf'] 配置ui信息
+          //  uiSchema['oneOf'] ui
           curNodePath: props.curNodePath,
           rootFormData: props.rootFormData
         }, function () {
           return {
-            // 枚举参数
+            //
             widget: 'SelectWidget'
           };
-        }); // title description 回退到 schema 配置，但这里不使用 uiSchema配置
-        // select ui配置需要使用 (oneOf|anyOf)Select
+        }); // title description  schema  uiSchema
+        // select ui (oneOf|anyOf)Select
 
         selectWidgetConfig.label = selectWidgetConfig.label || props.schema.title;
-        selectWidgetConfig.description = selectWidgetConfig.description || props.schema.description; // 下拉列表枚举值
+        selectWidgetConfig.description = selectWidgetConfig.description || props.schema.description; //
 
         if (!selectWidgetConfig.uiProps.enumOptions) {
           var uiSchemaSelectList = props.uiSchema[props.combiningType] || [];
@@ -11084,8 +11084,8 @@
               value: index
             };
           });
-        } // oneOf option 渲染
-        // 选择框 VNode
+        } // oneOf option
+        //  VNode
 
 
         return Vue.h(Widget, _objectSpread2(_objectSpread2({
@@ -11101,22 +11101,22 @@
             curSelectIndex.value = event;
           }
         }));
-      }; // 对象 切换了select
-      // 如果object 类型 option有添加属性 这里做移除
-      // 对新option计算默认值
+      }; //  select
+      // object  option
+      // option
 
 
       Vue.watch(curSelectIndex, function (newVal, oldVal) {
-        var curFormData = getPathVal(props.rootFormData, props.curNodePath); // 计算出 新选项默认值
+        var curFormData = getPathVal(props.rootFormData, props.curNodePath); //
 
         var newOptionData = getDefaultFormState(props.selectList[newVal], undefined, props.rootSchema);
-        var hasOwn = Object.prototype.hasOwnProperty; // 移除旧key
+        var hasOwn = Object.prototype.hasOwnProperty; // key
 
         if (isObject(curFormData)) {
           var oldSelectSchema = retrieveSchema(props.selectList[oldVal], props.rootSchema);
 
           if (getSchemaType(oldSelectSchema) === 'object') {
-            // 移除旧schema添加的属性
+            // schema
             // Object.keys(oldSelectSchema.properties)
             for (var key in oldSelectSchema.properties) {
               if (hasOwn.call(oldSelectSchema.properties, key) && !hasOwn.call(newOptionData, key)) {
@@ -11124,7 +11124,7 @@
               }
             }
           }
-        } // 设置新值
+        } //
 
 
         if (isObject(newOptionData)) {
@@ -11134,10 +11134,10 @@
                 value = _ref2[1];
 
             if (value !== undefined && (curFormData[key] === undefined || props.selectList[newVal].properties[key].const !== undefined || isObject(value))) {
-              // 这里没找到一个比较合理的新旧值合并方式
               //
-              // 1. 如果anyOf里面同名属性中的schema包含了 const 配置，产生了新的值这里做覆盖处理
-              // 2. 其它场景保留同名key的旧的值
+              //
+              // 1. anyOfschema const
+              // 2. key
               setPathVal(curFormData, key, value);
             }
           });
@@ -11151,14 +11151,14 @@
         var curNodePath = props.curNodePath;
         var pathClassName = nodePath2ClassName(curNodePath); // is object
 
-        var isTypeObject = props.schema.type === 'object' || props.schema.properties; // 选择附加的节点
+        var isTypeObject = props.schema.type === 'object' || props.schema.properties; //
 
-        var childrenVNodeList = [getSelectBoxVNode()]; // 当前option内容
+        var childrenVNodeList = [getSelectBoxVNode()]; // option
 
-        var curSelectSchema = props.selectList[curSelectIndex.value]; // 当前选中节点合并schema
+        var curSelectSchema = props.selectList[curSelectIndex.value]; // schema
 
         if (curSelectSchema) {
-          // 覆盖父级的属性
+          //
           var _props$schema = props.schema,
               _props$combiningType = props.combiningType,
               _ref3 = "".concat(props.combiningType, "Select");
@@ -11168,14 +11168,14 @@
               var parentSchema = _objectWithoutProperties(_props$schema, ["properties", _props$combiningType, _ref3].map(_toPropertyKey));
 
           curSelectSchema = Object.assign({}, parentSchema, curSelectSchema);
-        } // object类型但没有附加属性
+        } // object
 
 
         var isObjectEmptyAttachProperties = isTypeObject && isEmptyObject(curSelectSchema && curSelectSchema.properties);
 
         if (curSelectSchema && !isObjectEmptyAttachProperties) {
-          // 当前节点的ui err配置，用来支持所有选项的统一配置
-          // 取出 oneOf anyOf 同级配置，然后再合并到 当前选中的schema中
+          // ui err
+          //  oneOf anyOf  schema
           var userUiOptions = filterObject(getUiOptions({
             schema: props.schema,
             uiSchema: props.uiSchema,
@@ -11197,15 +11197,15 @@
           }, props), {}, {
             schema: _objectSpread2({
               'ui:showTitle': false,
-              // 默认不显示title
+              // title
               'ui:showDescription': false
             }, curSelectSchema),
             required: props.required,
             uiSchema: _objectSpread2(_objectSpread2({}, userUiOptions), (props.uiSchema[props.combiningType] || [])[curSelectIndex.value]),
-            errorSchema: _objectSpread2(_objectSpread2({}, userErrOptions), (props.errorSchema[props.combiningType] || [])[curSelectIndex.value]) // needValidFieldGroup: false // 单独校验，这里无需处理
+            errorSchema: _objectSpread2(_objectSpread2({}, userErrOptions), (props.errorSchema[props.combiningType] || [])[curSelectIndex.value]) // needValidFieldGroup: false //
 
           })));
-        } // object 需要保持原有属性，如果存在原有属性这里单独渲染
+        } // object
 
 
         var originVNode = null;
@@ -11217,7 +11217,7 @@
               _curSelectSchema.title;
               _curSelectSchema.description;
               _curSelectSchema.properties;
-              var optionSchema = _objectWithoutProperties(_curSelectSchema, ["title", "description", "properties"]); // object 原始项渲染也需要合并anyOf的内容
+              var optionSchema = _objectWithoutProperties(_curSelectSchema, ["title", "description", "properties"]); // object anyOf
 
 
           var origSchema = Object.assign({}, props.schema, optionSchema);
@@ -11226,10 +11226,10 @@
             key: "origin_".concat(props.combiningType),
             class: (_class2 = {}, _defineProperty(_class2, "".concat(props.combiningType, "_originBox"), true), _defineProperty(_class2, "".concat(pathClassName, "-originBox"), true), _class2)
           }, props), {}, {
-            schema: origSchema // needValidFieldGroup: false // 单独校验，这里无需处理
+            schema: origSchema // needValidFieldGroup: false //
 
           }));
-        } // oneOf 校验 VNode
+        } // oneOf  VNode
 
 
         childrenVNodeList.push(Vue.h(Widget, {
@@ -11283,7 +11283,7 @@
   };
 
   /**
-   * Created by Liu.Jun on 2020/4/20 9:55 下午.
+   * Created by Liu.Jun on 2020/4/20 9:55 .
    */
 
   var FIELDS_MAPS = {
@@ -11309,16 +11309,16 @@
       return function () {
         var _class3;
 
-        // 目前不支持schema依赖和additionalProperties 展示不需要传递formData
+        // schemaadditionalProperties formData
         // const schema = retrieveSchema(props.schema, props.rootSchema, formData);
-        var schema = retrieveSchema(props.schema, props.rootSchema); // 当前参数
+        var schema = retrieveSchema(props.schema, props.rootSchema); //
 
         var curProps = _objectSpread2(_objectSpread2({}, props), {}, {
           schema: schema
-        }); // 空数据
+        }); //
 
 
-        if (Object.keys(schema).length === 0) return null; // 获取节点Ui配置渲染field组件
+        if (Object.keys(schema).length === 0) return null; // Uifield
 
         var _getUiField = getUiField(FIELDS_MAPS, curProps),
             fieldComponent = _getUiField.field,
@@ -11378,10 +11378,10 @@
                 component = _ref3[1];
 
             return internalInstance.appContext.app.component(componentName, component);
-          }); // 只注册一次
+          }); //
 
           Form.installed = true;
-        } // 使用provide 传递跨组件数据
+        } // provide
 
 
         var fallbackLabel = Vue.toRef(props, 'fallbackLabel');
@@ -11393,23 +11393,23 @@
         var footerParams = Vue.computed(function () {
           return _objectSpread2({
             show: true,
-            okBtn: '保存',
+            okBtn: '',
             okBtnProps: {},
-            cancelBtn: '取消'
+            cancelBtn: ''
           }, props.formFooter);
-        }); // form组件实例，不需要响应式
+        }); // form
 
-        var formRef = null; // 更新formData
+        var formRef = null; // formData
 
         var emitFormDataChange = function emitFormDataChange(newValue, oldValue) {
-          // 支持v-model ，引用类型
-          emit('update:modelValue', newValue); // change 事件，引用类型修改属性 newValue
+          // v-model
+          emit('update:modelValue', newValue); // change  newValue
 
           emit('change', {
             newValue: newValue,
             oldValue: oldValue
           });
-        }; // 更新props
+        }; // props
 
 
         var willReceiveProps = function willReceiveProps(newVal, oldVal) {
@@ -11420,26 +11420,26 @@
               rootFormData.value = tempVal;
             }
           }
-        }; // emit v-model，同步值
+        }; // emit v-model
 
 
         Vue.watch(rootFormData, function (newValue, oldValue) {
           emitFormDataChange(newValue, oldValue);
         }, {
           deep: true
-        }); // schema 被重新赋值
+        }); // schema
 
         Vue.watch(function () {
           return props.schema;
         }, function (newVal, oldVal) {
           willReceiveProps(newVal, oldVal);
-        }); // model value 变更
+        }); // model value
 
         Vue.watch(function () {
           return props.modelValue;
         }, function (newVal, oldVal) {
           willReceiveProps(newVal, oldVal);
-        }); // 保持v-model双向数据及时性
+        }); // v-model
 
         emitFormDataChange(rootFormData.value, props.modelValue);
 
@@ -11464,7 +11464,7 @@
                 emit('cancel');
               },
               onSubmit: function onSubmit() {
-                // 优先获取组件 $$validate 方法，方便对 validate方法转换
+                //  $$validate  validate
                 (formRef.$$validate || formRef.validate)(function (isValid, resData) {
                   if (isValid) {
                     return emit('submit', rootFormData);
@@ -11504,14 +11504,14 @@
             customRule: props.customRule,
             rootSchema: props.schema,
             rootFormData: rootFormData.value,
-            // 根节点的数据
+            //
             curNodePath: '',
-            // 当前节点路径
+            //
             globalOptions: globalOptions,
-            // 全局配置，差异化ui框架
+            // ui
             formProps: _objectSpread2({
               labelPosition: labelPosition,
-              labelSuffix: '：',
+              labelSuffix: '',
               defaultSelectFirstOption: true,
               inline: inline
             }, props.formProps)
@@ -11529,7 +11529,7 @@
                 formData: rootFormData.value
               });
             },
-            // 阻止form默认submit
+            // formsubmit
             onSubmit: function onSubmit(e) {
               e.preventDefault();
             },
@@ -11554,7 +11554,7 @@
   }
 
   /**
-   * Created by Liu.Jun on 2021/2/23 10:21 下午.
+   * Created by Liu.Jun on 2021/2/23 10:21 .
    */
   var baseComponent = {
     name: 'CheckboxesWidget',
@@ -11597,7 +11597,7 @@
   });
 
   /**
-   * Created by Liu.Jun on 2021/2/23 10:21 下午.
+   * Created by Liu.Jun on 2021/2/23 10:21 .
    */
   var baseComponent$1 = {
     name: 'RadioWidget',
@@ -11748,9 +11748,9 @@
       },
       btnText: {
         type: String,
-        default: '点击上传'
+        default: ''
       },
-      // 传入 VNode
+      //  VNode
       slots: {
         type: null,
         default: null
@@ -11759,7 +11759,7 @@
     setup: function setup(props, _ref) {
       var attrs = _ref.attrs,
           emit = _ref.emit;
-      // 设置默认 fileList
+      //  fileList
       var curModelValue = props.modelValue;
       var isArrayValue = Array.isArray(curModelValue);
 
@@ -11779,7 +11779,7 @@
           return [{
             id: '1',
             status: 'finished',
-            name: '已上传文件',
+            name: '',
             url: curModelValue
           }];
         }
@@ -11833,7 +11833,7 @@
           fileList: fileListRef.value,
           'on-error': function onError() {
             if (globalProperties.$message) {
-              globalProperties.$message.error('文件上传失败');
+              globalProperties.$message.error('');
             }
           }
         }, otherAttrs), {}, {
@@ -11847,7 +11847,7 @@
           'on-finish': function onFinish(_ref3) {
             var file = _ref3.file,
                 event = _ref3.event;
-            // 用户注册的 onSuccess
+            //  onSuccess
             file.url = getUrl(event.target);
             return file;
           }
@@ -11873,7 +11873,7 @@
   };
 
   /**
-   * Created by Liu.Jun on 2020/5/17 10:41 下午.
+   * Created by Liu.Jun on 2020/5/17 10:41 .
    */
   var widgetComponents = {
     CheckboxesWidget: moduleValeComponent,
@@ -11941,7 +11941,7 @@
         setup: function setup(props, _ref) {
           var attrs = _ref.attrs,
               slots = _ref.slots;
-          // 处理 labelPosition 参数和 label-placement 之间的关系
+          //  labelPosition  label-placement
           var labelPositionMap = {
             top: {
               labelAlign: 'left',
@@ -11960,7 +11960,7 @@
 
           if (attrs.setFormRef) {
             Vue.onMounted(function () {
-              // form组件实例上重置一个 validate 方法
+              // form validate
               formRef.value.$$validate = function (callBack) {
                 formRef.value.validate(function (errors) {
                   if (errors) {
@@ -12030,7 +12030,7 @@
       })
     },
     HELPERS: {
-      // 是否mini显示 description
+      // mini description
       isMiniDes: function isMiniDes(formProps) {
         return formProps && ['left', 'right'].includes(formProps.labelPosition);
       }

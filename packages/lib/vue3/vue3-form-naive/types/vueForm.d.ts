@@ -1,28 +1,28 @@
 import Vue from 'vue';
 
 declare class VueForm extends Vue {
-    /** formFooter 置 */
+    /** formFooter  */
     formFooter: object
 
     /** value / v-model */
     value: object
 
-    /** 传递给form的props */
+    /** formprops */
     formProps: object
 
-    /** schema 配置 */
+    /** schema  */
     schema: object
 
-    /** uiSchema 配置 */
+    /** uiSchema  */
     uiSchema: object
 
-    /** 重置自定义错误 */
+    /**  */
     errorSchema: object
 
-    /** 自定义校验规则 */
+    /**  */
     customFormats: object
 
-    /** 自定义校验规则 */
+    /**  */
     customRule: null
 }
 

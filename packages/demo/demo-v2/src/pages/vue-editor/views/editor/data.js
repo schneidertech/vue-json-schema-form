@@ -15,7 +15,7 @@ function getComponentMap(configTools) {
         ...curVal.componentList
     ], []);
 
-    // 结构
+    //
     return componentList.reduce((preVal, componentItem) => {
         preVal[componentItem.name] = componentItem;
         return preVal;
@@ -31,7 +31,7 @@ export function api2VmToolItem(configTools, apiData) {
             componentValue: value
         }));
     } catch (e) {
-        // 数据解析失败不处理
+        //
         return [];
     }
 }

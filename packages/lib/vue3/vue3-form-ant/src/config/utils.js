@@ -14,7 +14,7 @@ const numberTimeComponent = component => defineComponent({
                 isNumberValue, isRange, value, ...otherAttrs
             } = attrs;
 
-            // antdv moment format 串时间戳
+            // antdv moment format
             const newValue = isNumberValue
                 ? (isRange
                     ? (value || []).map(item => (typeof item === 'number' ? String(item) : item))
@@ -39,7 +39,7 @@ const numberTimeComponent = component => defineComponent({
 });
 
 export {
-    // 转换antdv 非moduleValue的v-model组件
+    // antdv moduleValuev-model
     modelValueComponent,
 
     numberTimeComponent

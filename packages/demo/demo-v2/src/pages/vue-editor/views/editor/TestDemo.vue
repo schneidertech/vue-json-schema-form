@@ -26,12 +26,12 @@ export default {
             formData: {
                 item: [
                     {
-                        text: '作者'
+                        text: ''
                     },
                     {
                         imgUrl: '',
                         step: 1,
-                        text: '机构'
+                        text: ''
                     }
                 ]
             },
@@ -40,28 +40,28 @@ export default {
                 type: 'object',
                 properties: {
                     item: {
-                        title: '左侧点击栏目',
+                        title: '',
                         type: 'array',
                         required: [],
                         minItems: 1,
                         items: {
-                            title: '栏目类型',
+                            title: '',
                             type: 'object',
                             anyOf: [
                                 {
-                                    title: '唯一可点击栏目',
+                                    title: '',
                                     required: ['text', 'imgUrl', 'step'],
                                     properties: {
                                         text: {
                                             type: 'string',
-                                            title: '栏目名称'
+                                            title: ''
                                         },
                                         imgUrl: {
-                                            title: '点击弹出图',
+                                            title: '',
                                             type: 'string',
                                         },
                                         step: {
-                                            title: '第一步',
+                                            title: '',
                                             type: 'number',
                                             const: 1,
                                             default: 1,
@@ -71,12 +71,12 @@ export default {
                                     }
                                 },
                                 {
-                                    title: '其他栏目',
+                                    title: '',
                                     required: ['text'],
                                     properties: {
                                         text: {
                                             type: 'string',
-                                            title: '栏目名称'
+                                            title: ''
                                         }
                                     }
                                 }
@@ -88,16 +88,16 @@ export default {
         };
     },
     created() {
-        // 初始数据
+        //
         // this.formData = {
         //     item: [
         //         {
-        //             text: '作者'
+        //             text: ''
         //         },
         //         {
         //             imgUrl: '',
         //             step: 1,
-        //             text: '机构'
+        //             text: ''
         //         }
         //     ]
         // };

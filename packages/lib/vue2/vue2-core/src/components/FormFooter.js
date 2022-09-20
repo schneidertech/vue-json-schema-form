@@ -1,5 +1,5 @@
 /**
- * Created by Liu.Jun on 2020/12/27 9:53 下午.
+ * Created by Liu.Jun on 2020/12/27 9:53 .
  */
 
 export default {
@@ -7,7 +7,7 @@ export default {
     props: {
         okBtn: {
             type: String,
-            default: '保存'
+            default: ''
         },
         okBtnProps: {
             type: Object,
@@ -15,7 +15,7 @@ export default {
         },
         cancelBtn: {
             type: String,
-            default: '取消'
+            default: ''
         },
         formItemAttrs: {
             type: Object,
