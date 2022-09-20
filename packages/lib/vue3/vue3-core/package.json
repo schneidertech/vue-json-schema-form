@@ -1,6 +1,6 @@
 {
     "name": "@snema/vue3-form-core",
-    "version": "1.14.3",
+    "version": "1.14.5",
     "description": " Vue3 JsonSchemaformvue3",
     "main": "src/index.js",
     "module": "src/index.js",
@@ -14,7 +14,7 @@
         "access": "public"
     },
     "dependencies": {
-        "@snema/vjsf-utils": "1.14.0"
+        "@snema/vjsf-utils": "1.14.1"
     },
     "repository": "https://github.com/lljj-x/vue-json-schema-form",
     "homepage": "https://github.com/lljj-x/vue-json-schema-form",

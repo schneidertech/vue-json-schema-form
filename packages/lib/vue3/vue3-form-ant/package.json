@@ -15,8 +15,8 @@
         "jsonSchema"
     ],
     "dependencies": {
-        "@snema/vjsf-utils": "1.14.0",
-        "@snema/vue3-form-core": "1.14.3"
+        "@snema/vjsf-utils": "1.14.1",
+        "@snema/vue3-form-core": "1.14.5"
     },
     "typings": "types/index.d.ts",
     "files": [

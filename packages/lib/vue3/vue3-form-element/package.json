@@ -1,6 +1,6 @@
 {
     "name": "@snema/vue3-form-element",
-    "version": "1.14.3",
+    "version": "1.14.5",
     "description": " Vue3 ElementPlusJsonSchemaform",
     "main": "dist/vue3-form-element.umd.min.js",
     "module": "dist/vue3-form-element.esm.min.js",
@@ -15,8 +15,8 @@
         "jsonSchema"
     ],
     "dependencies": {
-        "@snema/vjsf-utils": "1.14.0",
-        "@snema/vue3-form-core": "1.14.3"
+        "@snema/vjsf-utils": "1.14.1",
+        "@snema/vue3-form-core": "1.14.5"
     },
     "typings": "types/index.d.ts",
     "files": [
