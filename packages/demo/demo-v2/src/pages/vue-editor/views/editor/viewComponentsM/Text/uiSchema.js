@@ -4,7 +4,7 @@
 
 export default {
     txt: {
-        'ui:placeholder': '输入你的内容'
+        'ui:placeholder': ''
     },
     txtColor: {
         'ui:widget': 'el-color-picker'

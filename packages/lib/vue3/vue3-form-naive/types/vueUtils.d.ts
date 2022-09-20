@@ -1,6 +1,6 @@
 declare namespace vueUtils {
 
-    /** nodePath 转css类名 */
+    /** nodePath css名 */
     function nodePath2ClassName(path: string): string;
 
     /** 是否为根节点 */

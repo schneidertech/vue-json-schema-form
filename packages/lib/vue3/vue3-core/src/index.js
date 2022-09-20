@@ -8,16 +8,16 @@ import {
 
 import { resolveComponent } from '@lljj/vjsf-utils/vue3Utils';
 
-// 生成form表单默认数据
+// form
 import getDefaultFormState from '@lljj/vjsf-utils/schema/getDefaultFormState';
 import { deepEquals } from '@lljj/vjsf-utils/utils';
 
-// 基础公共样式
+//
 import '@lljj/vjsf-utils/style/baseForm.css';
 
 import vueProps from './props';
 
-// 默认表单底部
+//
 import FormFooter from './components/FormFooter.js';
 
 import SchemaField from './fields/SchemaField';
@@ -41,11 +41,11 @@ export default function createForm(globalOptions = {}) {
                     ([componentName, component]) => internalInstance.appContext.app.component(componentName, component)
                 );
 
-                // 只注册一次
+                //
                 Form.installed = true;
             }
 
-            // 使用provide 传递跨组件数据
+            // provide
             const fallbackLabel = toRef(props, 'fallbackLabel');
             provide('genFormProvide', {
                 fallbackLabel,
@@ -54,28 +54,28 @@ export default function createForm(globalOptions = {}) {
             const rootFormData = ref(getDefaultFormState(props.schema, props.modelValue, props.schema, props.strictMode));
             const footerParams = computed(() => ({
                 show: true,
-                okBtn: '保存',
+                okBtn: '',
                 okBtnProps: {},
-                cancelBtn: '取消',
+                cancelBtn: '',
                 ...props.formFooter
             }));
 
-            // form组件实例，不需要响应式
+            // form
             let formRef = null;
 
-            // 更新formData
+            // formData
             const emitFormDataChange = (newValue, oldValue) => {
-                // 支持v-model ，引用类型
+                // v-model
                 emit('update:modelValue', newValue);
 
-                // change 事件，引用类型修改属性 newValue
+                // change  newValue
                 emit('change', {
                     newValue,
                     oldValue
                 });
             };
 
-            // 更新props
+            // props
             const willReceiveProps = (newVal, oldVal) => {
                 if (!deepEquals(newVal, oldVal)) {
                     const tempVal = getDefaultFormState(props.schema, props.modelValue, props.schema, props.strictMode);
@@ -85,24 +85,24 @@ export default function createForm(globalOptions = {}) {
                 }
             };
 
-            // emit v-model，同步值
+            // emit v-model
             watch(rootFormData, (newValue, oldValue) => {
                 emitFormDataChange(newValue, oldValue);
             }, {
                 deep: true
             });
 
-            // schema 被重新赋值
+            // schema
             watch(() => props.schema, (newVal, oldVal) => {
                 willReceiveProps(newVal, oldVal);
             });
 
-            // model value 变更
+            // model value
             watch(() => props.modelValue, (newVal, oldVal) => {
                 willReceiveProps(newVal, oldVal);
             });
 
-            // 保持v-model双向数据及时性
+            // v-model
             emitFormDataChange(rootFormData.value, props.modelValue);
 
             const getDefaultSlot = () => {
@@ -124,7 +124,7 @@ export default function createForm(globalOptions = {}) {
                             emit('cancel');
                         },
                         onSubmit() {
-                            // 优先获取组件 $$validate 方法，方便对 validate方法转换
+                            //  $$validate  validate
                             (formRef.$$validate || formRef.validate)((isValid, resData) => {
                                 if (isValid) {
                                     return emit('submit', rootFormData);
@@ -154,12 +154,12 @@ export default function createForm(globalOptions = {}) {
                     customFormats: props.customFormats,
                     customRule: props.customRule,
                     rootSchema: props.schema,
-                    rootFormData: rootFormData.value, // 根节点的数据
-                    curNodePath: '', // 当前节点路径
-                    globalOptions, // 全局配置，差异化ui框架
+                    rootFormData: rootFormData.value, //
+                    curNodePath: '', //
+                    globalOptions, // ui
                     formProps: {
                         labelPosition,
-                        labelSuffix: '：',
+                        labelSuffix: '',
                         defaultSelectFirstOption: true,
                         inline,
                         ...props.formProps
@@ -185,7 +185,7 @@ export default function createForm(globalOptions = {}) {
                                 formData: rootFormData.value
                             });
                         },
-                        // 阻止form默认submit
+                        // formsubmit
                         onSubmit(e) {
                             e.preventDefault();
                         },

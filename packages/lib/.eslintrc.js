@@ -16,7 +16,7 @@ module.exports = {
         '@lljj/eslint-config/vue'
     ],
     rules: {
-        // 递归组件导致了循环依赖
+        //
         'import/no-cycle': 'off',
     },
     globals: {

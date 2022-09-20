@@ -13,7 +13,7 @@ export default {
     props: vueProps,
     setup(props, { attrs }) {
         const widgetConfig = computed(() => {
-            // 可能是枚举数据使用select组件，否则使用 input
+            // select input
             const enumOptions = isSelect(props.schema)
                                 && optionsList(props.schema, props.uiSchema, props.curNodePath, props.rootFormData);
 
@@ -35,7 +35,7 @@ export default {
                 };
             });
 
-            // 存在枚举数据列表 传入 enumOptions
+            //   enumOptions
             if (enumOptions && !tempWidgetConfig.uiProps.enumOptions) {
                 tempWidgetConfig.uiProps.enumOptions = enumOptions;
             }

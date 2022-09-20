@@ -1,16 +1,16 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "单文本输入组件",
-    "description":"单文本输入组件，用于在页面配置一条文字信息" ,
+    "title": "",
+    "description":"" ,
     "type": "object",
     "required": ["txt"],
     "properties": {
         "txt": {
-            "title": "文字",
+            "title": "",
             "type": "string"
         },
         "txtColor": {
-            "title": "选择文字颜色",
+            "title": "",
             "type": "string",
             "default": "#ff0132"
         }

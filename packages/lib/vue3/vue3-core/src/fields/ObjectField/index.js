@@ -21,23 +21,23 @@ export default {
         // required
         const isRequired = name => Array.isArray(props.schema.required) && !!~props.schema.required.indexOf(name);
 
-        // 存在 dependencies 配置，需要当前属性是否存在依赖关系 和当前属性是否正在被依赖
-        // tip: 判断依赖关系需要使用了 formData 的值来做判断，所以当用户输入的时候会触发整个对象树重新渲染
-        // TODO: 每个属性都需要单独来遍历 dependencies 属性可以优化一点点点点点（可通过 key value 反转值加个缓存来计算）
+        //  dependencies
+        // tip:  formData
+        // TODO:  dependencies  key value
         const isDependOn = (name) => {
-            let isDependency = false; // 是否是一个被依赖项
-            let curDependent = false; // 当前是否触发依赖
+            let isDependency = false; //
+            let curDependent = false; //
 
             if (isObject(props.schema.dependencies)) {
                 curDependent = Object.entries(props.schema.dependencies).some(([key, value]) => {
 
-                    // 是否和当前属性存在依赖关系
+                    //
                     const tempDependency = !!(Array.isArray(value) && ~value.indexOf(name));
 
-                    // 是否是一个被依赖项
+                    //
                     isDependency = isDependency || tempDependency;
 
-                    // 当前需要依赖
+                    //
                     return tempDependency && getPathVal(props.rootFormData, props.curNodePath)[key] !== undefined;
                 });
             }
@@ -62,12 +62,12 @@ export default {
             const properties = Object.keys(props.schema.properties || {});
             const orderedProperties = orderProperties(properties, order);
 
-            // 递归参数
+            //
             const propertiesVNodeList = orderedProperties.map((name) => {
                 const required = isRequired(name);
                 const { isDependency, curDependent } = isDependOn(name);
 
-                // onlyShowWhenDependent 只渲染被依赖的属性
+                // onlyShowWhenDependent
                 return (isDependency && onlyShowIfDependent && !curDependent) ? null : h(
                     SchemaField,
                     {
@@ -98,7 +98,7 @@ export default {
                     default: () => [
                         ...propertiesVNodeList,
 
-                        // 插入一个Widget，校验 object组 - minProperties. maxProperties. oneOf 等需要外层校验的数据
+                        // Widget object - minProperties. maxProperties. oneOf
                         ...props.needValidFieldGroup ? [
                             h(Widget, {
                                 key: 'validateWidget-object',

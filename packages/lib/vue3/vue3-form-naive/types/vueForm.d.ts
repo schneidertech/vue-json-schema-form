@@ -1,7 +1,7 @@
 import Vue from 'vue';
 
 declare class VueForm extends Vue {
-    /** formFooter 配置 */
+    /** formFooter 置 */
     formFooter: object
 
     /** value / v-model */

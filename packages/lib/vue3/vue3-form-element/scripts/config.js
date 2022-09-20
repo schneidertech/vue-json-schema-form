@@ -21,7 +21,7 @@ module.exports = {
     extractcss: false,
     output: {
         path: resolve('dist/'),
-        file: 'vue3-form-element', // 导出文件名，自动拼接 format
+        file: 'vue3-form-element', // 文件名，自动拼接 format
         name: 'vue3FormElement', // umd 注册的全局变量名称
         format: ['esm', 'umd']
     }

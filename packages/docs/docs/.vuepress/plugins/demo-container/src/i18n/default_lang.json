@@ -2,8 +2,8 @@
     {
         "lang": "zh-CN",
         "demo-block": {
-            "online-run": "在线运行",
-            "hide-text": "隐藏代码",
+            "online-run": "",
+            "hide-text": "",
             "show-text": "显示代码",
             "copy-text": "复制代码",
             "copy-success": "复制成功"

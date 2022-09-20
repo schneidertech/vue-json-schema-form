@@ -44,7 +44,7 @@ module.exports = ({
         globals: config.globals
     }));
 
-    // 添加压缩mini js
+    // 缩mini js
     if (uglify) {
         output = [
             ...output,

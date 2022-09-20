@@ -215,7 +215,7 @@ function _toPropertyKey(arg) {
  * Created by Liu.Jun on 2020/4/25 14:45.
  */
 
-var pathSeparator = '.'; // nodePath 转css类名
+var pathSeparator = '.'; // nodePath css类名
 
 function nodePath2ClassName(path) {
   var rootPathName = '__pathRoot';

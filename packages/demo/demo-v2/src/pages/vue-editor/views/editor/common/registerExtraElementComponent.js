@@ -5,7 +5,7 @@
 import Vue from 'vue';
 
 const ExtraComponents = {
-    // 需要额外注册的 Field，通过图片选择图片加链接
+    //  Field
     LinkImgField: () => import('../fieldComponents/linkImgField/LinkImgField')
 };
 

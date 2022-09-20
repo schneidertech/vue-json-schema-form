@@ -5,7 +5,7 @@
             default-active="2"
         >
             <div :class="$style.btns">
-                <span style="font-size: 13px;">标签：</span>
+                <span style="font-size: 13px;"></span>
                 <el-slider
                     v-model="formProps.labelWidth"
                     style="width: 70px; margin-right: 6px;"
@@ -24,17 +24,17 @@
                     style="margin-right: 6px;"
                     size="small"
                 >
-                    底部
+
                 </el-checkbox>
                 <el-select
                     v-model="formProps.layoutColumn"
-                    placeholder="布局"
+                    placeholder=""
                     size="small"
                     style="margin-right: 6px;width: 100px;"
                 >
                     <el-option
                         :value="1"
-                        label="一列显示"
+                        label="列显示"
                     ></el-option>
                     <el-option
                         :value="2"

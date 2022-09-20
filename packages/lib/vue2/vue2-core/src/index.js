@@ -5,16 +5,16 @@
 
 import Vue from 'vue';
 
-// 生成form表单默认数据
+// form
 import getDefaultFormState from '@lljj/vjsf-utils/schema/getDefaultFormState';
 import { deepEquals } from '@lljj/vjsf-utils/utils';
 
-// 基础公共样式
+//
 import '@lljj/vjsf-utils/style/baseForm.css';
 
 import vueProps from './props';
 
-// 默认表单底部
+//
 import FormFooter from './components/FormFooter.js';
 
 import SchemaField from './fields/SchemaField';
@@ -42,7 +42,7 @@ export default function createForm(globalOptions = {}) {
         data() {
             const formData = getDefaultFormState(this.$props.schema, this.$props.value, this.$props.schema, this.$props.strictMode);
 
-            // 保持v-model双向数据及时性
+            // v-model
             this.emitFormDataChange(formData, this.value);
 
             return {
@@ -56,8 +56,8 @@ export default function createForm(globalOptions = {}) {
             footerParams() {
                 return {
                     show: true,
-                    okBtn: '保存',
-                    cancelBtn: '取消',
+                    okBtn: '',
+                    cancelBtn: '',
                     ...this.formFooter
                 };
             }
@@ -70,7 +70,7 @@ export default function createForm(globalOptions = {}) {
                 deep: true
             },
 
-            // 用于初始化了formData，监听变更是否重新计算 formData
+            // formData formData
             schema(newVal, oldVal) {
                 this.willReceiveProps(newVal, oldVal);
             },
@@ -81,17 +81,17 @@ export default function createForm(globalOptions = {}) {
 
         methods: {
             emitFormDataChange(newValue, oldValue) {
-                // 支持v-model ，引用类型
+                // v-model
                 this.$emit('input', newValue);
 
-                // change 事件，引用类型修改属性 newValue
+                // change  newValue
                 this.$emit('on-change', {
                     newValue,
                     oldValue
                 });
             },
 
-            // 避免用于双向绑定v-model 可能导致的循环调用
+            // v-model
             willReceiveProps(newVal, oldVal) {
                 if (!deepEquals(newVal, oldVal)) {
                     const formData = getDefaultFormState(this.$props.schema, this.$props.value, this.$props.schema, this.$props.strictMode);
@@ -154,12 +154,12 @@ export default function createForm(globalOptions = {}) {
                 customFormats: this.customFormats,
                 customRule: this.customRule,
                 rootSchema: this.schema,
-                rootFormData: this.formData, // 根节点的数据
-                curNodePath: '', // 当前节点路径
-                globalOptions, // 全局配置，差异化ui框架
+                rootFormData: this.formData, //
+                curNodePath: '', //
+                globalOptions, // ui
                 formProps: {
                     labelPosition,
-                    labelSuffix: '：',
+                    labelSuffix: '',
                     defaultSelectFirstOption: true,
                     inline,
                     ...self.$props.formProps

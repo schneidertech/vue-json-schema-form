@@ -44,7 +44,7 @@ module.exports = ({
         globals: config.globals
     }));
 
-    // 添加压缩mini js
+    // mini js
     if (uglify) {
         output = [
             ...output,
@@ -95,7 +95,7 @@ module.exports = ({
             }),
             filesize(),
 
-            // 打包文件分析
+            //
             ...(process.env.npm_config_report ? [visualizer({
                 open: true
             })] : [visualizer()])

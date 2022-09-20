@@ -1,5 +1,5 @@
 /**
- * Created by Liu.Jun on 2020/5/17 10:18 下午.
+ * Created by Liu.Jun on 2020/5/17 10:18 .
  */
 
 let sliderName = 'el-slider';

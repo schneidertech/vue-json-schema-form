@@ -52,11 +52,11 @@ export default {
     },
     watch: {
         value(newVal) {
-            // 兼容 iview 绑定字符串类型值会导致无限循环的问题
+            //  iview
             if (newVal === this.formatValue) {
-                // 内部date-picker选择框更新
+                // date-picker
             } else {
-                // 外部更新值
+                //
                 this.originValue = toDateObj(newVal);
             }
         }

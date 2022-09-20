@@ -1,8 +1,8 @@
 /**
  * Created by Liu.Jun on 2019/12/30 16:53.
- * 通过api的形式弹出一个组件
- * 若需要响应式参数 componentProps、dialogProps 使用引用的形式传递
- * 例
+ * api
+ *  componentPropsdialogProps
+ *
  componentWithDialog({
         VueComponent: {
             template: '<div>xxxx</div>'
@@ -22,10 +22,10 @@ export default ({
     componentListeners = {}
 } = {}) => {
     if (!VueComponent) {
-        throw new Error('必须的参数：vueComponent');
+        throw new Error('vueComponent');
     }
 
-    // 测试能否响应式数据
+    //
     // const DialogConstructor = Vue.extend(Dialog);
     // const instance = new DialogConstructor({
     //     el: document.createElement('div')
@@ -41,7 +41,7 @@ export default ({
     // });
 
     const genDefaultDialogProps = () => ({
-        title: '弹窗标题',
+        title: '',
         closeOnClickModal: true,
         width: '800px'
     });
@@ -57,12 +57,12 @@ export default ({
                 curDialogListeners: {
                     ...dialogListeners,
                     closed: (...args) => {
-                        // 传入的方法先执行
+                        //
                         if (dialogListeners.closed) {
                             dialogListeners.closed.apply(null, args);
                         }
 
-                        // 释放掉dialog
+                        // dialog
                         this.handleClosed();
                     }
                 },
@@ -82,7 +82,7 @@ export default ({
                 this.handleClosed();
             };
 
-            // hashChange ，组件单独注入需要手动销毁
+            // hashChange
             window.addEventListener('hashchange', this.hashChangeFn, false);
         },
         beforeDestroy() {

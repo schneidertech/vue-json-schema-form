@@ -1,25 +1,25 @@
 <template>
     <div v-loading="loading">
         <EditorHeader default-active="4">
-            <el-button @click="handleImportSchema">导入Schema</el-button>
+            <el-button @click="handleImportSchema">Schema</el-button>
             <el-button
                 plain
                 @click="handleToDemo"
             >
-                Playground中验证
+                Playground
             </el-button>
             <el-button
                 type="primary"
                 plain
                 @click="handlePreview"
             >
-                预览展示
+
             </el-button>
             <el-button
                 type="primary"
                 @click="handleExportSchema"
             >
-                导出Schema
+                Schema
             </el-button>
         </EditorHeader>
 
@@ -35,7 +35,7 @@
                         <EditorToolBar
                             :drag-group="dragOptions.group"
                             :config-tools="configTools"
-                            @onFilter="$message.error('该组件添加数目已达上限！')"
+                            @onFilter="$message.error('数目已达上限！')"
                         >
                         </EditorToolBar>
                     </div>

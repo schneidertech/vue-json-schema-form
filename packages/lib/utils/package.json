@@ -1,7 +1,7 @@
 {
     "name": "@lljj/vjsf-utils",
     "version": "1.14.0",
-    "description": "vue json schema form 使用的基础utils工具类",
+    "description": "vue json schema form utils",
     "private": false,
     "publishConfig": {
         "access": "public"

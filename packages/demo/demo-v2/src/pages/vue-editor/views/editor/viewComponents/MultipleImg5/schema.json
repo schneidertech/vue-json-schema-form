@@ -3,7 +3,7 @@
     "type": "object",
     "definitions": {
         "ImgItem": {
-            "title": "图片配置",
+            "title": "",
             "type": "object",
             "properties": {
                 "imgUrl": {
@@ -24,8 +24,8 @@
     },
     "properties": {
         "imgList": {
-            "title": "配置多图模块",
-            "description": "图片一行展示，最多配置5张图片",
+            "title": "",
+            "description": "5",
             "type": "array",
             "minItems": 1,
             "maxItems": 5,

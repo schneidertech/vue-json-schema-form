@@ -221,7 +221,7 @@ function isObject(object) {
 
 function isArguments(object) {
   return Object.prototype.toString.call(object) === '[object Arguments]';
-} // 定义的数据推导出schema 类型
+} // schema
 
 
 var guessType = function guessType(value) {
@@ -273,24 +273,24 @@ function mergeObjects(obj1, obj2) {
 
     return acc;
   }, preAcc);
-} // 获取给定 schema 类型。
+} //  schema
 
 function getSchemaType(schema) {
-  var type = schema.type; // 通过const 申明的常量 做类型推断
+  var type = schema.type; // const
 
   if (!type && schema.const) {
     return guessType(schema.const);
-  } // 枚举默认字符串
+  } //
 
 
   if (!type && schema.enum) {
     return 'string';
-  } // items 推断为 array 类型
+  } // items  array
 
 
   if (!type && schema.items) {
     return 'array';
-  } // anyOf oneOf 不申明 type 字段
+  } // anyOf oneOf  type
 
 
   if (!type && (schema.properties || schema.additionalProperties)) {
@@ -304,7 +304,7 @@ function getSchemaType(schema) {
   }
 
   return type;
-} // 深度相等对比
+} //
 
 function deepEquals(a, b) {
   var ca = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
@@ -395,7 +395,7 @@ function deepEquals(a, b) {
   ca.pop();
   cb.pop();
   return true;
-} // 只保证同时生成不重复
+} //
 
 var genId = function genIdFn() {
   var preKey = "".concat(+new Date());
@@ -406,14 +406,14 @@ var genId = function genIdFn() {
     if (curTimestamp === preKey) {
       key += 1;
     } else {
-      // 重置 key
+      //  key
       key = 0;
     }
 
     preKey = curTimestamp;
     return "".concat(preKey, "x").concat(key);
   };
-}(); // 空对象
+}(); //
 
 function isEmptyObject(obj) {
   if (!obj) return true;
@@ -425,7 +425,7 @@ function isEmptyObject(obj) {
   }
 
   return true;
-} // 过滤和转换对象的key
+} // key
 
 function filterObject(obj, filterFn) {
   return Object.entries(obj).reduce(function (preVal, _ref) {
@@ -448,16 +448,16 @@ function lowerCase(str) {
   return String(str).replace(/^./, function (s) {
     return s.toLocaleLowerCase();
   });
-} // 最大公约数
+} //
 
 function gcd(a, b) {
   if (b === 0) return a;
   return gcd(b, a % b);
-} // 最小公倍数
+} //
 
 function scm(a, b) {
   return a * b / gcd(a, b);
-} // 打开新页面
+} //
 
 function openNewPage(url) {
   var target = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '_blank';
@@ -470,7 +470,7 @@ function openNewPage(url) {
   document.body.removeChild(a);
 }
 
-// $ref 引用
+// $ref
 function getPathVal(obj, pathStr) {
   var pathArr = pathStr.split('/');
 
@@ -480,7 +480,7 @@ function getPathVal(obj, pathStr) {
   }
 
   return obj;
-} // 找到ref引用的schema
+} // refschema
 
 
 function findSchemaDefinition($ref) {
@@ -7670,19 +7670,19 @@ function localizeZh(errors) {
         break;
 
       case 'additionalProperties':
-        out = '不允许有额外的属性';
+        out = '';
         break;
 
       case 'anyOf':
-        out = '数据应为 anyOf 所指定的其中一个';
+        out = ' anyOf ';
         break;
 
       case 'const':
-        out = '应当等于常量';
+        out = '';
         break;
 
       case 'contains':
-        out = '应当包含一个有效项';
+        out = '';
         break;
 
       case 'custom':
@@ -7696,7 +7696,7 @@ function localizeZh(errors) {
         break;
 
       case 'enum':
-        out = '应当是预设定的枚举值之一';
+        out = '';
         break;
 
       case 'exclusiveMaximum':
@@ -7712,7 +7712,7 @@ function localizeZh(errors) {
         break;
 
       case 'false schema':
-        out = '布尔模式出错';
+        out = '';
         break;
 
       case 'format':
@@ -7720,11 +7720,11 @@ function localizeZh(errors) {
         break;
 
       case 'formatExclusiveMaximum':
-        out = 'formatExclusiveMaximum 应当是布尔值';
+        out = 'formatExclusiveMaximum ';
         break;
 
       case 'formatExclusiveMinimum':
-        out = 'formatExclusiveMinimum 应当是布尔值';
+        out = 'formatExclusiveMinimum ';
         break;
 
       case 'formatMaximum':
@@ -7796,11 +7796,11 @@ function localizeZh(errors) {
         break;
 
       case 'not':
-        out = '不应当匹配 "not" schema';
+        out = ' "not" schema';
         break;
 
       case 'oneOf':
-        out = '只能匹配一个 "oneOf" 中的 schema';
+        out = ' "oneOf"  schema';
         break;
 
       case 'pattern':
@@ -7856,28 +7856,28 @@ var i18n = {
 /**
  * Created by Liu.Jun on 2020/4/25 10:53.
  */
-// 通过 index 上移
+//  index
 function moveUpAt(target, index) {
   if (index === 0) return false;
   var item = target[index];
   var newItems = [item, target[index - 1]];
   return target.splice.apply(target, [index - 1, 2].concat(newItems));
-} // 通过 index 下移动
+} //  index
 
 function moveDownAt(target, index) {
   if (index === target.length - 1) return false;
   var item = target[index];
   var newItems = [target[index + 1], item];
   return target.splice.apply(target, [index, 2].concat(newItems));
-} // 移除
+} //
 
 function removeAt(target, index) {
-  // 移除数组中指定位置的元素，返回布尔表示成功与否
+  //
   return !!target.splice(index, 1).length;
-} // 数组填充对象
+} //
 
 function fillObj(target, data) {
-  // 简单复制 异常直接抛错
+  //
   try {
     if (_typeof(data) === 'object') {
       return target.fill(null).map(function () {
@@ -7885,18 +7885,18 @@ function fillObj(target, data) {
       });
     }
   } catch (e) {// nothing ...
-  } // 默认返回一个 undefined
+  } //  undefined
 
 
   return undefined;
-} // 切割分为多个数组
+} //
 
 function cutOff(target, cutOffPointIndex) {
   return target.reduce(function (preVal, curVal, curIndex) {
     preVal[curIndex > cutOffPointIndex ? 1 : 0].push(curVal);
     return preVal;
   }, [[], []]);
-} // 数组交集
+} //
 
 function intersection(arr1, arr2) {
   return arr1.filter(function (item) {
@@ -7904,14 +7904,14 @@ function intersection(arr1, arr2) {
   });
 }
 
-// 自动添加分割线
+//
 // export const ADDITIONAL_PROPERTY_FLAG = '__additional_property';
 // resolve Schema - dependencies
 // https://json-schema.org/understanding-json-schema/reference/object.html#dependencies
 
 /*
 export function resolveDependencies(schema, rootSchema, formData) {
-    // 从源模式中删除依赖项。
+    //
     const { dependencies = {} } = schema;
     let { ...resolvedSchema } = schema;
     if ('oneOf' in resolvedSchema) {
@@ -7931,7 +7931,7 @@ export function resolveDependencies(schema, rootSchema, formData) {
     );
 }
 */
-// 处理依赖关系 dependencies
+//  dependencies
 // https://json-schema.org/understanding-json-schema/reference/object.html#dependencies
 
 /*
@@ -7982,7 +7982,7 @@ function processDependencies(
     return resolvedSchema;
 }
 */
-// 属性依赖
+//
 // https://json-schema.org/understanding-json-schema/reference/object.html#property-dependencies
 
 /*
@@ -7996,7 +7996,7 @@ function withDependentProperties(schema, additionallyRequired) {
     return { ...schema, required };
 }
 */
-// schema 依赖
+// schema
 // https://json-schema.org/understanding-json-schema/reference/object.html#schema-dependencies
 
 /*
@@ -8088,7 +8088,7 @@ function resolveReference(schema, rootSchema, formData) {
 
 
   return retrieveSchema(_objectSpread2(_objectSpread2({}, $refSchema), localSchema), rootSchema, formData);
-} // 深度递归合并 合并allOf的每2项
+} //  allOf2
 
 
 function mergeSchemaAllOf() {
@@ -8106,21 +8106,21 @@ function mergeSchemaAllOf() {
     preVal = Object.assign({}, obj1);
     Object.keys(obj2).reduce(function (acc, key) {
       var left = obj1[key];
-      var right = obj2[key]; // 左右一边为object
+      var right = obj2[key]; // object
 
       if (isObject(left) || isObject(right)) {
-        // 两边同时为object
+        // object
         if (isObject(left) && isObject(right)) {
           acc[key] = mergeSchemaAllOf(left, right);
         } else {
-          // 其中一边为 object
+          //  object
           var _ref = isObject(left) ? [left, right] : [right, left],
               _ref2 = _slicedToArray(_ref, 2),
               objTypeData = _ref2[0],
               baseTypeData = _ref2[1];
 
           if (key === 'additionalProperties') {
-            // 适配类型： 一边配置了对象一边没配置或者true false
+            //  true false
             // {
             //     additionalProperties: {
             //         type: 'string',
@@ -8131,70 +8131,70 @@ function mergeSchemaAllOf() {
           } else {
             acc[key] = objTypeData;
           }
-        } // 一边为array
+        } // array
 
       } else if (Array.isArray(left) || Array.isArray(right)) {
-        // 同为数组取交集
+        //
         if (Array.isArray(left) && Array.isArray(right)) {
-          // 数组里面嵌套对象不支持 因为我不知道该怎么合并
+          //
           if (isObject(left[0]) || isObject(right[0])) {
-            throw new Error('暂不支持如上数组对象元素合并');
-          } // 交集
+            throw new Error('');
+          } //
 
 
-          var intersectionArray = intersection([].concat(left), [].concat(right)); // 没有交集
+          var intersectionArray = intersection([].concat(left), [].concat(right)); //
 
           if (intersectionArray.length <= 0) {
-            throw new Error('无法合并如上数据');
+            throw new Error('');
           }
 
           if (intersectionArray.length === 0 && key === 'type') {
-            // 自己取出值
+            //
             acc[key] = intersectionArray[0];
           } else {
             acc[key] = intersectionArray;
           }
         } else {
-          // 其中一边为 Array
-          // 查找包含关系
+          //  Array
+          //
           var _ref3 = Array.isArray(left) ? [left, right] : [right, left],
               _ref4 = _slicedToArray(_ref3, 2),
               arrayTypeData = _ref4[0],
-              _baseTypeData = _ref4[1]; // 空值直接合并另一边
+              _baseTypeData = _ref4[1]; //
 
 
           if (_baseTypeData === undefined) {
             acc[key] = arrayTypeData;
           } else {
             if (!arrayTypeData.includes(_baseTypeData)) {
-              throw new Error('无法合并如下数据');
+              throw new Error('');
             }
 
             acc[key] = _baseTypeData;
           }
         }
       } else if (left !== undefined && right !== undefined) {
-        // 两边都不是 undefined - 基础数据类型 string number boolean...
+        //  undefined -  string number boolean...
         if (key === 'maxLength' || key === 'maximum' || key === 'maxItems' || key === 'exclusiveMaximum' || key === 'maxProperties') {
           acc[key] = Math.min(left, right);
         } else if (key === 'minLength' || key === 'minimum' || key === 'minItems' || key === 'exclusiveMinimum' || key === 'minProperties') {
           acc[key] = Math.max(left, right);
         } else if (key === 'multipleOf') {
-          // 获取最小公倍数
+          //
           acc[key] = scm(left, right);
         } else {
           // if (left !== right) {
-          //     throw new Error('无法合并如下数据');
+          //     throw new Error('');
           // }
           acc[key] = left;
         }
       } else {
-        // 一边为undefined
+        // undefined
         acc[key] = left === undefined ? right : left;
       }
 
       return acc;
-    }, preVal); // 先进先出
+    }, preVal); //
 
     copyArgs.splice(0, 2, preVal);
   };
@@ -8208,7 +8208,7 @@ function mergeSchemaAllOf() {
 
 
 function resolveAllOf(schema, rootSchema, formData) {
-  // allOf item中可能存在 $ref
+  // allOf item $ref
   var resolvedAllOfRefSchema = _objectSpread2(_objectSpread2({}, schema), {}, {
     allOf: schema.allOf.map(function (allOfItem) {
       return retrieveSchema(allOfItem, rootSchema, formData);
@@ -8234,7 +8234,7 @@ function resolveSchema$1(schema) {
   var rootSchema = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   var formData = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-  // allOf 、$ref、dependencies 可能被同时配置
+  // allOf $refdependencies
   // allOf
   if (schema.hasOwnProperty('allOf')) {
     schema = resolveAllOf(schema, rootSchema, formData);
@@ -8266,8 +8266,8 @@ function resolveSchema$1(schema) {
 
 
   return schema;
-} // 这个函数将为formData中的每个键创建新的“属性”项
-// 查找到附加属性统一到properties[key]格式 并且打上标准
+} // formData
+// properties[key]
 
 /* function stubExistingAdditionalProperties(
     schema,
@@ -8300,7 +8300,7 @@ function resolveSchema$1(schema) {
         }
 
         // The type of our new key should match the additionalProperties value;
-        // 把追加进去的属性设置为标准 schema格式，同时打上标志
+        //  schema
         schema.properties[key] = additionalProperties;
         // Set our additional property flag so we know it was dynamically added
         schema.properties[key][ADDITIONAL_PROPERTY_FLAG] = true;
@@ -8308,7 +8308,7 @@ function resolveSchema$1(schema) {
 
     return schema;
 } */
-// 索引当前节点
+//
 
 
 function retrieveSchema(schema) {
@@ -8326,7 +8326,7 @@ function retrieveSchema(schema) {
  * Created by Liu.Jun on 2020/4/25 14:45.
  */
 
-var pathSeparator = '.'; // nodePath 转css类名
+var pathSeparator = '.'; // nodePath css
 
 function nodePath2ClassName(path) {
   var rootPathName = '__pathRoot';

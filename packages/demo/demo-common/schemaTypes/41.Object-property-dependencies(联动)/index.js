@@ -8,8 +8,8 @@ export default {
         type: 'object',
         properties: {
             unidirectional: {
-                title: '单向依赖',
-                description: '最基本的属性单向依赖，ui-schema 配置 onlyShowIfDependent 只在被依赖时才显示',
+                title: '',
+                description: 'ui-schema  onlyShowIfDependent ',
                 type: 'object',
                 'ui:options': {
                     onlyShowIfDependent: true
@@ -38,8 +38,8 @@ export default {
                 }
             },
             bidirectional: {
-                title: '双向依赖',
-                description: '显式地定义双向依赖，如果配置 onlyShowIfDependent 会导致初始化没有值时都无法渲染，这里需要使用者自行考虑',
+                title: '',
+                description: ' onlyShowIfDependent ',
                 type: 'object',
                 properties: {
                     name: {

@@ -1,12 +1,12 @@
-// 默认主题配置
+//
 // https://www.vuepress.cn/zh/theme/default-theme-config.html
 // https://github.com/vuejs/vuepress/blob/master/packages/docs/docs/.vuepress/config.js
 
 // ---
 //     tags:
-// - 配置
-// - 主题
-// - 索引
+// -
+// -
+// -
 // ---
 
 const lang = {

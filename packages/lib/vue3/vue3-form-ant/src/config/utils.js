@@ -1,5 +1,5 @@
 /**
- * Created by Liu.Jun on 2021/2/21 9:38 下午.
+ * Created by Liu.Jun on 2021/2/21 9:38 .
  */
 
 import { defineComponent, h } from 'vue';
@@ -14,7 +14,7 @@ const numberTimeComponent = component => defineComponent({
                 isNumberValue, isRange, value, ...otherAttrs
             } = attrs;
 
-            // antdv moment format 必须接受字符串时间戳
+            // antdv moment format 串时间戳
             const newValue = isNumberValue
                 ? (isRange
                     ? (value || []).map(item => (typeof item === 'number' ? String(item) : item))

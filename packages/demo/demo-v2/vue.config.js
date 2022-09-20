@@ -37,7 +37,7 @@ module.exports = {
     // cdn
     publicPath: isProduction ? '/' : '/',
 
-    // 资源目录
+    //
     outputDir,
 
     assetsDir: 'static',
@@ -67,15 +67,15 @@ module.exports = {
         };
     },
 
-    // webpack 链接 API，用于生成和修改 webpack 配置
+    // webpack  API webpack
     // https://github.com/mozilla-neutrino/webpack-chain
     chainWebpack: (config) => {
-        // 添加runtime
+        // runtime
         config.optimization.runtimeChunk({
             name: 'user-runtime'
         });
 
-        // 指定文件提取
+        //
         const splitConfig = {
             cacheGroups: {
                 vendors: {
@@ -95,9 +95,9 @@ module.exports = {
 
         config.optimization.splitChunks(splitConfig);
 
-        // js 文件名调整
+        // js
         if (isProduction) {
-            // 资源表
+            //
             config.plugin('manifest').use(ManifestPlugin, [{
                 fileName: 'manifest.json',
                 filter: (obj) => {
@@ -115,7 +115,7 @@ module.exports = {
             config.plugin('bundle-analyzer').use(BundleAnalyzerPlugin);
         }
 
-        // 移除 prefetch 插件
+        //  prefetch
         Object.keys(entries).forEach((item) => {
             config.plugins.delete(`prefetch-${item}`);
         });
@@ -158,6 +158,6 @@ module.exports = {
     // https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa
     pwa: {},
 
-    // 第三方插件配置
+    //
     pluginOptions: {}
 };

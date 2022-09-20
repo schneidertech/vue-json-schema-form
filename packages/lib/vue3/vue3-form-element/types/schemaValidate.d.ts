@@ -1,8 +1,8 @@
 declare namespace schemaValidate {
-    /** schema通过ajv校验formData并返回错误信息 */
+    /** schemaajvformData */
     function ajvValidateFormData(options: object): object;
 
-    /** 校验formData 并转换错误信息 */
+    /** formData 并转换错误信息 */
     function validateFormDataAndTransformMsg(options: object): object;
 
     /** schema 是否通过校验 */

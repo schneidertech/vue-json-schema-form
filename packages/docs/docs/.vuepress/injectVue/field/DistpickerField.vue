@@ -1,6 +1,6 @@
 <template>
     <el-form-item
-        label="（使用 ui:field）收件人地址"
+        label=" ui:field"
         required
     >
         <Distpicker
@@ -23,10 +23,10 @@
             Distpicker
         },
         props: {
-            // 统一的 field props
+            //  field props
             ...fieldProps,
 
-            // 如果配置 ui:fieldProps，这里申明参数
+            //  ui:fieldProps
             fieldProps: {
                 type: null,
                 default: null
@@ -34,10 +34,10 @@
         },
         data() {
             return {
-                // 默认值只做初始化 不需要响应式
+                //
                 defaultVal: vueUtils.getPathVal(this.rootFormData, this.curNodePath)
 
-                // 如下：也可以直接读取 rootFormData 的值，但固定了路径就不能通用
+                //  rootFormData
                 // defaultVal: this.rootFormData.address1
             };
         },
@@ -50,7 +50,7 @@
 
                 vueUtils.setPathVal(this.rootFormData, this.curNodePath, curVal);
 
-                // 如下：也可以直接设置 rootFormData 的值，但固定了路径就不能通用
+                //  rootFormData
                 // this.rootFormData.address1 = curVal;
             }
         }

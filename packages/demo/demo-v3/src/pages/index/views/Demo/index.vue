@@ -7,7 +7,7 @@
         >
             <div :class="$style.btns">
                 <template v-if="isUseLabelWidth">
-                    <span style="font-size: 13px;">标签：</span>
+                    <span style="font-size: 13px;"></span>
                     <el-slider
                         v-model="formProps.labelWidth"
                         style="width: 70px; margin-right: 6px;"
@@ -17,7 +17,7 @@
                 </template>
 
                 <template v-else>
-                    <span style="font-size: 13px;">labelCol：</span>
+                    <span style="font-size: 13px;">labelCol</span>
                     <el-slider
                         v-model="formProps.labelColSpan"
                         :min="3"

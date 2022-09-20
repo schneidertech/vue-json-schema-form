@@ -7,12 +7,12 @@
             "type": "object",
             "properties": {
                 "imgUrl": {
-                    "title": "图片地址",
+                    "title": "",
                     "type": "string",
                     "format": "uri"
                 },
                 "imgLink": {
-                    "title": "链接地址",
+                    "title": "",
                     "type": "string",
                     "format": "uri",
                     "default": "https://www.jd.com"
@@ -26,30 +26,30 @@
     },
     "properties": {
         "title": {
-            "title": "标题",
+            "title": "",
             "type": "string",
             "maxLength": 10
         },
         "subTitle": {
-            "title": "副标题",
+            "title": "",
             "type": "string",
             "maxLength": 30
         },
         "banner": {
-            "title": "左侧banner配置",
+            "title": "banner",
             "type": "object",
             "properties": {
                 "link": {
-                    "title": "banner图片和链接配置",
+                    "title": "banner",
                     "$ref": "#/definitions/ImgItem"
                 },
                 "bannerTitle": {
-                    "title": "banner主标题",
+                    "title": "banner",
                     "type": "string",
                     "maxLength": 4
                 },
                 "bannerSubTitle": {
-                    "title": "banner副标题",
+                    "title": "banner",
                     "type": "string",
                     "maxLength": 8
                 }
@@ -57,11 +57,11 @@
         },
         "goodsList": {
             "type": "array",
-            "title": "商品信息配置",
+            "title": "",
             "minItems": 4,
             "maxItems": 8,
             "items": {
-                "title": "配置商品信息",
+                "title": "",
                 "$ref": "#/definitions/ImgItem"
             }
         }

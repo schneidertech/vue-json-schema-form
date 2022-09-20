@@ -2,34 +2,34 @@
 sidebarDepth: 2
 ---
 
-# 配置（API）
+# API
 
-## 参数 Props
+##  Props
 
 ### schema
-* required：`true`
-* 类型：`object`
-* 默认值：`undefined`
+* required`true`
+* `object`
+* `undefined`
 
-用于描述表单数据的 JSON Schema，
-遵循 [JSON Schema](https://json-schema.org/understanding-json-schema/index.html) 规范
+ JSON Schema
+ [JSON Schema](https://json-schema.org/understanding-json-schema/index.html)
 
 ```
-title: '渲染为标题',
-description: '渲染为描述信息' // 支持html代码
+title: '',
+description: '' // html
 ```
 
-这里如果是 `object` 或者`array` 内的 `title` `description` 会被渲染为包裹容器`FieldGroupWrap` 标题和描述。
+ `object` `array`  `title` `description` `FieldGroupWrap`
 
-内部的 `title` `description` 会被 `widget` 组件渲染为 `formItem` 的标题和描述
+ `title` `description`  `widget`  `formItem`
 
-:::tip 如何隐藏
-* 不配置 `title` `description` 属性不会显示
-* 特例：对于`object` `array` 类型可以通过 ['ui:showTitle': false](#ui-schema) 参数控制是否显示
+:::tip
+*  `title` `description`
+* `object` `array`  ['ui:showTitle': false](#ui-schema)
 :::
 
 
-**例: 配置用户信息表单**
+**: **
 ::: demo
 ```html
 <template>
@@ -47,7 +47,7 @@ export default {
         return {
             formData: {},
             schema: {
-                title: 'UserInfo 表单',
+                title: 'UserInfo ',
                 description: 'A simple form example.',
                 type: 'object',
                 required: [
@@ -95,174 +95,174 @@ export default {
 :::
 
 ### ui-schema
-* 类型：`object`
-* 默认值：`{}`
-* `非必须`：ui 也可直接配置在 `schema` 中
+* `object`
+* `{}`
+* ``ui  `schema`
 
->* `0.0.16` 之后版本支持配置 `ui-schema` 在 `schema` 参数中 [点击查看](#ui-schema配置在schema中)
->* `0.1.0` 之后版本支持配置 [error-schema](#error-schema) 在 [ui-schema](#ui-schema) 中。（`ui-schema` 和 `error-schema` 格式完全相同，且同属ui显示，一份可方便配置）
+>* `0.0.16`  `ui-schema`  `schema`  [](#ui-schemaschema)
+>* `0.1.0`  [error-schema](#error-schema)  [ui-schema](#ui-schema) `ui-schema`  `error-schema` ui
 
-用于配置表单展示样式，普通json数据，非 `JSON Schema` 规范
+json `JSON Schema`
 
 
-#### ui-schema 表达式
-* `0.2` 版本之后，所有 `ui:xxx` 形式的配置都支持表达式（ui:options内不支持表达式以便区分）
-mustache 表达式可使用 `parentFormData`、`rootFormData` 两个内置变量。
-* `parentFormData` 当前节点父级的 FormData值
-* `rootFormData` 根节点的 FormData值
+#### ui-schema
+* `0.2`  `ui:xxx` ui:options
+mustache  `parentFormData``rootFormData`
+* `parentFormData`  FormData
+* `rootFormData`  FormData
 
-> 配置表达式会通过 `new Function` return 出结果，所以实际你在表达式中也可以访问到全局变量。
+>  `new Function` return
 
-比如：（参考这里：[uiSchema 使用表达式](https://form.lljj.me/#/demo?type=uiSchema%28表达式%29)）
+[uiSchema ](https://form.lljj.me/#/demo?type=uiSchema%28%29)
 ```
-'ui:title': `{{ parentFormData.age > 18 ? '呵呵呵' : '嘿嘿嘿' }}`
+'ui:title': `{{ parentFormData.age > 18 ? '' : '' }}`
 ```
 
 :::tip
-* 配置数据结构和 `schema` 保持一致，所有的ui配置属性 `ui:` 开头
-* 也可以在 `ui:options` 内配置所有的属性，不需要 `ui:` 开头
-* 如果配置了`ui:xx` 和 `ui:options` 内配置了`xx`属性，`ui:options`内的优先级更高，实际上你可以把所有的参数都配置在 `ui:options` 内；这里可以按照个人习惯，推荐使用如下参数格式
-> 注：ui-schema 为普通json数据，并非 JSON Schema 规范语法
+*  `schema` ui `ui:`
+*  `ui:options`  `ui:`
+* `ui:xx`  `ui:options` `xx``ui:options` `ui:options`
+> ui-schema json JSON Schema
 :::
 
-:::warning 注意
-* `ui:hidden` `ui:widget` `ui:field` `ui:fieldProps` 不支持配置在 `ui:options` 中
+:::warning
+* `ui:hidden` `ui:widget` `ui:field` `ui:fieldProps`  `ui:options`
 :::
 
 
-通用参数格式如下：
+
 ```js
 uiSchema = {
-     // 覆盖schema title
-    'ui:title': '覆盖schema title',
+     // schema title
+    'ui:title': 'schema title',
 
-    // 覆盖schema description
-    'ui:description': '覆盖schema description描述信息',
+    // schema description
+    'ui:description': 'schema description',
 
-    // 表单元素输入为空时的值，默认 undefined
+    //  undefined
     'ui:emptyValue': undefined,
 
-     // 是否隐藏当前节点，支持配置表达式，(不支持配置在options中)
+     // (options)
     // https://vue-json-schema-form.lljj.me/zh/guide/data-linkage.html#ui-schema%E9%85%8D%E7%BD%AE%E8%A1%A8%E8%BE%BE%E5%BC%8F
     'ui:hidden': false,
 
-     // 自定义field (不支持配置在options中)
+     // field (options)
     // https://vue-json-schema-form.lljj.me/zh/guide/adv-config.html#%E8%87%AA%E5%AE%9A%E4%B9%89field
     'ui:field': 'componentName',
 
-    // 自定义field时 传给field的额外props，通过 props: { fieldProps } 接收参数，(不支持配置在options中)
+    // field fieldprops props: { fieldProps } (options)
     'ui:fieldProps': undefined,
 
-    // 自定义widget组件，(不支持配置在options中)
+    // widget(options)
     // https://vue-json-schema-form.lljj.me/zh/guide/adv-config.html#%E8%87%AA%E5%AE%9A%E4%B9%89widget
     'ui:widget': 'el-slider',
 
-    // 传给formItem 组件 labelWidth，优先级更高（antdv formItem 没有该参数，可使用fieldAttrs配置labelCol控制label宽度）
-    // 也可在 fieldAttrs 中配置 labelWidth': '50px'
+    // formItem  labelWidthantdv formItem fieldAttrslabelCollabel
+    //  fieldAttrs  labelWidth': '50px'
     'ui:labelWidth': '50px',
 
     'ui:options': {
-            // scoped slots 使用render函数来实现
-            // 配置 renderScopedSlots 返回对象key为slotName，函数体返回vnode
-            // render 函数参考：https://cn.vuejs.org/v2/guide/render-function.html#%E6%B7%B1%E5%85%A5%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1
+            // scoped slots render
+            //  renderScopedSlots keyslotNamevnode
+            // render https://cn.vuejs.org/v2/guide/render-function.html#%E6%B7%B1%E5%85%A5%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1
             renderScopedSlots(h) {
                 return {
                     append: (props) => h('span', '.com')
                 };
             },
 
-            // slots，需要使用render函数来实现
-            // 配置 renderChildren ，返回 Vnode[] 其中slot即为slotName
-            // render 函数参考：https://cn.vuejs.org/v2/guide/render-function.html#%E6%B7%B1%E5%85%A5%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1
+            // slotsrender
+            //  renderChildren  Vnode[] slotslotName
+            // render https://cn.vuejs.org/v2/guide/render-function.html#%E6%B7%B1%E5%85%A5%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1
             renderChildren(h) {
                 return [
                     h('span', {
                         slot: 'suffix',
-                    }, '后缀')
+                    }, '')
                 ];
             },
 
-            // 获取widget组件实例，非必要场景不建议使用
-            // widget组件 mounted 组件后回调该方法传出vm实例
-            // 支持版本: "0.4.1"
+            // widget
+            // widget mounted vm
+            // : "0.4.1"
             getWidget: (widgetVm) => {
                 console.log(widgetVm);
             },
 
             // onChange
-            // 支持版本 1.3
+            //  1.3
             /**
              *
-             * @param curVal 当前值
-             * @param preVal 上一次的值
-             * @param parentFormData 当前父节点的值，响应式的值可在这里设置其它需要联动的值
-             * @param rootFormData 当前父节点的值，响应式的值可在这里设置其它需要联动的值
+             * @param curVal
+             * @param preVal
+             * @param parentFormData
+             * @param rootFormData
              */
             onChange({ curVal, preVal, parentFormData, rootFormData }) {
                 console.log('change:', curVal, preVal, parentFormData, rootFormData);
             },
 
-            // 显示标题？只对 type为`object`、`array` 类型有效
+            //  type`object``array`
             showTitle: true,
 
-             // 显示描述？ 只对type为 `object`、`array` 类型有效
+             //  type `object``array`
             showDescription: false,
 
-            // 默认不配置，0.2 版本新增，用于在多列布局时快速配置列宽度，当然你也可以使用fieldStyle配置样式实现
+            // 0.2 fieldStyle
             width: '100px',
 
             attrs: {
-                // 通过 vue render函数 attrs 传递给 Widget 组件，只能配置在叶子节点
-                // 你也配置在外层，程序会合并 attrs 和 其它外层属性 通过 attrs 传递给子组件
-                // 配置在这里的参数都会传给widget组件，当widget组件props和uiSchema通用参数冲突时可以使用attr配置
+                //  vue render attrs  Widget
+                //  attrs    attrs
+                // widgetwidgetpropsuiSchemaattr
                 autofocus: true,
-                width: '99px', // 这里直接传给widget组件，而非外层的width配置
+                width: '99px', // widgetwidth
             },
             style: {
-                // 通过 vue render函数 style 传递给 Widget 组件，只能配置在叶子节点
+                //  vue render style  Widget
                 boxShadow: '0 0 6px 2px #2b9939'
             },
             class: {
-                // 0.1.0 版本添加
-                // 通过 vue render函数 class 传递给 Widget 组件，只能配置在叶子节点
+                // 0.1.0
+                //  vue render class  Widget
                 className_hei: true
             },
             fieldStyle: {
-                // 0.1.0 版本添加
-                // 通过 vue render函数 style 传递给 Field 组件，支持所有field节点
+                // 0.1.0
+                //  vue render style  Field field
                 background: 'red'
             },
             fieldClass: {
-                // 0.1.0 版本添加
-                // 通过 vue render函数 class 传递给 Field 组件，支持所有field节点
+                // 0.1.0
+                //  vue render class  Field field
                 fieldClass: true
             },
             fieldAttrs: {
-                // 通过 vue render函数 attrs 传递给 Field 组件，支持所有节点
+                //  vue render attrs  Field
                 'attr-x': 'xxx'
             },
 
-            // 其它所有参数会合并到 attrs 传递给 Widget 组件
+            //  attrs  Widget
             type: 'textarea',
-            placeholder: '请输入你的内容'
+            placeholder: ''
     }
 }
 ```
 
->1. `ui:field` 自定义field组件参见这里  [自定义 field](/zh/guide/adv-config.html#自定义field)
->1. `ui:widget` 自定义widget组件参见这里  [自定义 widget](/zh/guide/adv-config.html#自定义widget)
->1. `ui:widget` 配置 `HiddenWidget` 或者 `hidden` 既可隐藏当前元素
->1. `ui:hidden` 支持配置表达式，详细参见这里 [ui-schema ui:hidden配置表达式](/zh/guide/data-linkage.html#ui-schema配置表达式)
+>1. `ui:field` field  [ field](/zh/guide/adv-config.html#field)
+>1. `ui:widget` widget  [ widget](/zh/guide/adv-config.html#widget)
+>1. `ui:widget`  `HiddenWidget`  `hidden`
+>1. `ui:hidden`  [ui-schema ui:hidden](/zh/guide/data-linkage.html#ui-schema)
 
 ### ui-schema - events
-可以通过uiSchema widgetListeners 配置组件 emit events
+uiSchema widgetListeners  emit events
 
 :::warning
-* 注意该配置只适合 `vue2`
-* `vue3` 的版本可以直接传递 `ui:onXxx` 即可，参见：[vue3 listeners](https://v3.cn.vuejs.org/guide/migration/listeners-removed.html#%E6%A6%82%E8%A7%88)
+*  `vue2`
+* `vue3`  `ui:onXxx` [vue3 listeners](https://v3.cn.vuejs.org/guide/migration/listeners-removed.html#%E6%A6%82%E8%A7%88)
 :::
 
-> 如下：通过配置 ui widgetListener配置widget组件内的events
+>  ui widgetListenerwidgetevents
 
 ```js
 {
@@ -279,45 +279,45 @@ uiSchema = {
 
 
 ### ui-schema - slots
-可以通过uiSchema配置render函数传递slot到你的Widget组件，使用方式如下：
+uiSchemarenderslotWidget
 
-> 注意这里vue2版本需要区分slots，和scopeSlots的区别，配置如下
+> vue2slotsscopeSlots
 >
-> [render函数参考官方文档](https://cn.vuejs.org/v2/guide/render-function.html#%E6%B7%B1%E5%85%A5%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1)
+> [render](https://cn.vuejs.org/v2/guide/render-function.html#%E6%B7%B1%E5%85%A5%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1)
 
-* slots - `renderChildren` (仅vue2)
+* slots - `renderChildren` (vue2)
 
-> 注意：vue3 版本所有slots 统一通过 `renderScopedSlots` 形式传递。
+> vue3 slots  `renderScopedSlots`
 
 ```js
 {
     'ui:options': {
-        // slots，需要使用render函数来实现
-        // 配置 renderChildren ，返回 Vnode[] 其中slot即为slotName
-        // render 函数参考：https://cn.vuejs.org/v2/guide/render-function.html#%E6%B7%B1%E5%85%A5%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1
+        // slotsrender
+        //  renderChildren  Vnode[] slotslotName
+        // render https://cn.vuejs.org/v2/guide/render-function.html#%E6%B7%B1%E5%85%A5%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1
         renderChildren(h) {
             return [
                 h('span', {
                     slot: 'suffix',
-                }, '后缀')
+                }, '')
             ];
         }
     }
 }
 ```
 
-* scopedSlots - `renderScopedSlots` （vue3、vue2）
-> vue3版本 h 为全局api，`import { h } from 'vue'`
+* scopedSlots - `renderScopedSlots` vue3vue2
+> vue3 h api`import { h } from 'vue'`
 >
-> 同时，vue3 版本配置 `renderScopedSlots` 可以为纯对象、vue3不区分scoped slots
+> vue3  `renderScopedSlots` vue3scoped slots
 
 ```js
 {
     'ui:options': {
         // vue2
-        // scoped slots 使用render函数来实现
-        // 配置 renderScopedSlots 返回对象key为slotName，函数体返回vnode
-        // render 函数参考：https://cn.vuejs.org/v2/guide/render-function.html#%E6%B7%B1%E5%85%A5%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1
+        // scoped slots render
+        //  renderScopedSlots keyslotNamevnode
+        // render https://cn.vuejs.org/v2/guide/render-function.html#%E6%B7%B1%E5%85%A5%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1
         renderScopedSlots(h){
             return {
                 append: (props) => h('span', '.com')
@@ -327,9 +327,9 @@ uiSchema = {
 
     'ui:options': {
         // vue3
-        // slots 使用render函数来实现
-        // vue3 renderScopedSlots 可以为function、或者如下纯对象的形式
-        // vue3 render 函数参考：https://v3.cn.vuejs.org/guide/render-function.html#%E6%8F%92%E6%A7%BD
+        // slots render
+        // vue3 renderScopedSlots function
+        // vue3 render https://v3.cn.vuejs.org/guide/render-function.html#%E6%8F%92%E6%A7%BD
         renderScopedSlots: {
             default: (props) =>h('span', props.text)
         }
@@ -337,14 +337,14 @@ uiSchema = {
 }
 ```
 
-#### ui-schema配置在schema中
+#### ui-schemaschema
 
-`0.0.16` 之后版本，`ui-schema` 所有配置都支持直接配置在 `schema` 参数中
+`0.0.16` `ui-schema`  `schema`
 
-* `ui-schema` 单独配置优先级大于 `schema` 中配置
-* 好处可以一份配置，不过会使 `schema` 不再是一份纯粹的 `JSON Schema` 文件，结合实际场景选择方案。
+* `ui-schema`  `schema`
+*  `schema`  `JSON Schema`
 
-如下格式：
+
 ```json
 {
     "title": "Demo",
@@ -357,7 +357,7 @@ uiSchema = {
         "firstName": {
             "type": "string",
             "title": "First name",
-            "ui:placeholder": "请输入FirstName（配置在schema中）"
+            "ui:placeholder": "FirstNameschema"
         },
         "bio": {
             "type": "string",
@@ -365,7 +365,7 @@ uiSchema = {
             "minLength": 10,
             "ui:options": {
                 "type": "textarea",
-                "placeholder": "请输入FirstName（配置在schema中）",
+                "placeholder": "FirstNameschema",
                 "rows": 4
             }
         }
@@ -373,7 +373,7 @@ uiSchema = {
 }
 ```
 
-#### ui-schema配置演示：重置表单widget样式
+#### ui-schemawidget
 ::: demo
 ```html
 <template>
@@ -401,7 +401,7 @@ export default {
                     firstName: {
                         type: 'string',
                         title: 'First name',
-                        'ui:placeholder': '请输入FirstName（配置在schema中）'
+                        'ui:placeholder': 'FirstNameschema'
                     },
                     bio: {
                         type: 'string',
@@ -409,7 +409,7 @@ export default {
                         minLength: 10,
                         'ui:options': {
                             type: 'textarea',
-                            placeholder: 'placeholder（配置在schema中）',
+                            placeholder: 'placeholderschema',
                             rows: 4
                         }
                     },
@@ -418,11 +418,11 @@ export default {
                         type: 'string'
                     },
                     number: {
-                        title: 'Number (默认渲染组件)',
+                        title: 'Number ()',
                         type: 'number'
                     },
                     integerRange: {
-                        title: 'Integer range (使用 ElSlider)',
+                        title: 'Integer range ( ElSlider)',
                         type: 'integer',
                         minimum: 42,
                         maximum: 100
@@ -432,7 +432,7 @@ export default {
             uiSchema: {
                 'ui:order': ['number', '*'],
                 inputText: {
-                    'ui:description': '这里重置了描述信息',
+                    'ui:description': '',
                     'ui:emptyValue': '',
                     'ui:options': {
                         style: {
@@ -444,11 +444,11 @@ export default {
                         type: 'textarea',
                         autofocus: true,
                         rows: 6,
-                        placeholder: '请输入你的内容'
+                        placeholder: ''
                     }
                 },
                 number: {
-                    'ui:title': '这里重置了标题'
+                    'ui:title': ''
                 },
                 integerRange: {
                     'ui:widget': 'el-slider',
@@ -461,10 +461,10 @@ export default {
 ```
 :::
 
-::: warning 注意
-配置数据结构是和 `schema` 保持一致，而非 `formData` 一致
+::: warning
+ `schema`  `formData`
 
-比如配置数组元素：
+
 ```js
 
 // schema
@@ -487,10 +487,10 @@ schema = {
 ```
 
 ```js
-// 正确的配置
+//
 uiSchema = {
     fixedItemsList: {
-         // 这里保持和 schema 结构相同
+         //  schema
          items: [
              {
                  'ui:options': {
@@ -503,7 +503,7 @@ uiSchema = {
 ```
 
 ```js
-// 错误的配置
+//
 uiSchema = {
     fixedItemsList: [
          {
@@ -518,33 +518,33 @@ uiSchema = {
 :::
 
 ### error-schema
-* 类型：`object`
-* 默认值：`{}`
-* `非必须`：ui 也可直接配置在 `schema` 中
+* `object`
+* `{}`
+* ``ui  `schema`
 
->* `0.0.16` 之后版本支持配置 `error-schema` 在 `schema` 参数中 [点击查看](#error-schema配置在schema中)
->* `0.1.0` 之后版本支持配置 [error-schema](#error-schema) 在 [ui-schema](#ui-schema) 中。（`ui-schema` 和 `error-schema` 格式完全相同，且同属ui显示，一份可方便配置）
+>* `0.0.16`  `error-schema`  `schema`  [](#error-schemaschema)
+>* `0.1.0`  [error-schema](#error-schema)  [ui-schema](#ui-schema) `ui-schema`  `error-schema` ui
 
-用于配置表单校验错误文案信息，普通json数据，非 JSON Schema 规范
+json JSON Schema
 
-数据配置和 `ui-schema` 保存一致，区别在于：
-1. 使用 `err:` 做前缀
-1. 使用配置的 schema 错误类型的 `err:${name}` 做key，比如 `err:format` 、`err:required` 、`err:type`
+ `ui-schema`
+1.  `err:`
+1.  schema  `err:${name}` key `err:format` `err:required` `err:type`
 
 ::: tip
- * 配置数据结构和schema保持一致，所有的 `error` 配置属性 `err:` 开头
- * 也可以在 `err:options` 内配置所有的属性，不需要 `err:` 开头
- * 如果配置了`err:xx` 和 `err:options` 内配置了`xx`属性，`err:options`内优先级更高，实际上你可以把所有的参数都配置在 `err:options` 内；这里可以按照个人习惯
- > 注：error-schema 为标准json数据，并非JSON Schema规范语法
+ * schema `error`  `err:`
+ *  `err:options`  `err:`
+ * `err:xx`  `err:options` `xx``err:options` `err:options`
+ > error-schema jsonJSON Schema
  :::
 
-#### error-schema配置在schema中
+#### error-schemaschema
 
-`0.0.16` 之后版本，`error-schema` 所有配置都支持直接配置在 `schema` 参数中。
+`0.0.16` `error-schema`  `schema`
 
-> 使用格式类似 [ui-schema配置在schema中](#ui-schema配置在schema中)
+>  [ui-schemaschema](#ui-schemaschema)
 
-error-schema配置演示：重置表单错误信息
+error-schema
 
 ::: demo
 ```html
@@ -574,25 +574,25 @@ export default {
                 properties: {
                     userName: {
                         type: 'string',
-                        title: '用户名',
+                        title: '',
                         default: 'Liu.Jun'
                     },
                     homePage: {
                         type: 'string',
                         format: 'uri',
-                        title: '个人主页',
-                        'err:required': '请输入个人主页地址（schema中配置）',
-                        'err:format': '请输入正确的Url地址（schema中配置）'
+                        title: '',
+                        'err:required': 'schema',
+                        'err:format': 'Urlschema'
                     },
                     bio: {
                         type: 'string',
-                        title: '签名',
+                        title: '',
                         minLength: 10
                     },
                     listOfStrings: {
                         type: 'array',
                         title: 'A list of strings',
-                        description: '最少包含两个item',
+                        description: 'item',
                         uniqueItems: true,
                         minItems: 2,
                         items: {
@@ -616,31 +616,31 @@ export default {
             uiSchema: {
                 bio: {
                     'ui:type': 'textarea',
-                    'ui:placeholder': '请输入 ...',
-                    'err:required': '请输入（ui-schema中配置）',
+                    'ui:placeholder': ' ...',
+                    'err:required': 'ui-schema',
                 },
             },
             errorSchema: {
                 userName: {
                     'err:options': {
-                        required: '请输入用户名'
+                        required: ''
                     }
                 },
                 bio: {
-                    'err:minLength': '签名最小长度10个字符串'
+                    'err:minLength': '10'
                 },
                 listOfStrings: {
-                    'err:uniqueItems': '不能包含重复的值',
+                    'err:uniqueItems': '',
                     items: {
                         'err:options': {
-                            required: '不能为空 ~'
+                            required: ' ~'
                         }
                     }
                 },
                 fixedItemsList: {
                     items: [
                         {
-                            'err:maxLength': '老铁，最多只能输入两个字符'
+                            'err:maxLength': ''
                         }
                     ]
                 }
@@ -653,14 +653,14 @@ export default {
 :::
 
 ### custom-formats
-* 类型：`object`
-* 默认值：`{}`
+* `object`
+* `{}`
 
-自定义校验规则，调用 `avj.addFormat` 方法添加新的format，[查看](https://github.com/ajv-validator/ajv#addformatstring-name-stringregexpfunctionobject-format---ajv)
+ `avj.addFormat` format[](https://github.com/ajv-validator/ajv#addformatstring-name-stringregexpfunctionobject-format---ajv)
 
-如下，演示添加一种价格校验类型：
 
-::: demo 金额大于0 < 999999.99，保留两位小数
+
+::: demo 0 < 999999.99
 ```html
 <template>
     <vue-form
@@ -686,8 +686,8 @@ export default {
                 properties: {
                     price: {
                         type: 'string',
-                        title: '价格',
-                        description: '请输入数字，最多保留两位小数点，最大值999999.99',
+                        title: '',
+                        description: '999999.99',
                         format: 'price'
                     }
                 }
@@ -695,8 +695,8 @@ export default {
             errorSchema: {
                 price: {
                     'err:options': {
-                        required: '请输入价格',
-                        format: '最多保留两位小数点，最大值999999.99'
+                        required: '',
+                        format: '999999.99'
                     }
                 }
             },
@@ -713,39 +713,39 @@ export default {
 :::
 
 ### custom-rule
-* 类型：`function`
-* 默认值：`-`
+* `function`
+* `-`
 
-* 自定义校验规则，实现类似 el-form rules validator 的方式校验表单数据
-* [详细查看这里](/zh/guide/validate.html#custom-rule-自定义校验)
+*  el-form rules validator
+* [](/zh/guide/validate.html#custom-rule-)
 
 ### value / v-model
-* 类型：`object`
-* 默认值：`{}`
+* `object`
+* `{}`
 
-表单绑定值，`对于不需要双向绑定的值，可以使用 value props`
+` value props`
 
 
 ### form-footer
-* 类型：`object`
+* `object`
 
 ```js
-// 默认值
+//
 formFooter = {
-    show: true, // 是否显示默认底部
-    okBtn: '保存', // 确认按钮文字
-    okBtnProps: { type: 'primary' }, // 传递确认按钮的 props，例如配置按钮 loading 状态 okBtnProps: { loading: true }
-    cancelBtn: '取消', // 取消按钮文字
+    show: true, //
+    okBtn: '', //
+    okBtnProps: { type: 'primary' }, //  props loading  okBtnProps: { loading: true }
+    cancelBtn: '', //
 
-    // 透传给formFooter 中的formItem组件的参数
-    // 例如 vue3-ant 配置wrapperCol  formItemAttrs = { wrapperCol: { span: 10, offset: 5 }}
+    // formFooter formItem
+    //  vue3-ant wrapperCol  formItemAttrs = { wrapperCol: { span: 10, offset: 5 }}
     formItemAttrs: {}
 }
 ```
 
-#### formFooter show: false 如何手动校验
-配置了 formFooter `show: false` 需要手动触发表单校验、提交等操作，可以参考如下方法：
-1. 可以直接使用表单实例的 [$$uiFormRef](/zh/guide/basic-config.html#uiformref) 属性获取ui组件form引用，比如elementUi的elForm组件，然后直接调用对应的 `validate` 方法即可
+#### formFooter show: false
+ formFooter `show: false`
+1.  [$$uiFormRef](/zh/guide/basic-config.html#uiformref) uiformelementUielForm `validate`
 
 ```html
 <template>
@@ -755,7 +755,7 @@ formFooter = {
 <script>
 export default {
   async submit() {
-    // 伪代码
+    //
     await this.$refs.myForm.$$uiFormRef.validate()
     this.postData()
   }
@@ -763,18 +763,18 @@ export default {
 </script>
 ```
 
-2. 如果你的提交按钮还是在表单内，可以直接使用 scope slot 参数中获取到表单引用
+2.  scope slot
 
-参考：[slot-scope](/zh/guide/basic-config.html#插槽-scope-slot)
+[slot-scope](/zh/guide/basic-config.html#-scope-slot)
 
 
 ### fallback-label
-* 类型：`boolean`
-* default：`false`
+* `boolean`
+* default`false`
 
-当 `schema` 没有配置 `title`，是否使用当前属性名做为表单 `label`
+ `schema`  `title` `label`
 
-如下，配置 `fallback-label` 为 `true`， `label` 将显示为 `street_address`
+ `fallback-label`  `true` `label`  `street_address`
 ```js
 schema = {
     properties: {
@@ -786,46 +786,46 @@ schema = {
 ```
 
 ### form-props
-* 类型：`object`
-`form-props` 支持如下两部分参数：
+* `object`
+`form-props`
 
-* 固定参数部分
+*
 
-和当前使用的ui库无关
+ui
 ```js
-// 默认值
+//
 formProps = {
-    layoutColumn: 1, // 1 2 3 ，支持 1 2 3 列布局，如果使用inline表单这里配置无效
-    inline: false, // 行内表单模式，建议：开启时labelPosition不要配置top, antd不要配置labelCol wrapperCol
-    inlineFooter: false, // 如果想要保存按钮和表单元素一行显示，需要配置 true
-    labelSuffix: '：', // label后缀
-    labelPosition: 'top', // 表单域标签的位置
-    isMiniDes: false, // 是否优先mini形式显示描述信息（label文字和描述信息同行显示）
-    defaultSelectFirstOption: true, // 单选框必填，是否默认选中第一个
+    layoutColumn: 1, // 1 2 3  1 2 3 inline
+    inline: false, // labelPositiontop, antdlabelCol wrapperCol
+    inlineFooter: false, //  true
+    labelSuffix: '', // label
+    labelPosition: 'top', //
+    isMiniDes: false, // minilabel
+    defaultSelectFirstOption: true, //
 }
 ```
 
-* 当前ui库form组件的参数
-如上固定参数以外的参数，都会传给当前ui库的form组件，比如elementUi el-form、IView i-form ...
+* uiform
+uiformelementUi el-formIView i-form ...
 ```js
 formProps = {
-    layoutColumn: 2, // 1 2 3 ，支持 1 2 3 列布局，如果使用inline表单这里配置无效
+    layoutColumn: 2, // 1 2 3  1 2 3 inline
 
-    // 如下为form组件参数
-    // 如elementUi el-form labelWidth
-    labelWidth: 'auto', // 表单域标签的宽度，例如 '50px'
+    // form
+    // elementUi el-form labelWidth
+    labelWidth: 'auto', //  '50px'
 }
 ```
 
 ### strict-mode
-严格模式，开启后计算表单默认值时会对 `anyOf`/`onyOf` 做严格匹配。参见 issue: [#157](https://github.com/lljj-x/vue-json-schema-form/issues/157)
+ `anyOf`/`onyOf`  issue: [#157](https://github.com/lljj-x/vue-json-schema-form/issues/157)
 
-* 类型：`boolean`
-* default：`false`
+* `boolean`
+* default`false`
 
 
-## 事件 Emit Event
-emit所有事件如下：
+##  Emit Event
+emit
 
 ::: demo
 ```html
@@ -852,12 +852,12 @@ export default {
             });
         },
         handlerCancel() {
-            this.$message.warning('点击了取消');
+            this.$message.warning('');
         },
         handlerChange({ oldValue, newValue }) {
             const vNode = this.$createElement('pre', JSON.stringify(newValue, null, 4));
             this.$notify({
-                title: '输入数据',
+                title: '',
                 message: vNode
             });
         },
@@ -871,7 +871,7 @@ export default {
                 type: 'object',
                 properties: {
                     name: {
-                        title: '输入名字',
+                        title: '',
                         type: 'string'
                     }
                 }
@@ -884,79 +884,79 @@ export default {
 :::
 
 ### on-submit
-* 参数(formData)
+* (formData)
 
 ::: warning
-vue3的版本中为 `submit`，去掉 `on` 前缀
+vue3 `submit` `on`
 :::
 
-点击提交按钮，且表单通过校验
 
-> 事件只有在配置了显示默认底部才会触发，[props form-footer](#form-footer)
+
+> [props form-footer](#form-footer)
 
 ### on-validation-failed
-* 参数(errorObj)
+* (errorObj)
 
 ::: warning
-vue3的版本中为 `validation-failed`，去掉 `on` 前缀
+vue3 `validation-failed` `on`
 :::
 
-点击提交按钮，且表单不通过，可以在这里获取到错误信息
 
-> 事件只有在配置了显示默认底部才会触发，[props form-footer](#form-footer)
+
+> [props form-footer](#form-footer)
 
 
 ### on-cancel
-* 参数(无)
+* ()
 
 ::: warning
-vue3的版本中为 `cancel`，去掉 `on` 前缀
+vue3 `cancel` `on`
 :::
 
-点击取消按钮
-> 事件只有在配置了显示默认底部才会触发，[props form-footer](#form-footer)
+
+> [props form-footer](#form-footer)
 
 ### on-change
-* 参数(newVal, oldVal)
+* (newVal, oldVal)
 
 ::: warning
-vue3的版本中为 `change`，去掉 `on` 前缀
+vue3 `change` `on`
 :::
 
-表单的值发生改变
-> 引用类型，只有重新对对象赋值，否则newVal 等于 oldVal 参见 [vue watch](https://cn.vuejs.org/v2/api/#vm-watch)
+
+> newVal  oldVal  [vue watch](https://cn.vuejs.org/v2/api/#vm-watch)
 
 ### on-form-mounted
-* 参数(formRef, { formData })
+* (formRef, { formData })
 
-通过该方法可以获取到当前ui框架的form组件实例，可用来执行form组件的一些方法，如(`validate`)
+uiformform(`validate`)
 
 ::: warning
-vue3的版本中为 `form-mounted`，去掉 `on` 前缀
+vue3 `form-mounted` `on`
 :::
 
-## 方法 Methods
-- 无
+##  Methods
+-
 
-## 属性 Attrs
+##  Attrs
 ### $$uiFormRef
-`1.10` 版本新增，在旧版本需要在[on-form-mounted](#on-form-mounted)中获ui框架form实例
-* 方便直接获取ui框架form组件实例
+`1.10` [on-form-mounted](#on-form-mounted)uiform
+* uiform
 
 ::: warning
-* 注：`mounted` 之后才会设置该属性
+* `mounted`
 :::
 
-## 插槽 Scope-Slot
-* name `default`，自定义form 包含内容，配置后会覆盖默认 `form-footer`
+##  Scope-Slot
+* name `default`form  `form-footer`
 
-参数为: { formData, formRefFn }
+: { formData, formRefFn }
 
-::: tip 参数说明
-* `formData` 当前表单元素的值，响应式
-* `formRefFn` 为 `function`，调用返回 `el-form` 组件ref实例
+::: tip
+* `formData`
+* `formRefFn`  `function` `el-form` ref
 :::
-如：
+
 ::: demo
 ```html
 <template>
@@ -966,7 +966,7 @@ vue3的版本中为 `form-mounted`，去掉 `on` 前缀
     >
         <div slot-scope="{ formData, formRefFn }">
             <pre style="background-color: #eee;">{{ JSON.stringify(formData, null, 4) }}</pre>
-            <p><el-button @click="consoleLog(formRefFn)" type="primary">点击</el-button></p>
+            <p><el-button @click="consoleLog(formRefFn)" type="primary"></el-button></p>
         </div>
     </vue-form>
 </template>
@@ -988,7 +988,7 @@ export default {
                 type: 'object',
                 properties: {
                     name: {
-                        title: '输入名字',
+                        title: '',
                         type: 'string'
                     }
                 }

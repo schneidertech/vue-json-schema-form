@@ -22,7 +22,7 @@
                 style="position: fixed;right: 20px;top: 20px;z-index: 5;"
                 @click="(scale = 70) && (isPreview = false)"
             >
-                结束预览
+                束预览
             </el-button>
         </transition>
 

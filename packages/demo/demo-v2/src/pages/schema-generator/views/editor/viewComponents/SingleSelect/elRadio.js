@@ -5,7 +5,7 @@
 import baseRadio from './index';
 
 const viewSchema = {
-    title: '单选(Radio)',
+    title: '(Radio)',
     type: 'string',
     'ui:widget': 'RadioWidget'
 };

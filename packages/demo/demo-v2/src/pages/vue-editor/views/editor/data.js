@@ -15,7 +15,7 @@ function getComponentMap(configTools) {
         ...curVal.componentList
     ], []);
 
-    // 注册组件结构
+    // 结构
     return componentList.reduce((preVal, componentItem) => {
         preVal[componentItem.name] = componentItem;
         return preVal;

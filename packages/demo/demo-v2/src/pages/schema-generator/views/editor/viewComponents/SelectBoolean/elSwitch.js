@@ -5,7 +5,7 @@
 import genSchema from '../genSchema.js';
 
 const viewSchema = {
-    title: '是否选择(Switch)',
+    title: '(Switch)',
     type: 'boolean'
 };
 
@@ -14,17 +14,17 @@ export default {
     propsSchema: genSchema({
         options: {
             type: 'object',
-            title: '选项',
+            title: '',
             properties: {
                 uiOptions: {
                     type: 'object',
                     properties: {
                         activeText: {
-                            title: '选择文案',
+                            title: '',
                             type: 'string'
                         },
                         inactiveText: {
-                            title: '非选择文案',
+                            title: '',
                             type: 'string'
                         }
                     }

@@ -2,7 +2,7 @@
  * Created by Liu.Jun on 2019/9/29 18:58.
  */
 
-// 基础组件
+// 础组件
 import componentPackInput from '../viewComponents/Input';
 import componentPackColor from '../viewComponents/Color';
 import componentPackInputNumber from '../viewComponents/InputNumber';

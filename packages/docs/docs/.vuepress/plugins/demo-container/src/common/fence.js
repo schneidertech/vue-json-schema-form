@@ -1,4 +1,4 @@
-// 覆盖默认的 fence 渲染策略
+// 盖默认的 fence 渲染策略
 module.exports = md => {
   const defaultRender = md.renderer.rules.fence;
   md.renderer.rules.fence = (tokens, idx, options, env, self) => {

@@ -4,8 +4,8 @@ pageClass: custom-page-home
 heroImage: /logo.png
 heroText: Vue JSON Schema Form
 tagline: Quickly building HTML form based on Vue and JSON Schema
-footer: Apache2.0 Licensed | Copyright © 2020-2020 Jun
-# actionText: Quick start →
+footer: Apache2.0 Licensed | Copyright  2020-2020 Jun
+# actionText: Quick start
 # actionLink: /en/guide/
 ---
 

@@ -3,10 +3,10 @@
  * @param rootSchema
  * @param formData
  * @returns {{properties: *}|{}|{properties: *}|{}|{properties: *}|{additionalProperties}|*|{}|{allOf}}
- * 源码来自：react-jsonschema-form
- * 做了细节和模块调整
- * 重写了allOf实现逻辑（解决使用allOf必须根节点同时存在，以及对json-schema-merge-allof依赖包过大）
- * 移除对lodash 、json-schema-merge-allof、jsonpointer 等依赖重新实现
+ * react-jsonschema-form
+ *
+ * allOfallOfjson-schema-merge-allof
+ * lodash json-schema-merge-allofjsonpointer
  * https://github.com/rjsf-team/react-jsonschema-form/blob/master/packages/core/src/utils.js#L621
  */
 
@@ -19,7 +19,7 @@ import {
 
 // import { getMatchingOption, isValid } from './validate';
 
-// 自动添加分割线
+//
 
 // export const ADDITIONAL_PROPERTY_FLAG = '__additional_property';
 
@@ -27,7 +27,7 @@ import {
 // https://json-schema.org/understanding-json-schema/reference/object.html#dependencies
 /*
 export function resolveDependencies(schema, rootSchema, formData) {
-    // 从源模式中删除依赖项。
+    //
     const { dependencies = {} } = schema;
     let { ...resolvedSchema } = schema;
     if ('oneOf' in resolvedSchema) {
@@ -48,7 +48,7 @@ export function resolveDependencies(schema, rootSchema, formData) {
 }
 */
 
-// 处理依赖关系 dependencies
+//  dependencies
 // https://json-schema.org/understanding-json-schema/reference/object.html#dependencies
 /*
 
@@ -99,7 +99,7 @@ function processDependencies(
 }
 */
 
-// 属性依赖
+//
 // https://json-schema.org/understanding-json-schema/reference/object.html#property-dependencies
 
 /*
@@ -114,7 +114,7 @@ function withDependentProperties(schema, additionallyRequired) {
 }
 */
 
-// schema 依赖
+// schema
 // https://json-schema.org/understanding-json-schema/reference/object.html#schema-dependencies
 /*
 function withDependentSchema(
@@ -210,7 +210,7 @@ function resolveReference(schema, rootSchema, formData) {
 }
 
 
-// 深度递归合并 合并allOf的每2项
+//  allOf2
 function mergeSchemaAllOf(...args) {
     if (args.length < 2) return args[0];
 
@@ -225,18 +225,18 @@ function mergeSchemaAllOf(...args) {
             const left = obj1[key];
             const right = obj2[key];
 
-            // 左右一边为object
+            // object
             if (isObject(left) || isObject(right)) {
 
-                // 两边同时为object
+                // object
                 if (isObject(left) && isObject(right)) {
                     acc[key] = mergeSchemaAllOf(left, right);
                 } else {
-                    // 其中一边为 object
+                    //  object
                     const [objTypeData, baseTypeData] = isObject(left) ? [left, right] : [right, left];
 
                     if (key === 'additionalProperties') {
-                        // 适配类型： 一边配置了对象一边没配置或者true false
+                        //  true false
                         // {
                         //     additionalProperties: {
                         //         type: 'string',
@@ -248,68 +248,68 @@ function mergeSchemaAllOf(...args) {
                         acc[key] = objTypeData;
                     }
                 }
-                // 一边为array
+                // array
             } else if (Array.isArray(left) || Array.isArray(right)) {
 
-                // 同为数组取交集
+                //
                 if (Array.isArray(left) && Array.isArray(right)) {
 
-                    // 数组里面嵌套对象不支持 因为我不知道该怎么合并
+                    //
                     if (isObject(left[0]) || isObject(right[0])) {
-                        throw new Error('暂不支持如上数组对象元素合并');
+                        throw new Error('');
                     }
 
-                    // 交集
+                    //
                     const intersectionArray = intersection([].concat(left), [].concat(right));
 
-                    // 没有交集
+                    //
                     if (intersectionArray.length <= 0) {
-                        throw new Error('无法合并如上数据');
+                        throw new Error('');
                     }
 
                     if (intersectionArray.length === 0 && key === 'type') {
-                        // 自己取出值
+                        //
                         acc[key] = intersectionArray[0];
                     } else {
                         acc[key] = intersectionArray;
                     }
                 } else {
-                    // 其中一边为 Array
-                    // 查找包含关系
+                    //  Array
+                    //
                     const [arrayTypeData, baseTypeData] = Array.isArray(left) ? [left, right] : [right, left];
-                    // 空值直接合并另一边
+                    //
                     if (baseTypeData === undefined) {
                         acc[key] = arrayTypeData;
                     } else {
                         if (!arrayTypeData.includes(baseTypeData)) {
-                            throw new Error('无法合并如下数据');
+                            throw new Error('');
                         }
                         acc[key] = baseTypeData;
                     }
                 }
             } else if (left !== undefined && right !== undefined) {
-                // 两边都不是 undefined - 基础数据类型 string number boolean...
+                //  undefined -  string number boolean...
                 if (key === 'maxLength' || key === 'maximum' || key === 'maxItems' || key === 'exclusiveMaximum' || key === 'maxProperties') {
                     acc[key] = Math.min(left, right);
                 } else if (key === 'minLength' || key === 'minimum' || key === 'minItems' || key === 'exclusiveMinimum' || key === 'minProperties') {
                     acc[key] = Math.max(left, right);
                 } else if (key === 'multipleOf') {
-                    // 获取最小公倍数
+                    //
                     acc[key] = scm(left, right);
                 } else {
                     // if (left !== right) {
-                    //     throw new Error('无法合并如下数据');
+                    //     throw new Error('');
                     // }
                     acc[key] = left;
                 }
             } else {
-                // 一边为undefined
+                // undefined
                 acc[key] = left === undefined ? right : left;
             }
             return acc;
         }, preVal);
 
-        // 先进先出
+        //
         copyArgs.splice(0, 2, preVal);
     }
 
@@ -318,7 +318,7 @@ function mergeSchemaAllOf(...args) {
 
 // resolve Schema - allOf
 export function resolveAllOf(schema, rootSchema, formData) {
-    // allOf item中可能存在 $ref
+    // allOf item $ref
     const resolvedAllOfRefSchema = {
         ...schema,
         allOf: schema.allOf.map(allOfItem => retrieveSchema(allOfItem, rootSchema, formData)),
@@ -328,7 +328,7 @@ export function resolveAllOf(schema, rootSchema, formData) {
         const { allOf, ...originProperties } = resolvedAllOfRefSchema;
         return mergeSchemaAllOf(originProperties, ...allOf);
     } catch (e) {
-        console.error(`无法合并allOf，丢弃allOf配置继续渲染: \n${e}`);
+        console.error(`allOfallOf: \n${e}`);
         // eslint-disable-next-line no-unused-vars
         const { allOf: errAllOf, ...resolvedSchemaWithoutAllOf } = resolvedAllOfRefSchema;
         return resolvedSchemaWithoutAllOf;
@@ -337,7 +337,7 @@ export function resolveAllOf(schema, rootSchema, formData) {
 
 // resolve Schema
 function resolveSchema(schema, rootSchema = {}, formData = {}) {
-    // allOf 、$ref、dependencies 可能被同时配置
+    // allOf $refdependencies
 
     // allOf
     if (schema.hasOwnProperty('allOf')) {
@@ -372,8 +372,8 @@ function resolveSchema(schema, rootSchema = {}, formData = {}) {
     return schema;
 }
 
-// 这个函数将为formData中的每个键创建新的“属性”项
-// 查找到附加属性统一到properties[key]格式 并且打上标准
+// formData
+// properties[key]
 /* function stubExistingAdditionalProperties(
     schema,
     rootSchema = {},
@@ -405,7 +405,7 @@ function resolveSchema(schema, rootSchema = {}, formData = {}) {
         }
 
         // The type of our new key should match the additionalProperties value;
-        // 把追加进去的属性设置为标准 schema格式，同时打上标志
+        //  schema
         schema.properties[key] = additionalProperties;
         // Set our additional property flag so we know it was dynamically added
         schema.properties[key][ADDITIONAL_PROPERTY_FLAG] = true;
@@ -414,7 +414,7 @@ function resolveSchema(schema, rootSchema = {}, formData = {}) {
     return schema;
 } */
 
-// 索引当前节点
+//
 export default function retrieveSchema(schema, rootSchema = {}, formData = {}) {
     if (!isObject(schema)) {
         return {};

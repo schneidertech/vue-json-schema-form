@@ -1,5 +1,5 @@
 /**
- * Created by Liu.Jun on 2020/11/26 10:01 下午.
+ * Created by Liu.Jun on 2020/11/26 10:01 .
  */
 
 import { h, ref, getCurrentInstance } from 'vue';
@@ -21,16 +21,16 @@ export default {
         },
         btnText: {
             type: String,
-            default: '点击上传'
+            default: ''
         },
-        // 传入 VNode
+        //  VNode
         slots: {
             type: null,
             default: null
         }
     },
     setup(props, { attrs, emit }) {
-        // 设置默认 fileList
+        //  fileList
         const curModelValue = props.modelValue;
         const isArrayValue = Array.isArray(curModelValue);
 
@@ -39,7 +39,7 @@ export default {
                 return curModelValue.map((item, index) => ({
                     id: String(index),
                     status: 'finished',
-                    name: `已上传文件（${index + 1}）`,
+                    name: `${index + 1}`,
                     url: item
                 }));
             }
@@ -47,7 +47,7 @@ export default {
                 return [{
                     id: '1',
                     status: 'finished',
-                    name: '已上传文件',
+                    name: '',
                     url: curModelValue
                 }];
             }
@@ -99,7 +99,7 @@ export default {
                 fileList: fileListRef.value,
                 'on-error': () => {
                     if (globalProperties.$message) {
-                        globalProperties.$message.error('文件上传失败');
+                        globalProperties.$message.error('');
                     }
                 },
                 ...otherAttrs,
@@ -113,7 +113,7 @@ export default {
                     file,
                     event
                 }) => {
-                    // 用户注册的 onSuccess
+                    //  onSuccess
                     file.url = getUrl(event.target);
                     return file;
                 }

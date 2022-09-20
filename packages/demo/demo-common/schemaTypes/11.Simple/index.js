@@ -1,6 +1,6 @@
 export default {
     schema: {
-        title: '测试注册表单',
+        title: '',
         description: 'A simple form example.',
         type: 'object',
         required: ['firstName', 'lastName'],
@@ -20,14 +20,14 @@ export default {
                 type: 'string',
                 title: 'Last name',
                 'ui:options': {
-                    description: '请输入你的姓'
+                    description: ''
                 },
-                'err:required': '必须输入Last Name'
+                'err:required': 'Last Name'
             },
             price: {
                 type: 'string',
-                description: '最多输入两位小数点，最大值 999999.99',
-                title: '价格',
+                description: ' 999999.99',
+                title: '',
                 format: 'price'
             },
             age: {
@@ -56,18 +56,18 @@ export default {
     formData: {
         lastName: 'Liu',
         age: 88,
-        bio: '知道的越多、就知道的越少',
+        bio: '',
         password: 'My.Pass',
         telephone: '1881446xxxx'
     },
     uiSchema: {
-        'ui:description': '简单表单例子（这里通过UiSchema覆盖了默认description描述配置）',
+        'ui:description': 'UiSchemadescription',
         firstName: {
-            'ui:title': '名字',
-            'ui:description': '比如：李白姓李、孙尚香姓孙、马可波罗姓马可波',
+            'ui:title': '',
+            'ui:description': '',
             'ui:emptyValue': '',
             'ui:options': {
-                placeholder: '请输入你的姓',
+                placeholder: '',
                 attrs: {
                     autofocus: true
                 }
@@ -75,7 +75,7 @@ export default {
         },
         bio: {
             'ui:options': {
-                placeholder: '请输入你的签名',
+                placeholder: '',
                 type: 'textarea',
                 rows: 6
             }
@@ -83,7 +83,7 @@ export default {
     },
     errorSchema: {
         bio: {
-            'err:minLength': '签名最小长度10个字符串'
+            'err:minLength': '10'
         }
     }
 };

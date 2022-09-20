@@ -1,16 +1,16 @@
 /**
- * Created by Liu.Jun on 2020/7/22 11:07 下午.
+ * Created by Liu.Jun on 2020/7/22 11:07 .
  */
 
 export default {
     schema: {
-        title: '时间日期选择',
+        title: '',
         type: 'object',
-        description: '日期和日期时间支持区间选择（默认格式为时间戳，配置 type string 会格式化为 ISO 时间）',
+        description: ' type string  ISO ',
         required: ['dateTimeRange', 'dateTime'],
         properties: {
             dateTimeRange: {
-                title: '日期时间区间选择',
+                title: '',
                 type: 'array',
                 format: 'date-time',
                 items: {
@@ -18,7 +18,7 @@ export default {
                 }
             },
             dateTimeRangeNumber: {
-                title: '日期时间区间选择（number时间戳）',
+                title: 'number',
                 type: 'array',
                 format: 'date-time',
                 items: {
@@ -26,7 +26,7 @@ export default {
                 }
             },
             dateRange: {
-                title: '日期区间选择',
+                title: '',
                 type: 'array',
                 format: 'date',
                 items: {
@@ -34,7 +34,7 @@ export default {
                 }
             },
             dateRangeNumber: {
-                title: '日期区间选择（number时间戳）',
+                title: 'number',
                 type: 'array',
                 format: 'date',
                 items: {
@@ -42,27 +42,27 @@ export default {
                 }
             },
             time: {
-                title: '时间选择',
+                title: '',
                 type: 'string',
                 format: 'time'
             },
             dateTime: {
-                title: '日期时间',
+                title: '',
                 type: 'string',
                 format: 'date-time'
             },
             dateTimeNumber: {
-                title: '日期时间（时间戳）',
+                title: '',
                 type: 'number',
                 format: 'date-time'
             },
             date: {
-                title: '日期',
+                title: '',
                 type: 'string',
                 format: 'date'
             },
             dateNumber: {
-                title: '日期（时间戳）',
+                title: '',
                 type: 'number',
                 format: 'date'
             }

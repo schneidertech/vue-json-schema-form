@@ -26,7 +26,7 @@ export default {
     props: vueProps,
     data() {
         return {
-            // 通过维护一份key，一份值 来解决list key的问题
+            // key list key
             formKeys: this.getCuFormData().map(() => genId())
         };
     },
@@ -44,43 +44,43 @@ export default {
     },
     watch: {
         curFormData(newVal, oldVal) {
-            // 引用类型，当值不相等，说明是被重新赋值
+            //
             if (newVal !== oldVal && Array.isArray(newVal)) {
                 this.formKeys = newVal.map(() => genId());
             }
         }
     },
     methods: {
-        // 获取当前的值
+        //
         getCuFormData() {
             const { rootFormData, curNodePath } = this.$props;
             const value = getPathVal(rootFormData, curNodePath);
 
             if (Array.isArray(value)) return value;
 
-            console.error('error: type array，值必须为 array 类型');
+            console.error('error: type array array ');
 
             return [];
         },
-        // 获取一个新item
+        // item
         getNewFormDataRow() {
             const { schema, rootSchema } = this.$props;
             let itemSchema = schema.items;
 
             // https://json-schema.org/understanding-json-schema/reference/array.html#tuple-validation
-            // 数组为项的集合搭配additionalItems属性需要特殊处理
+            // additionalItems
             if (isFixedItems(this.schema) && allowAdditionalItems(this.schema)) {
                 itemSchema = schema.additionalItems;
             }
             return getDefaultFormState(itemSchema, undefined, rootSchema);
         },
 
-        // 数组排序相关操作
+        //
         handleArrayOperate({
             command,
             data
         }) {
-            // 统一处理数组数据的 新增，删除，排序等变更
+            //
             const strategyMap = {
                 moveUp(target, { index }) {
                     arrayMethods.moveUpAt(target, index);
@@ -110,16 +110,16 @@ export default {
                 let keysParams = data;
 
                 if (command === 'add') {
-                    // 单个添加
+                    //
                     formDataPrams = { newRowData: this.getNewFormDataRow() };
                     keysParams = { newRowData: genId() };
                 } else if (command === 'batchPush') {
-                    // 批量添加
+                    //
                     keysParams = {
                         pushArray: formDataPrams.pushArray.map(item => genId())
                     };
                 } else if (command === 'setNewTarget') {
-                    // 设置
+                    //
                     formDataPrams = {
                         formData: this.rootFormData,
                         nodePath: this.curNodePath,
@@ -132,13 +132,13 @@ export default {
                     };
                 }
 
-                // 同步修改 formData keys
+                //  formData keys
                 curStrategy.apply(this, [this.$data.formKeys, keysParams]);
 
-                // 修改formData数据
+                // formData
                 curStrategy.apply(this, [this.curFormData, formDataPrams]);
             } else {
-                throw new Error(`错误 - 未知的操作：[${command}]`);
+                throw new Error(` - [${command}]`);
             }
         }
     },
@@ -154,12 +154,12 @@ export default {
         } = this.$props;
 
         if (!schema.hasOwnProperty('items')) {
-            throw new Error(`[${schema}] 请先定义 items属性`);
+            throw new Error(`[${schema}]  items`);
         }
 
-        // 多选类型
+        //
         if (isMultiSelect(schema, rootSchema)) {
-            // item 为枚举固定值
+            // item
             return h(ArrayFieldMultiSelect, {
                 props: this.$props,
                 class: {
@@ -168,9 +168,9 @@ export default {
             });
         }
 
-        // 特殊处理 date datetime time url-upload
-        // array 支持配置 ui:widget
-        // 时间日期区间 或者 ui:widget 特殊配置
+        //  date datetime time url-upload
+        // array  ui:widget
+        //   ui:widget
         if (schema.format || schema['ui:widget'] || uiSchema['ui:widget']) {
             return h(ArrayFieldSpecialFormat, {
                 props: this.$props,
@@ -198,7 +198,7 @@ export default {
                 }
             }),
 
-            // 插入一个Widget，校验 array - maxItems. minItems. uniqueItems 等items外的属性校验
+            // Widget array - maxItems. minItems. uniqueItems items
             this.needValidFieldGroup ? h(Widget, {
                 key: 'validateWidget-array',
                 class: {

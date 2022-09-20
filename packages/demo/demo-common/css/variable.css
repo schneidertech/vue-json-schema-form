@@ -90,10 +90,10 @@
     --disableC: #CCC;
     --borderC: #EEE;
     --assistBgC: #F9F9F9;
-    --contentWidth: 980px; /*内容区宽度*/
+    --contentWidth: 980px; /**/
 }
 
-/* 反馈颜色 */
+/*  */
 @define-mixin actionFb $color {
     background-color: $color;
     transition: background-color .5s ease;
@@ -102,7 +102,7 @@
     }
 }
 
-/* css绘制三角形 */
+/* css */
 @define-mixin triangle $width {
     width: 0;
     height: 0;
@@ -111,7 +111,7 @@
     border-width: $(width);
 }
 
-/* 多行文字超过部分显示 "..." */
+/*  "..." */
 @define-mixin multiline $lineHeight, $line {
     display: -webkit-box !important;
     height: calc($lineHeight * $line);
@@ -121,7 +121,7 @@
     -webkit-line-clamp: $line;
 }
 
-/* 滑过阴影 */
+/*  */
 @define-mixin hoverShadow {
     transition: box-shadow .2s linear;
     &:hover{
@@ -129,7 +129,7 @@
     }
 }
 
-/* 单行文本超过部分显示 "..." */
+/*  "..." */
 @define-mixin nowrap {
     overflow: hidden;
     white-space: nowrap;

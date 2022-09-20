@@ -9,7 +9,7 @@
                     validator(rule, value, callback) {
                         const validProperties = ['imgUrl', 'imgLink'];
 
-                        // 针对叶子节点做校验
+                        //
                         let errors = [];
                         const isValidate = validProperties.every(item => {
                             errors = schemaValidate.validateFormDataAndTransformMsg({
@@ -49,7 +49,7 @@
 </template>
 
 <script>
-    // 覆盖默认field 做个性商品选择和链接输入
+    // field
     import {
         fieldProps,
         vueUtils,
@@ -68,7 +68,7 @@
         },
         computed: {
             elItemRequired() {
-                // 配置了 required 的属性提示小红点
+                //  required
                 return this.schema.required.length > 0;
             },
             placeholder() {
@@ -76,7 +76,7 @@
                     schema: this.schema.properties.imgLink,
                     uiSchema: this.uiSchema.imgLink || {}
                 });
-                return imgLinkOptions.placeholder || '请输入合法的链接';
+                return imgLinkOptions.placeholder || '';
             },
             selectProps() {
                 return formUtils.getUiOptions({
@@ -123,7 +123,7 @@
                     'https://img.alicdn.com/bao/uploaded/i1/TB1M31ANFXXXXaOXpXXwu0bFXXX.png',
                     'https://img.alicdn.com/imgextra/i2/143584903/O1CN01qdnUD81m5cPPJlXog_!!143584903.jpg'
                 ];
-                this.$message.success('选择图片成功，随机一个图片');
+                this.$message.success('');
                 this.imgUrl = imgs[Math.floor(Math.random() * imgs.length)];
             }
         }

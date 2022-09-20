@@ -130,7 +130,7 @@
         box-shadow: 0 3px 1px -2px rgba(0,0,0,0.2), 0 0 3px 1px rgba(0,0,0,0.1);
     }
 
-    /* validateWidget 单独的校验不属于输入框的*/
+    /* validateWidget */
     .validateWidget {
         margin-bottom: 0 !important;
         width: 100% !important;
@@ -267,13 +267,13 @@
     }
 }
 
-/*popover 弹出可能appendtobody*/
+/*popover appendtobody*/
 .genFromWidget_des_mini {
     font-size: 14px;
     line-height: 1.5715;
 }
 
-/* 适配多列布局 */
+/*  */
 :root {
     --width-column-gutter : 10px;
 }

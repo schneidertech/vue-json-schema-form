@@ -6,12 +6,12 @@
             "type": "object",
             "properties": {
                 "imgUrl": {
-                    "title": "图片地址",
+                    "title": "",
                     "type": "string",
                     "format": "uri"
                 },
                 "imgLink": {
-                    "title": "链接地址",
+                    "title": "",
                     "type": "string",
                     "format": "uri",
                     "default": "https://www.jd.com"
@@ -25,7 +25,7 @@
     },
     "properties": {
         "startTime": {
-            "title": "配置秒杀开始时间",
+            "title": "",
             "type": "string",
             "format": "date-time"
         },

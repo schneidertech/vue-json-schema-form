@@ -6,47 +6,47 @@ import { formatFormLabelWidth } from '../common/editorData';
 
 function genBaseVal(type = 'string', isMultiSelect = false) {
     return {
-        title: '基础配置',
+        title: '',
         type: 'object',
         properties: {
             schemaOptions: {
                 type: 'object',
                 properties: {
                     title: {
-                        title: '标题',
+                        title: '',
                         type: 'string',
-                        'ui:placeholder': '请输入表单项标题',
-                        'err:required': '请输入标题'
+                        'ui:placeholder': '',
+                        'err:required': ''
                     },
                     description: {
-                        title: '描述',
+                        title: '',
                         type: 'string',
                         'ui:options': {
-                            placeholder: '请输入表单项描述，支持输入html',
+                            placeholder: 'html',
                             type: 'textarea',
                             rows: 3,
                         }
                     },
                     ...!['array', 'object'].includes(type) ? {
                         default: {
-                            title: '默认值',
+                            title: '',
                             type,
-                            'ui:placeholder': '输入默认值'
+                            'ui:placeholder': ''
                         },
                     } : {},
                     ...['array'].includes(type) ? {
                         minItems: {
-                            title: '最少子元素',
+                            title: '',
                             type: 'number'
                         },
                         maxItems: {
-                            title: '最多子元素',
+                            title: '',
                             type: 'number'
                         },
                         uniqueItems: {
                             type: 'boolean',
-                            title: '不重复',
-                            description: '多选框强制默认为 true，且配置无效',
+                            title: '',
+                            description: ' true',
                             'ui:widget': 'el-switch',
                             default: false
                         }
@@ -58,13 +58,13 @@ function genBaseVal(type = 'string', isMultiSelect = false) {
                 properties: {
                     ...!['array', 'object'].includes(type) || isMultiSelect ? {
                         width: {
-                            title: '宽度',
+                            title: '',
                             type: 'string',
-                            description: '请输入style width 支持的格式，<br />比如<strong style="font-weight: bold;">10%、100px</strong>等，推荐百分比单位',
-                            'ui:placeholder': '请输入FormItem宽度'
+                            description: 'style width <br /><strong style="font-weight: bold;">10%100px</strong>',
+                            'ui:placeholder': 'FormItem'
                         },
                         labelWidth: {
-                            title: '标签宽度',
+                            title: '',
                             type: 'number',
                             'ui:widget': 'ElSlider',
                             'ui:options': {
@@ -74,24 +74,24 @@ function genBaseVal(type = 'string', isMultiSelect = false) {
                             }
                         },
                         required: {
-                            title: '必填',
+                            title: '',
                             type: 'boolean',
                             default: false
                         },
                         disabled: {
-                            title: '禁用',
+                            title: '',
                             type: 'boolean',
                             default: false
                         }
                     } : {
                         showTitle: {
-                            title: '显示标题',
+                            title: '',
                             type: 'boolean',
                             default: true,
                             'ui:widget': 'el-switch'
                         },
                         showDescription: {
-                            title: '显示描述',
+                            title: '',
                             type: 'boolean',
                             default: true,
                             'ui:widget': 'el-switch'
@@ -108,10 +108,10 @@ export default (schema, type, isMultiSelect) => ({
     required: ['property'],
     properties: {
         property: {
-            title: '属性名',
+            title: '',
             type: 'string',
-            'ui:placeholder': '请输入属性名',
-            'err:required': '属性名必填'
+            'ui:placeholder': '',
+            'err:required': ''
         },
         baseValue: genBaseVal(type, isMultiSelect),
         ...schema

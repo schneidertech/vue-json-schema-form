@@ -1,38 +1,38 @@
 # number/integer
 
-## 描述
->* type `number` 相关配置演示
->* 官方文档 - [JSON Schema number](https://json-schema.org/understanding-json-schema/reference/numeric.html)
+##
+>* type `number`
+>*  - [JSON Schema number](https://json-schema.org/understanding-json-schema/reference/numeric.html)
 
 
-## 数据校验
+##
 ### `integer`
-整数类型
+
 
 ### `multipleOf`
-基数，必须为基数的倍数
+
 
 ### `minimum`
-最小值
+
 
 ### `maximum`
-最大值
+
 
 
 :::tip
-* integer 需要使用 type 来设置
+* integer  type
 
 ```js
 { type: 'integer' }
 ```
 
-* `exclusiveMinimum` `exclusiveMinimum` 查看schema文档
+* `exclusiveMinimum` `exclusiveMinimum` schema
 
-* 会根据 `schema` 配置，传递如下 `props` 到 `Widget` 组件
+*  `schema`  `props`  `Widget`
 ```js
     const props = {};
     if (undefined !== schema.multipleOf) {
-        // 组件计数器步长
+        //
         props.step = schema.multipleOf;
     }
     if (schema.minimum || schema.minimum === 0) {
@@ -43,12 +43,12 @@
     }
 ```
 
-* `enum` 配置和 `string` 类型一致，[查看enum](/zh/rules/string.html#enum)
+* `enum`  `string` [enum](/zh/rules/string.html#enum)
 :::
 
-如下演示：
 
-`schema` `ui-schema` `error-schema` 相关配置
+
+`schema` `ui-schema` `error-schema`
 
 :::demo
 ```html
@@ -70,7 +70,7 @@
             return {
                 formData: {},
                 schema: {
-                    title: '演示：type number',
+                    title: 'type number',
                     type: 'object',
                     required: [
                         'age'
@@ -78,21 +78,21 @@
                     properties: {
                         age: {
                             type: 'integer',
-                            title: '年龄',
+                            title: '',
                             minimum: 10,
                             maximum: 99,
                             default: 18
                         },
                         price: {
                             type: 'number',
-                            description: '请输入价格，必须为 0.5 的倍数',
-                            title: '价格',
+                            description: ' 0.5 ',
+                            title: '',
                             multipleOf: 0.5,
                             default: 1,
                         },
                         numberEnum: {
                             type: 'number',
-                            title: '数组枚举 (select)',
+                            title: ' (select)',
                             enum: [1, 2, 3],
                             enumNames: ['Select - 1', 'Select - 2', 'Select - 3']
                         }
@@ -101,7 +101,7 @@
                 uiSchema: {
                     age: {
                         'ui:widget': 'el-slider',
-                        'ui:description': '年龄10 - 99内',
+                        'ui:description': '10 - 99',
                         'ui:options': {
                             style: {
                                 boxShadow: '0 0 3px 1px yellow',
@@ -112,7 +112,7 @@
                 errorSchema: {
                     age: {
                         'err:options': {
-                            required: '请输入年龄 10 - 99'
+                            required: ' 10 - 99'
                         }
                     }
                 }

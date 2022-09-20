@@ -41,7 +41,7 @@ const globalOptions = Object.freeze({
                 };
 
                 // https://github.com/vuejs/vue/issues/8380
-                // 具名插槽需要重新显示的指定，无法直接透传 Orz...
+                //  Orz...
                 return h('form-item', context.data, Object.entries(context.slots()).map(([slotName, VNode]) => h('template', {
                     slot: slotName
                 }, VNode)));
@@ -53,7 +53,7 @@ const globalOptions = Object.freeze({
             render(h, context) {
                 const { default: content, reference: defaults } = context.slots();
 
-                // 交换 slot
+                //  slot
                 return h('poptip', context.data, [
                     h('template', {
                         slot: 'default'
@@ -66,7 +66,7 @@ const globalOptions = Object.freeze({
         },
     }),
     HELPERS: {
-        // 是否mini显示 description
+        // mini description
         isMiniDes(formProps) {
             return formProps && ['left', 'right'].includes(formProps.labelPosition);
         }
@@ -76,7 +76,7 @@ const globalOptions = Object.freeze({
 const JsonSchemaFormIview3 = createVue2Core(globalOptions);
 
 
-// 存在Vue 全局变量默认注册 VueForm 组件
+// Vue  VueForm
 if (typeof window !== 'undefined' && window.Vue) {
     window.Vue.component('VueFormIview3', JsonSchemaFormIview3);
 }

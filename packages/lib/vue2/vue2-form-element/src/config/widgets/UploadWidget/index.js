@@ -1,5 +1,5 @@
 /**
- * Created by Liu.Jun on 2020/11/26 10:01 下午.
+ * Created by Liu.Jun on 2020/11/26 10:01 .
  */
 
 // mock
@@ -20,29 +20,29 @@ export default {
         },
         btnText: {
             type: String,
-            default: '点击上传'
+            default: ''
         },
-        // 传入 VNode
+        //  VNode
         slots: {
             type: null,
             default: null
         }
     },
     data() {
-        // 设置默认 fileList
+        //  fileList
         const value = this.value;
         const isArrayValue = Array.isArray(value);
 
         const fileList = this.$attrs.fileList || (() => {
             if (isArrayValue) {
                 return value.map((item, index) => ({
-                    name: `已上传文件（${index + 1}）`,
+                    name: `${index + 1}`,
                     url: item
                 }));
             }
             if (value) {
                 return [{
-                    name: '已上传文件',
+                    name: '',
                     url: value
                 }];
             }
@@ -94,12 +94,12 @@ export default {
                 fileList: this.fileList,
                 'on-exceed': () => {
                     if (this.$message) {
-                        this.$message.warning('超出文件上传数');
+                        this.$message.warning('');
                     }
                 },
                 'on-error': () => {
                     if (this.$message) {
-                        this.$message.error('文件上传失败');
+                        this.$message.error('');
                     }
                 },
                 'on-preview': (file) => {
@@ -117,7 +117,7 @@ export default {
                 'on-success': (response, file, fileList) => {
                     this.emitValue(fileList);
 
-                    // 用户注册的 onSuccess
+                    //  onSuccess
                     if (attrs['on-success']) {
                         attrs['on-success'](response, file, fileList);
                     }

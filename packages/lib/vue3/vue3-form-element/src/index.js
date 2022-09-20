@@ -47,7 +47,7 @@ const globalOptions = {
         popover: 'el-popover'
     },
     HELPERS: {
-        // 是否mini显示 description
+        // mini description
         isMiniDes(formProps) {
             return formProps && ['left', 'right'].includes(formProps.labelPosition);
         }

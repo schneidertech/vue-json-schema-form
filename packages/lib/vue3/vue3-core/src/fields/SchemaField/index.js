@@ -1,5 +1,5 @@
 /**
- * Created by Liu.Jun on 2020/4/20 9:55 下午.
+ * Created by Liu.Jun on 2020/4/20 9:55 .
  */
 
 import { h } from 'vue';
@@ -17,17 +17,17 @@ export default {
     props: vueProps,
     setup(props) {
         return () => {
-            // 目前不支持schema依赖和additionalProperties 展示不需要传递formData
+            // schemaadditionalProperties formData
             // const schema = retrieveSchema(props.schema, props.rootSchema, formData);
             const schema = retrieveSchema(props.schema, props.rootSchema);
 
-            // 当前参数
+            //
             const curProps = { ...props, schema };
 
-            // 空数据
+            //
             if (Object.keys(schema).length === 0) return null;
 
-            // 获取节点Ui配置渲染field组件
+            // Uifield
             const { field: fieldComponent, fieldProps } = getUiField(FIELDS_MAP, curProps);
 
             // hidden

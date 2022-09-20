@@ -1,5 +1,5 @@
 /**
- * Created by Liu.Jun on 2020/5/19 10:15 下午.
+ * Created by Liu.Jun on 2020/5/19 10:15 .
  */
 
 import {
@@ -45,25 +45,25 @@ export default {
             return getMatchingOption(formData, this.selectList, this.rootSchema, true);
         },
 
-        // 下拉选项 VNode
+        //  VNode
         getSelectBoxVNode() {
-            // 下拉选项参数
+            //
             const selectWidgetConfig = getWidgetConfig({
-                schema: this.schema[`${this.combiningType}Select`] || {}, // 扩展 oneOfSelect,anyOfSelect字段
-                uiSchema: this.uiSchema[`${this.combiningType}Select`] || {}, // 通过 uiSchema['oneOf'] 配置ui信息
+                schema: this.schema[`${this.combiningType}Select`] || {}, //  oneOfSelect,anyOfSelect
+                uiSchema: this.uiSchema[`${this.combiningType}Select`] || {}, //  uiSchema['oneOf'] ui
                 curNodePath: this.curNodePath,
                 rootFormData: this.rootFormData,
             }, () => ({
-                // 枚举参数
+                //
                 widget: 'SelectWidget'
             }));
 
-            // title description 回退到 schema 配置，但这里不使用 uiSchema配置
-            // select ui配置需要使用 (oneOf|anyOf)Select
+            // title description  schema  uiSchema
+            // select ui (oneOf|anyOf)Select
             selectWidgetConfig.label = selectWidgetConfig.label || this.schema.title;
             selectWidgetConfig.description = selectWidgetConfig.description || this.schema.description;
 
-            // 下拉列表枚举值
+            //
             if (!selectWidgetConfig.uiProps.enumOptions) {
                 const uiSchemaSelectList = this.uiSchema[this.combiningType] || [];
                 selectWidgetConfig.uiProps.enumOptions = this.selectList.map((option, index) => {
@@ -75,14 +75,14 @@ export default {
                         // rootFormData: this.rootFormData,
                     });
                     return {
-                        label: curUiOptions.title || `选项 ${index + 1}`,
+                        label: curUiOptions.title || ` ${index + 1}`,
                         value: index,
                     };
                 });
             }
 
-            // oneOf option 渲染
-            // 选择框 VNode
+            // oneOf option
+            //  VNode
             return this.$createElement(
                 Widget,
                 {
@@ -108,25 +108,25 @@ export default {
         }
     },
     watch: {
-        // 对象 切换了select
-        // 如果object 类型 option有添加属性 这里做移除
-        // 对新option计算默认值
+        //  select
+        // object  option
+        // option
         curSelectIndex(newVal, oldVal) {
             const curFormData = getPathVal(this.rootFormData, this.curNodePath);
 
-            // 计算出 新选项默认值
+            //
             const newOptionData = getDefaultFormState(this.selectList[newVal], undefined, this.rootSchema);
 
             const hasOwn = Object.prototype.hasOwnProperty;
 
-            // 移除旧key
+            // key
             if (isObject(curFormData)) {
                 const oldSelectSchema = retrieveSchema(
                     this.selectList[oldVal],
                     this.rootSchema
                 );
                 if (getSchemaType(oldSelectSchema) === 'object') {
-                    // 移除旧schema添加的属性
+                    // schema
                     // Object.keys(oldSelectSchema.properties)
                     for (const key in oldSelectSchema.properties) {
                         if (
@@ -140,7 +140,7 @@ export default {
                 }
             }
 
-            // 设置新值
+            //
             if (isObject(newOptionData)) {
                 Object.entries(newOptionData).forEach(([key, value]) => {
                     if (
@@ -151,10 +151,10 @@ export default {
                             || isObject(value)
                         )
                     ) {
-                        // 这里没找到一个比较合理的新旧值合并方式
                         //
-                        // 1. 如果anyOf里面同名属性中的schema包含了 const 配置，产生了新的值这里做覆盖处理
-                        // 2. 其它场景保留同名key的旧的值
+                        //
+                        // 1. anyOfschema const
+                        // 2. key
                         setPathVal(curFormData, key, value);
                     }
                 });
@@ -162,7 +162,7 @@ export default {
                 setPathVal(this.rootFormData, this.curNodePath, newOptionData || curFormData);
             }
 
-            // 可添加一个配置通知外部这里变更
+            //
             // todo: onChangeOption
         }
     },
@@ -173,13 +173,13 @@ export default {
         // is object
         const isTypeObject = (this.schema.type === 'object' || this.schema.properties);
 
-        // 选择附加的节点
+        //
         const childrenVNodeList = [this.getSelectBoxVNode()];
 
-        // 当前option内容
+        // option
         let curSelectSchema = this.selectList[this.curSelectIndex];
 
-        // 当前选中节点合并schema
+        // schema
         if (curSelectSchema) {
             const {
                 // eslint-disable-next-line no-unused-vars
@@ -191,16 +191,16 @@ export default {
                 ...parentSchema
             } = this.schema;
 
-            // 合并父级schema
+            // schema
             curSelectSchema = Object.assign({}, parentSchema, curSelectSchema);
         }
 
-        // object类型但没有附加属性
+        // object
         const isObjectEmptyAttachProperties = isTypeObject && isEmptyObject(curSelectSchema && curSelectSchema.properties);
 
-        // 当前选中的 oneOf 附加节点 VNode
+        //  oneOf  VNode
         if (curSelectSchema && !isObjectEmptyAttachProperties) {
-            // 覆盖父级的属性
+            //
             const {
                 // eslint-disable-next-line no-unused-vars
                 properties,
@@ -213,8 +213,8 @@ export default {
 
             curSelectSchema = Object.assign({}, parentSchema, curSelectSchema);
 
-            // 当前节点的ui err配置，用来支持所有选项的统一配置
-            // 取出 oneOf anyOf 同级配置，然后再合并到 当前选中的schema中
+            // ui err
+            //  oneOf anyOf  schema
             const userUiOptions = filterObject(getUiOptions({
                 schema: {},
                 uiSchema: this.uiSchema,
@@ -237,27 +237,27 @@ export default {
                         props: {
                             ...this.$props,
                             schema: {
-                                'ui:showTitle': false, // 默认不显示title
-                                'ui:showDescription': false, // 默认不显示描述
+                                'ui:showTitle': false, // title
+                                'ui:showDescription': false, //
                                 ...curSelectSchema,
                             },
                             required: this.required,
                             uiSchema: {
-                                ...userUiOptions, // 合并oneOf 级的配置
+                                ...userUiOptions, // oneOf
                                 ...((this.uiSchema[this.combiningType] || [])[this.curSelectIndex])
                             },
                             errorSchema: {
-                                ...userErrOptions, // 合并oneOf 级的配置
+                                ...userErrOptions, // oneOf
                                 ...((this.errorSchema[this.combiningType] || [])[this.curSelectIndex])
                             },
-                            // needValidFieldGroup: false // 单独校验，这里无需处理
+                            // needValidFieldGroup: false //
                         }
                     }
                 )
             );
         }
 
-        // object 需要保持原有属性，如果存在原有属性这里单独渲染
+        // object
         let originVNode = null;
         if (isTypeObject && !isEmptyObject(this.schema.properties)) {
             const {
@@ -265,7 +265,7 @@ export default {
                 title, description, properties, ...optionSchema
             } = curSelectSchema;
 
-            // object 原始项渲染也需要合并anyOf的内容
+            // object anyOf
             const origSchema = Object.assign({}, this.schema, optionSchema);
             delete origSchema[this.combiningType];
 
@@ -278,12 +278,12 @@ export default {
                 props: {
                     ...this.$props,
                     schema: origSchema,
-                    // needValidFieldGroup: false // 单独校验，这里无需处理
+                    // needValidFieldGroup: false //
                 }
             });
         }
 
-        // oneOf 校验 VNode
+        // oneOf  VNode
         childrenVNodeList.push(
             h(Widget, {
                 key: `validateWidget-${this.combiningType}`,

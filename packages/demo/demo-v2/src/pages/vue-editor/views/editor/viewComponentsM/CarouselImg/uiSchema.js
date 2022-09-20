@@ -7,8 +7,8 @@ import genImgItem from '../../viewComponents/_commonConfig/ui/genImgItem';
 export default {
     imgList: {
         'ui:options': {
-            title: '添加图片',
-            description: '图片宽度750px，高度固定400px。<span>这里使用默认的field和校验提示</span>'
+            title: '',
+            description: '750px400px<span>field</span>'
         },
         items: {
             ...genImgItem({
@@ -16,10 +16,10 @@ export default {
                 height: 500,
             }),
             imgLink: {
-                'err:format': '请输入正确的的链接地址',
-                'err:required': '不能为空'
+                'err:format': '',
+                'err:required': ''
             },
-            'ui:title': '轮播图片配置'
+            'ui:title': ''
         }
     }
 };

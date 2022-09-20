@@ -12,7 +12,7 @@ function isArguments(object) {
     return Object.prototype.toString.call(object) === '[object Arguments]';
 }
 
-// 定义的数据推导出schema 类型
+// schema
 export const guessType = function guessType(value) {
     if (Array.isArray(value)) {
         return 'array';
@@ -67,7 +67,7 @@ export function mergeSchemas(obj1, obj2) {
     }, acc);
 }
 
-// 合并对象数据
+//
 export function mergeObjects(obj1, obj2, concatArrays = false) {
     // Recursively merge deeply nested objects.
     const preAcc = Object.assign({}, obj1); // Prevent mutation of source object.
@@ -87,26 +87,26 @@ export function mergeObjects(obj1, obj2, concatArrays = false) {
     }, preAcc);
 }
 
-// 获取给定 schema 类型。
+//  schema
 export function getSchemaType(schema) {
     const { type } = schema;
 
-    // 通过const 申明的常量 做类型推断
+    // const
     if (!type && schema.const) {
         return guessType(schema.const);
     }
 
-    // 枚举默认字符串
+    //
     if (!type && schema.enum) {
         return 'string';
     }
 
-    // items 推断为 array 类型
+    // items  array
     if (!type && (schema.items)) {
         return 'array';
     }
 
-    // anyOf oneOf 不申明 type 字段
+    // anyOf oneOf  type
     if (!type && (schema.properties || schema.additionalProperties)) {
         return 'object';
     }
@@ -118,7 +118,7 @@ export function getSchemaType(schema) {
     return type;
 }
 
-// 深度相等对比
+//
 export function deepEquals(a, b, ca = [], cb = []) {
     // Partially extracted from node-deeper and adapted to exclude comparison
     // checks for functions.
@@ -198,7 +198,7 @@ export function deepEquals(a, b, ca = [], cb = []) {
     return true;
 }
 
-// 只保证同时生成不重复
+//
 export const genId = (function genIdFn() {
     let preKey = `${+new Date()}`;
     let key = 0;
@@ -207,7 +207,7 @@ export const genId = (function genIdFn() {
         if (curTimestamp === preKey) {
             key += 1;
         } else {
-            // 重置 key
+            //  key
             key = 0;
         }
 
@@ -216,7 +216,7 @@ export const genId = (function genIdFn() {
     };
 }());
 
-// 空对象
+//
 export function isEmptyObject(obj) {
     if (!obj) return true;
 
@@ -228,7 +228,7 @@ export function isEmptyObject(obj) {
     return true;
 }
 
-// 过滤和转换对象的key
+// key
 export function filterObject(obj, filterFn) {
     return Object.entries(obj).reduce((preVal, [key, value]) => {
         const newKey = filterFn(key, value);
@@ -284,7 +284,7 @@ export function pad(num, size) {
     return s;
 }
 
-// dataUrl 转 Blob文件对象
+// dataUrl  Blob
 export function dataURItoBlob(dataURI) {
     // Split metadata from data
     const splitted = dataURI.split(',');
@@ -317,24 +317,24 @@ export function dataURItoBlob(dataURI) {
     return { blob, name };
 }
 
-// 字符串首字母小写
+//
 export function lowerCase(str) {
     if (undefined === str) return str;
     return String(str).replace(/^./, s => s.toLocaleLowerCase());
 }
 
-// 最大公约数
+//
 export function gcd(a, b) {
     if (b === 0) return a;
     return gcd(b, a % b);
 }
 
-// 最小公倍数
+//
 export function scm(a, b) {
     return (a * b) / gcd(a, b);
 }
 
-// 打开新页面
+//
 export function openNewPage(url, target = '_blank') {
     const a = document.createElement('a');
     a.style.display = 'none';

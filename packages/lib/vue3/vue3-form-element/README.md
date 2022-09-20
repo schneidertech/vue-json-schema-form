@@ -1,10 +1,10 @@
 # @lljj/vue3-form-element
 
-基于 [Element Plus](https://element-plus.org/) 、Vue3、 [JSON Schema](https://json-schema.org/understanding-json-schema/index.html) 生成表单
+ [Element Plus](https://element-plus.org/) Vue3 [JSON Schema](https://json-schema.org/understanding-json-schema/index.html)
 
-> 通过 [@lljj/vue3-form-core](https://github.com/lljj-x/vue-json-schema-form/tree/master/packages/lib/vue3/vue3-core) 适配 ElementPlus 库
+>  [@lljj/vue3-form-core](https://github.com/lljj-x/vue-json-schema-form/tree/master/packages/lib/vue3/vue3-core)  ElementPlus
 
-## 安装
+##
 
 ```ssh
 ## npm
@@ -14,7 +14,7 @@ npm install --save @lljj/vue3-form-element
 yarn add @lljj/vue3-form-element
 ```
 
-## 使用
+##
 ```html
 <VueForm
     v-model="formData"
@@ -24,7 +24,7 @@ yarn add @lljj/vue3-form-element
 ```
 
 ```js
-//  使用
+//
 import VueForm from '@lljj/vue3-form-element';
 
 export default {
@@ -44,20 +44,20 @@ export default {
                 properties: {
                     userName: {
                         type: 'string',
-                        title: '用户名',
+                        title: '',
                         default: 'Liu.Jun',
                     },
                     age: {
                         type: 'number',
-                        title: '年龄'
+                        title: ''
                     },
                     bio: {
                         type: 'string',
-                        title: '签名',
+                        title: '',
                         minLength: 10,
-                        default: '知道的越多、就知道的越少',
+                        default: '',
                         'ui:options': {
-                            placeholder: '请输入你的签名',
+                            placeholder: '',
                             type: 'textarea',
                             rows: 1
                         }

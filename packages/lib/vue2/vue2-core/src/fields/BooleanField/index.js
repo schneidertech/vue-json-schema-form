@@ -16,7 +16,7 @@ export default {
             schema, uiSchema, curNodePath, rootFormData, globalOptions
         } = context.props;
 
-        // Bool 会默认传入枚举类型选项 true false
+        // Bool  true false
         const enumOptions = optionsList({
             enumNames: schema.enumNames || ['true', 'false'],
             enum: schema.enum || [true, false]

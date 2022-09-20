@@ -215,12 +215,12 @@ function _toPropertyKey(arg) {
  * Created by Liu.Jun on 2020/4/25 14:45.
  */
 
-var pathSeparator = '.'; // nodePath 转css类名
+var pathSeparator = '.'; // nodePath css
 
 function nodePath2ClassName(path) {
   var rootPathName = '__pathRoot';
   return path ? "".concat(rootPathName, ".").concat(path).replace(/\./g, '_') : rootPathName;
-} // 是否为根节点
+} // 点
 
 function isRootNodePath(path) {
   return path === '';

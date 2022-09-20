@@ -5,7 +5,7 @@ interface Options {
 
 declare namespace formUtils {
 
-    /** 解析当前节点 ui field */
+    /** 节点 ui field */
     function getUiField(schemaOption: Options): object | null;
 
     /** 解析用户配置的 uiSchema options */

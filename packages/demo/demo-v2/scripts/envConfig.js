@@ -2,8 +2,8 @@
  * Created by Liu.Jun on 2018/5/31.
  */
 
-// envConfig 分为两部分参数 1、根据入口文件携带的固定参数 2、根具 npm_config 获取参数可以覆盖1的参数
-// 不同入口文件需要自己调用 initConfig
+// envConfig  1 2 npm_config 1
+//  initConfig
 
 const argv = require('yargs').argv;
 
@@ -20,7 +20,7 @@ exports.getConfig = () => {
             const [key, value] = param.split('=');
             preVal[key] = value || !0;
 
-            // 别名
+            //
             if (manifestAlias[key]) {
                 preVal[manifestAlias[key]] = preVal[key];
             }

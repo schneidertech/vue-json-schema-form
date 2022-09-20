@@ -1,31 +1,31 @@
 # array
 
-## 描述
->* type `array` 相关配置演示
->* 官方文档 - [JSON Schema array](https://json-schema.org/understanding-json-schema/reference/array.html)
+##
+>* type `array`
+>*  - [JSON Schema array](https://json-schema.org/understanding-json-schema/reference/array.html)
 
-## 数据校验
+##
 ### `items`
-数组每一项的配置 ，可以是单个schema对象或者数组 schema 列表
+ schema schema
 
 ### `additionalItems`
-数组中除项目定义之外的有效项，items 配置单个schema时无意义
+items schema
 
 ### `contains`
-数组元素需要包含 如：{ "type": "number" }
+ { "type": "number" }
 
 ### `minItems`
-数组最小长度
+
 
 ### `maxItems`
-数组最大长度
+
 
 ### `uniqueItems`
-是否每一项唯一，默认 `false`
+ `false`
 
-如下演示：`schema` `ui-schema` `error-schema` 相关配置
+`schema` `ui-schema` `error-schema`
 
-> 或者点击这里查看 [array demo页面](https://form.lljj.me/#/demo?type=Arrays)
+>  [array demo](https://form.lljj.me/#/demo?type=Arrays)
 :::demo
 ```html
 <template>
@@ -182,8 +182,8 @@
                             },
                             {
                                 'ui:options': {
-                                    activeText: '开',
-                                    inactiveText: '关'
+                                    activeText: '',
+                                    inactiveText: ''
                                 }
                             },
                             {
@@ -216,7 +216,7 @@
                         },
                         items: {
                             'ui:options': {
-                                title: '不显示操作条'
+                                title: ''
                             }
                         }
                     },
@@ -232,7 +232,7 @@
                     nestedList: {
                         items: {
                             items: {
-                                'err:required': '请输入Inner item name'
+                                'err:required': 'Inner item name'
                             }
                         }
                     }
@@ -253,12 +253,12 @@
 ```
 :::
 
-## 其它配置
-* 支持通过配置 `ui-schema` 中的 `ui:addable`、`ui:sortable`、`ui:removable` 配置数组是否可添加/排序/移除
-* 支持通过配置 `ui-schema` 中的 `ui:showIndexNumber` 配置是否显示数组item序号
-* 参见 [ui-schema 配置](https://form.lljj.me/#/demo?type=Arrays)
+##
+*  `ui-schema`  `ui:addable``ui:sortable``ui:removable` //
+*  `ui-schema`  `ui:showIndexNumber` item
+*  [ui-schema ](https://form.lljj.me/#/demo?type=Arrays)
 
-如：
+
 ```js
 uiSchema = {
     'ui:options': {

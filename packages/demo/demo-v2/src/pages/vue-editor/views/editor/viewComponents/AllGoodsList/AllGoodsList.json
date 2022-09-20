@@ -4,8 +4,8 @@
     "properties": {
         "show": {
             "type": "boolean",
-            "title": "添加全部商品",
-            "description": "全部商品模块不可编辑，不可移除，自动置底；系统会获取全部商品。",
+            "title": "",
+            "description": "",
             "default": true,
             "ui:label": true,
             "ui:disabled": true

@@ -1,5 +1,5 @@
 /**
- * Created by Liu.Jun on 2021/1/2 10:53 下午.
+ * Created by Liu.Jun on 2021/1/2 10:53 .
  */
 
 export default {
@@ -8,7 +8,7 @@ export default {
     render(h, context) {
         const { activeText, inactiveText } = context.props;
 
-        // 转换elementUi activeText inactiveText 支持 iview slot
+        // elementUi activeText inactiveText  iview slot
         const childNode = Object.entries({
             open: activeText,
             close: inactiveText,

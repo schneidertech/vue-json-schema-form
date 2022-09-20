@@ -1,12 +1,12 @@
 # boolean
-## 描述
->* type `boolean` 相关配置演示
->* 官方文档 - [JSON Schema boolean](https://json-schema.org/understanding-json-schema/reference/boolean.html)
+##
+>* type `boolean`
+>*  - [JSON Schema boolean](https://json-schema.org/understanding-json-schema/reference/boolean.html)
 
-## 数据校验
-* `boolean` 类型 `true` 和 `false`
+##
+* `boolean`  `true`  `false`
 
-如下演示：`schema` `ui-schema` `error-schema` 相关配置
+`schema` `ui-schema` `error-schema`
 
 :::demo
 ```html
@@ -28,20 +28,20 @@
             return {
                 formData: {},
                 schema: {
-                    title: '演示：type boolean',
+                    title: 'type boolean',
                     type: 'object',
                     properties: {
                         switch: {
                             type: 'boolean',
-                            title: '开还是关'
+                            title: ''
                         }
                     }
                 },
                 uiSchema: {
                     switch: {
                         'ui:options': {
-                            activeText: '开',
-                            inactiveText: '关'
+                            activeText: '',
+                            inactiveText: ''
                         }
                     }
                 },

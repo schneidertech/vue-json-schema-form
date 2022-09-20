@@ -6,8 +6,8 @@ const envConfig = require('./envConfig').getConfig();
 
 module.exports = function fn({ data, des }) {
     if (envConfig.log) {
-        console.log(`\n---------- ↓↓↓↓ ${des || ''} ↓↓↓↓ ----------`);
+        console.log(`\n----------  ${des || ''}  ----------`);
         console.log(data);
-        console.log(`---------- ↑↑↑↑ ${des || ''} ↑↑↑↑ ----------\n`);
+        console.log(`----------  ${des || ''}  ----------\n`);
     }
 };

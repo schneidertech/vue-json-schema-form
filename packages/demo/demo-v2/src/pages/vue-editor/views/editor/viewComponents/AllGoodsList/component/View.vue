@@ -2,7 +2,7 @@
     <GoodsListView
         :line-num="2"
         :line-items="5"
-        title="全部商品"
+        title=""
     ></GoodsListView>
 </template>
 <script>

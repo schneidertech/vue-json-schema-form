@@ -29,7 +29,7 @@ export default {
     name: 'CodeEditor',
     props: {
         lazy: {
-            type: Boolean, // 是否在失焦点才同步数据
+            type: Boolean, //
             default: false
         },
         title: {
@@ -64,7 +64,7 @@ export default {
     },
     watch: {
         modelValue(value) {
-            // 值改变了
+            //
             if (!this.editor) return;
             const model = this.editor.getModel();
             if (value != null && value !== model.getValue()) {
@@ -126,7 +126,7 @@ export default {
 
             editor[eventName](() => {
                 const newValue = editor.getValue();
-                // 数据变化同步数据
+                //
                 if (newValue !== this.modelValue) {
                     this.$emit('update:modelValue', newValue);
                     this.$emit('onChange', newValue);

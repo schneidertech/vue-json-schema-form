@@ -10,13 +10,13 @@ export default {
     required: [],
     properties: {
         formProps: {
-            title: '表单配置',
+            title: '',
             type: 'object',
-            description: '提示：如果使用inline布局（ElementUi form inline 配置），则多列布局不生效；另外 Footer inline 只支持一行表单项',
+            description: 'inlineElementUi form inline  Footer inline ',
             properties: {
                 inline: {
                     type: 'boolean',
-                    title: 'Inline布局',
+                    title: 'Inline',
                     default: false
                 },
                 inlineFooter: {
@@ -25,7 +25,7 @@ export default {
                     default: false
                 },
                 layoutColumn: {
-                    title: '布局',
+                    title: '',
                     type: 'number',
                     default: 1,
                     enum: [
@@ -34,14 +34,14 @@ export default {
                         3
                     ],
                     enumNames: [
-                        '一行一列',
-                        '一行二列',
-                        '一行三列'
+                        '',
+                        '',
+                        ''
                     ],
                     'ui:widget': 'SelectWidget'
                 },
                 labelPosition: {
-                    title: '标签对其方式',
+                    title: '',
                     type: 'string',
                     default: 'top',
                     enum: [
@@ -56,9 +56,9 @@ export default {
                     ],
                 },
                 labelWidth: {
-                    title: '标签宽度',
+                    title: '',
                     type: 'number',
-                    default: 25, // 4倍像素
+                    default: 25, // 4
                     'ui:widget': 'ElSlider',
                     'ui:options': {
                         formatTooltip(val) {
@@ -67,30 +67,30 @@ export default {
                     }
                 },
                 labelSuffix: {
-                    title: '表单项后缀',
+                    title: '',
                     type: 'string',
-                    default: '：'
+                    default: ''
                 }
             }
         },
         formFooter: {
-            title: '表单Footer配置',
+            title: 'Footer',
             type: 'object',
             properties: {
                 show: {
                     type: 'boolean',
-                    title: '是否显示底部',
+                    title: '',
                     default: false
                 },
                 okBtn: {
                     type: 'string',
-                    title: '确认按钮文字',
-                    default: '保存'
+                    title: '',
+                    default: ''
                 },
                 cancelBtn: {
                     type: 'string',
-                    title: '取消按钮文字',
-                    default: '取消'
+                    title: '',
+                    default: ''
                 }
             }
         }

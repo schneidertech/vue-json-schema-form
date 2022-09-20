@@ -1,19 +1,19 @@
 /**
- * Created by Liu.Jun on 2020/5/31 8:27 下午.
+ * Created by Liu.Jun on 2020/5/31 8:27 .
  */
 
-// 指南页左侧菜单
+//
 
 // sidebar
 // [
 //     {
-//         title: 'Group 1',   // 必要的
-//         path: '/foo/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-//         collapsable: false, // 可选的, 默认值是 true,
-//         sidebarDepth: 1,    // 可选的, 默认值是 1
+//         title: 'Group 1',   //
+//         path: '/foo/',      // ,
+//         collapsable: false, // ,  true,
+//         sidebarDepth: 1,    // ,  1
 //         children: [
 //             '/',
-//             ['/page-b', 'Explicit link text'] // 显示地指定链接的文字
+//             ['/page-b', 'Explicit link text'] //
 //         ]
 //     },
 //     {
@@ -22,7 +22,7 @@
 //     }
 // ]
 
-exports.getGuideSidebar = ([groupA = '指南', groupB = '入门使用', groupC = '深入了解', groupD = '更新计划'] = []) => {
+exports.getGuideSidebar = ([groupA = '', groupB = '', groupC = '', groupD = ''] = []) => {
     return [
         {
             title: groupA,
@@ -66,8 +66,8 @@ exports.getGuideSidebar = ([groupA = '指南', groupB = '入门使用', groupC =
     ]
 };
 
-// 配置页左侧菜单
-exports.getConfigSidebar = ([groupA = '配置项'] = []) => {
+//
+exports.getConfigSidebar = ([groupA = ''] = []) => {
     return [
         {
             title: groupA,
@@ -79,8 +79,8 @@ exports.getConfigSidebar = ([groupA = '配置项'] = []) => {
     ]
 };
 
-// 配置页左侧菜单
-exports.getRulesSidebar = ([groupA = '类型规则'] = []) => {
+//
+exports.getRulesSidebar = ([groupA = ''] = []) => {
     return [
         {
             title: groupA,

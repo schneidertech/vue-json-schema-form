@@ -25,7 +25,7 @@ jobs:
         yarn run demo3:build
 
     - name: Setup aliyun oss
-      # 设置阿里云OSS配置
+      # OSS
       uses: manyuanrong/setup-ossutil@v2.0
       with:
         endpoint: "oss-cn-hongkong.aliyuncs.com"
@@ -33,13 +33,13 @@ jobs:
         access-key-secret: ${{ secrets.OSS_ACCESSKEYSECRET }}
 
     - name: Deploy docs
-      # 发布文档
+      #
       run: ossutil cp -rf ./packages/docs/docs/.vuepress/dist/ oss://vjsf-docs-buhuida/
 
     - name: Deploy demo
-      # 发布demo
+      # demo
       run: ossutil cp -rf ./packages/demo/demo-v2/dist/ oss://form-buhuida/
 
     - name: Deploy demo-v3
-        # 发布demo-v3
+        # demo-v3
       run: ossutil cp -rf ./packages/demo/demo-v3/dist/v3 oss://form-buhuida/v3

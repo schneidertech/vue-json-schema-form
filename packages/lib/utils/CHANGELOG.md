@@ -8,15 +8,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **lib:** 修复color 校验 ([2b49753](https://github.com/lljj-x/vue-json-schema-form/commit/2b4975375ba6f322d8dbdac08a1870bbd7335d22))
-* **lib:** 宽松color format 校验 ([d32d079](https://github.com/lljj-x/vue-json-schema-form/commit/d32d079cd73fe16234ef30ae693f0bd3ab1b75fe))
+* **lib:** color  ([2b49753](https://github.com/lljj-x/vue-json-schema-form/commit/2b4975375ba6f322d8dbdac08a1870bbd7335d22))
+* **lib:** color format  ([d32d079](https://github.com/lljj-x/vue-json-schema-form/commit/d32d079cd73fe16234ef30ae693f0bd3ab1b75fe))
 
 
 ### Features
 
-* 修复fallbackLabel的错误判断 && 优化代码 ([d23da39](https://github.com/lljj-x/vue-json-schema-form/commit/d23da39dbf51a017e0a439512164f3977b520ff6))
-* **vue3 core:** 修复provide警告 ([711c932](https://github.com/lljj-x/vue-json-schema-form/commit/711c932e71ead9667f65777e6b65578c76087ce1))
-* **vue3core:** 整理代码 ([54e9db4](https://github.com/lljj-x/vue-json-schema-form/commit/54e9db4090155e0e6a78788dccb5c6208f9cb812))
+* fallbackLabel &&  ([d23da39](https://github.com/lljj-x/vue-json-schema-form/commit/d23da39dbf51a017e0a439512164f3977b520ff6))
+* **vue3 core:** provide ([711c932](https://github.com/lljj-x/vue-json-schema-form/commit/711c932e71ead9667f65777e6b65578c76087ce1))
+* **vue3core:**  ([54e9db4](https://github.com/lljj-x/vue-json-schema-form/commit/54e9db4090155e0e6a78788dccb5c6208f9cb812))
 
 
 
@@ -27,7 +27,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **lib:** ui:hidden 透传到widget组件 ([f63094e](https://github.com/lljj-x/vue-json-schema-form/commit/f63094ee85659d1fea45bd789321817c08664ffa)), closes [#170](https://github.com/lljj-x/vue-json-schema-form/issues/170)
+* **lib:** ui:hidden widget ([f63094e](https://github.com/lljj-x/vue-json-schema-form/commit/f63094ee85659d1fea45bd789321817c08664ffa)), closes [#170](https://github.com/lljj-x/vue-json-schema-form/issues/170)
 
 
 
@@ -38,12 +38,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **lib:** 添加严格模式配置，更精准计算anyOf 默认值 ([10cdc08](https://github.com/lljj-x/vue-json-schema-form/commit/10cdc089087d83d8fe08e1fd379b7a1aaad0cd5d)), closes [#152](https://github.com/lljj-x/vue-json-schema-form/issues/152)
+* **lib:** anyOf  ([10cdc08](https://github.com/lljj-x/vue-json-schema-form/commit/10cdc089087d83d8fe08e1fd379b7a1aaad0cd5d)), closes [#152](https://github.com/lljj-x/vue-json-schema-form/issues/152)
 
 
 ### Features
 
-* **lib:** 优化样式 ([e53291b](https://github.com/lljj-x/vue-json-schema-form/commit/e53291b8395fdceb971f15f72c9e809cdee8ec7e))
+* **lib:**  ([e53291b](https://github.com/lljj-x/vue-json-schema-form/commit/e53291b8395fdceb971f15f72c9e809cdee8ec7e))
 
 
 
@@ -54,7 +54,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **lib:** 添加严格模式配置，更精准计算anyOf 默认值 ([2cd65bb](https://github.com/lljj-x/vue-json-schema-form/commit/2cd65bb5f275a021f1cc368e4c63387163c94d57)), closes [#157](https://github.com/lljj-x/vue-json-schema-form/issues/157)
+* **lib:** anyOf  ([2cd65bb](https://github.com/lljj-x/vue-json-schema-form/commit/2cd65bb5f275a021f1cc368e4c63387163c94d57)), closes [#157](https://github.com/lljj-x/vue-json-schema-form/issues/157)
 
 
 
@@ -65,7 +65,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **lib:** 修复inline 布局样式问题 ([65a7143](https://github.com/lljj-x/vue-json-schema-form/commit/65a7143fc19105f9096afc24a25107c0ef27ac5f)), closes [#122](https://github.com/lljj-x/vue-json-schema-form/issues/122)
+* **lib:** inline  ([65a7143](https://github.com/lljj-x/vue-json-schema-form/commit/65a7143fc19105f9096afc24a25107c0ef27ac5f)), closes [#122](https://github.com/lljj-x/vue-json-schema-form/issues/122)
 
 
 
@@ -76,7 +76,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **lib:** allOf merge 相同类型直接使用左边 ([c0bd0cd](https://github.com/lljj-x/vue-json-schema-form/commit/c0bd0cde9f15b4ca928fec84b4831a5cb459aa43)), closes [#116](https://github.com/lljj-x/vue-json-schema-form/issues/116)
+* **lib:** allOf merge  ([c0bd0cd](https://github.com/lljj-x/vue-json-schema-form/commit/c0bd0cde9f15b4ca928fec84b4831a5cb459aa43)), closes [#116](https://github.com/lljj-x/vue-json-schema-form/issues/116)
 
 
 
@@ -87,8 +87,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **lib:** 修复anyof 默认值计算可能丢失属性 ([44bcb44](https://github.com/lljj-x/vue-json-schema-form/commit/44bcb44af63a37847cd3df5614fad2f26bdf307d)), closes [#108](https://github.com/lljj-x/vue-json-schema-form/issues/108)
-* **lib:** 修复anyOf嵌套object 可能丢失部分校验规则的问题 ([5c06294](https://github.com/lljj-x/vue-json-schema-form/commit/5c06294d9a9c978bda1c3724710cfd4ba478af5b))
+* **lib:** anyof  ([44bcb44](https://github.com/lljj-x/vue-json-schema-form/commit/44bcb44af63a37847cd3df5614fad2f26bdf307d)), closes [#108](https://github.com/lljj-x/vue-json-schema-form/issues/108)
+* **lib:** anyOfobject  ([5c06294](https://github.com/lljj-x/vue-json-schema-form/commit/5c06294d9a9c978bda1c3724710cfd4ba478af5b))
 
 
 
@@ -107,7 +107,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **vue2:** vue2 添加 widgetListeners 配置 ([50348c2](https://github.com/lljj-x/vue-json-schema-form/commit/50348c27e72813ea16fdcfcea46e6450ccf06018)), closes [#45](https://github.com/lljj-x/vue-json-schema-form/issues/45)
+* **vue2:** vue2  widgetListeners  ([50348c2](https://github.com/lljj-x/vue-json-schema-form/commit/50348c27e72813ea16fdcfcea46e6450ccf06018)), closes [#45](https://github.com/lljj-x/vue-json-schema-form/issues/45)
 
 
 
@@ -118,7 +118,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **vue2:** vue2 添加 widgetListeners 配置 ([50348c2](https://github.com/lljj-x/vue-json-schema-form/commit/50348c27e72813ea16fdcfcea46e6450ccf06018)), closes [#45](https://github.com/lljj-x/vue-json-schema-form/issues/45)
+* **vue2:** vue2  widgetListeners  ([50348c2](https://github.com/lljj-x/vue-json-schema-form/commit/50348c27e72813ea16fdcfcea46e6450ccf06018)), closes [#45](https://github.com/lljj-x/vue-json-schema-form/issues/45)
 
 
 
@@ -129,7 +129,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **lib:** 支持配置 slots ([27f1501](https://github.com/lljj-x/vue-json-schema-form/commit/27f1501eda01eabd4a723656be56904e9cb0f069)), closes [#45](https://github.com/lljj-x/vue-json-schema-form/issues/45)
+* **lib:**  slots ([27f1501](https://github.com/lljj-x/vue-json-schema-form/commit/27f1501eda01eabd4a723656be56904e9cb0f069)), closes [#45](https://github.com/lljj-x/vue-json-schema-form/issues/45)
 
 
 
@@ -156,12 +156,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **core:** 修复 anyof 后代存在 $ref可能无法回填的问题 ([4dd046b](https://github.com/lljj-x/vue-json-schema-form/commit/4dd046bee0e5c3589f2bfa64ba0d90ed7869067a)), closes [#59](https://github.com/lljj-x/vue-json-schema-form/issues/59)
+* **core:**  anyof  $ref ([4dd046b](https://github.com/lljj-x/vue-json-schema-form/commit/4dd046bee0e5c3589f2bfa64ba0d90ed7869067a)), closes [#59](https://github.com/lljj-x/vue-json-schema-form/issues/59)
 
 
 ### Features
 
-* **core:** widget 节点直接配置onChange ([2d2264b](https://github.com/lljj-x/vue-json-schema-form/commit/2d2264b004c3b6586e225c563bf03ca52fc5e53a))
+* **core:** widget onChange ([2d2264b](https://github.com/lljj-x/vue-json-schema-form/commit/2d2264b004c3b6586e225c563bf03ca52fc5e53a))
 
 
 
@@ -172,7 +172,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **lib:** 修复anyOf下多级对象初始值计算错误问题 ([6dd9780](https://github.com/lljj-x/vue-json-schema-form/commit/6dd97804573aa55001c2715da4a6ffcc5ee897b9)), closes [#57](https://github.com/lljj-x/vue-json-schema-form/issues/57)
+* **lib:** anyOf ([6dd9780](https://github.com/lljj-x/vue-json-schema-form/commit/6dd97804573aa55001c2715da4a6ffcc5ee897b9)), closes [#57](https://github.com/lljj-x/vue-json-schema-form/issues/57)
 
 
 
@@ -183,7 +183,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **lib:** 添加 fallback-label 参数 ([cd2d8c3](https://github.com/lljj-x/vue-json-schema-form/commit/cd2d8c3ed72b9bc03e44eb5b86eb1b18fe67c34c)), closes [#45](https://github.com/lljj-x/vue-json-schema-form/issues/45)
+* **lib:**  fallback-label  ([cd2d8c3](https://github.com/lljj-x/vue-json-schema-form/commit/cd2d8c3ed72b9bc03e44eb5b86eb1b18fe67c34c)), closes [#45](https://github.com/lljj-x/vue-json-schema-form/issues/45)
 
 
 
@@ -202,7 +202,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **vue3-ant:** 更新初始化 ([71a2810](https://github.com/lljj-x/vue-json-schema-form/commit/71a281045af11f215333050396aa546dd5e78b88)), closes [#27](https://github.com/lljj-x/vue-json-schema-form/issues/27) [#27](https://github.com/lljj-x/vue-json-schema-form/issues/27) [#27](https://github.com/lljj-x/vue-json-schema-form/issues/27) [#40](https://github.com/lljj-x/vue-json-schema-form/issues/40)
+* **vue3-ant:**  ([71a2810](https://github.com/lljj-x/vue-json-schema-form/commit/71a281045af11f215333050396aa546dd5e78b88)), closes [#27](https://github.com/lljj-x/vue-json-schema-form/issues/27) [#27](https://github.com/lljj-x/vue-json-schema-form/issues/27) [#27](https://github.com/lljj-x/vue-json-schema-form/issues/27) [#40](https://github.com/lljj-x/vue-json-schema-form/issues/40)
 
 
 
@@ -213,7 +213,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **style:** 修复p标签等自带边距导致的样式问题  ([7b7e43e](https://github.com/lljj-x/vue-json-schema-form/commit/7b7e43eaa06c14a436b34c38d6d69aad27d67512))
+* **style:** p ([7b7e43e](https://github.com/lljj-x/vue-json-schema-form/commit/7b7e43eaa06c14a436b34c38d6d69aad27d67512))
 
 
 
@@ -232,11 +232,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **lib:** 修复 anyOf 类型，编辑时不能匹配正确选项 ([d747722](https://github.com/lljj-x/vue-json-schema-form/commit/d7477227d004e47c2b186c3eb956e4c83d7077ad)), closes [#31](https://github.com/lljj-x/vue-json-schema-form/issues/31)
-* **lib:** 解决打包后包含es6代码问题 ([f03352e](https://github.com/lljj-x/vue-json-schema-form/commit/f03352eb129c45963ad41e3e91eebe102c303913)), closes [#29](https://github.com/lljj-x/vue-json-schema-form/issues/29)
+* **lib:**  anyOf  ([d747722](https://github.com/lljj-x/vue-json-schema-form/commit/d7477227d004e47c2b186c3eb956e4c83d7077ad)), closes [#31](https://github.com/lljj-x/vue-json-schema-form/issues/31)
+* **lib:** es6 ([f03352e](https://github.com/lljj-x/vue-json-schema-form/commit/f03352eb129c45963ad41e3e91eebe102c303913)), closes [#29](https://github.com/lljj-x/vue-json-schema-form/issues/29)
 
 
 ### Features
 
-* **iview:** 添加iview i-switch 组件转换 ([8fae70c](https://github.com/lljj-x/vue-json-schema-form/commit/8fae70cb28f7fd02073d6d4318861b7f08f6199b))
-* **vue3:** 完成 vue3 form组件 ([1c5deba](https://github.com/lljj-x/vue-json-schema-form/commit/1c5debae4cb92f3f54de64d8f38c98396022a344))
+* **iview:** iview i-switch  ([8fae70c](https://github.com/lljj-x/vue-json-schema-form/commit/8fae70cb28f7fd02073d6d4318861b7f08f6199b))
+* **vue3:**  vue3 form ([1c5deba](https://github.com/lljj-x/vue-json-schema-form/commit/1c5debae4cb92f3f54de64d8f38c98396022a344))

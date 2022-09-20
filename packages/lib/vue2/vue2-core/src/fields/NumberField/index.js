@@ -1,6 +1,6 @@
 /**
  * Created by Liu.Jun on 2020/4/21 9:24.
- * NumberField 复用StringField
+ * NumberField StringField
  */
 
 import vueProps from '../props';

@@ -24,7 +24,7 @@ const globalOptions = {
         form: defineComponent({
             inheritAttrs: false,
             setup(props, { attrs, slots }) {
-                // 处理 labelPosition 参数和 label-placement 之间的关系
+                //  labelPosition  label-placement
                 const labelPositionMap = {
                     top: {
                         labelAlign: 'left',
@@ -43,7 +43,7 @@ const globalOptions = {
                 const formRef = ref(null);
                 if (attrs.setFormRef) {
                     onMounted(() => {
-                        // form组件实例上重置一个 validate 方法
+                        // form置一个 validate 方法
                         formRef.value.$$validate = (callBack) => {
                             formRef.value.validate((errors) => {
                                 if (errors) {

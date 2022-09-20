@@ -5,9 +5,9 @@
             :class="$style.content"
         >
             <div :class="$style.countdown">
-                <div :class="$style.countdownTitle">京东秒杀</div>
+                <div :class="$style.countdownTitle"></div>
                 <div :class="$style.countdownTime">
-                    <p>活动开始时间：</p>
+                    <p></p>
                     <strong>{{ formData.startTime }}</strong>
                 </div>
             </div>
@@ -46,15 +46,15 @@
                                 </el-image>
                             </a>
                             <div :class="$style.goodsTitle">
-                                商品标题，可以结合具体业务活动商品数据
+
                             </div>
                             <div :class="$style.goodsPrice">
                                 <span :class="$style.priceMiaosha">
-                                    <i>¥</i>
+                                    <i></i>
                                     <span>599.00</span>
                                 </span>
                                 <span :class="$style.priceOrigin">
-                                    <i>¥</i>
+                                    <i></i>
                                     <span>849.00</span>
                                 </span>
                             </div>
@@ -84,7 +84,7 @@
             v-else
             :line-num="1"
             :line-items="6"
-            title="秒杀商品"
+            title=""
         ></GoodsListView>
     </div>
 </template>

@@ -121,7 +121,7 @@ export default {
     },
     computed: {
         isNoEmpty() {
-            // 配置了一个图片就不为空
+            //
             return this.formData.imgItem1_1.imgUrl && this.formData.imgItem1_1.imgLink;
         }
     },
@@ -130,7 +130,7 @@ export default {
 
 <style module>
     @import 'demo-common/css/variable.css';
-    /* 空壳 */
+    /*  */
     .emptyBox {
         .imgItem {
             height: 200px;
@@ -146,7 +146,7 @@ export default {
             }
         }
     }
-    /* 数据 */
+    /*  */
     .contentBox {
         .line2 {
             margin-top: 20px;

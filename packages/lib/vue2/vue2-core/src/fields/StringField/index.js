@@ -15,7 +15,7 @@ export default {
             schema, uiSchema, curNodePath, rootFormData, globalOptions: { WIDGET_MAP }
         } = context.props;
 
-        // 可能是枚举数据使用select组件，否则使用 input
+        // select input
         const enumOptions = isSelect(schema) && optionsList(schema, uiSchema, curNodePath, rootFormData);
 
         const widgetConfig = getWidgetConfig({
@@ -34,7 +34,7 @@ export default {
             };
         });
 
-        // 存在枚举数据列表 传入 enumOptions
+        //   enumOptions
         if (enumOptions && !widgetConfig.uiProps.enumOptions) {
             widgetConfig.uiProps.enumOptions = enumOptions;
         }

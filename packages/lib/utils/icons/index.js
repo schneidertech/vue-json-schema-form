@@ -1,5 +1,5 @@
 /**
- * Created by Liu.Jun on 2021/3/6 2:58 下午.
+ * Created by Liu.Jun on 2021/3/6 2:58 .
  */
 
 import IconCaretDown from './IconCaretDown.vue';

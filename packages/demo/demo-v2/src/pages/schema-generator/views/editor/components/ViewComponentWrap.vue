@@ -16,7 +16,7 @@
                 :disabled="editorItem.toolBar.moveUpDisabled"
                 :class="$style.toolBarBtn"
                 class="el-icon-caret-top"
-                title="上移"
+                title=""
                 type="button"
                 @click="$emit('onOperate', { item: editorItem, command: 'moveUp'})"
             ></button>
@@ -24,7 +24,7 @@
                 :disabled="editorItem.toolBar.moveDownDisabled"
                 :class="$style.toolBarBtn"
                 class="el-icon-caret-bottom"
-                title="下移"
+                title=""
                 type="button"
                 @click="$emit('onOperate', { item: editorItem, command: 'moveDown'})"
             ></button>
@@ -32,7 +32,7 @@
                 :disabled="editorItem.toolBar.copyDisabled"
                 :class="[$style.toolBarBtn]"
                 class="el-icon-copy-document"
-                title="复制"
+                title=""
                 type="button"
                 @click="$emit('onOperate', { item: editorItem, command: 'copy' })"
             ></button>
@@ -40,7 +40,7 @@
                 :disabled="editorItem.toolBar.removeDisabled"
                 :class="$style.toolBarBtn"
                 class="el-icon-delete"
-                title="移除"
+                title=""
                 type="button"
                 @click="$emit('onOperate', { item: editorItem, command: 'remove' })"
             ></button>
@@ -109,35 +109,35 @@ export default {
         this.hideEditForm();
     },
     methods: {
-        // 点击只能打开，并且打开状态下只能执行一次
+        //
         handleClickView(e) {
-            // 阻止浏览器默认事件
+            //
             e.stopPropagation();
             if (!this.editorItem.isEdit) {
                 this.showEditForm();
             } else {
-                // 设置当前选中tab
+                // tab
                 this.setCurEditorItem(this.editorItem);
             }
         },
 
-        // 显示编辑form
+        // form
         showEditForm() {
             this.editorItem.isEdit = true;
-            // 打开时才注册一个关闭事件，关闭弹窗时移除事件
+            //
             this.closeHandle = (event) => {
-                // 点击的自己兄弟view关闭自己
+                // view
                 const $el = this.$el;
                 const isChildEle = this.$el.contains(event.target);
                 const parentWrapEle = event.target.closest('.js_viewComponentWrap');
 
-                // 点击非自身的item 关闭自己，或者点击了自己的子item 关闭自己
+                // item item
                 if ((!isChildEle && parentWrapEle) || (isChildEle && $el !== parentWrapEle && $el.contains(parentWrapEle))) {
                     this.hideEditForm();
                 }
             };
 
-            // 点击其它弹窗关闭这里
+            //
             document.addEventListener('click', this.closeHandle, true);
 
             this.setCurEditorItem(this.editorItem);

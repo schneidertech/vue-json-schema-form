@@ -13,7 +13,7 @@ export default {
             ...otherProps
         };
 
-        // 字符串为 0 时区ISO标准时间
+        //  0 ISO
         const oldInputCall = context.data.on.input;
         context.data.on = {
             ...context.data.on,

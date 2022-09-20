@@ -5,7 +5,7 @@ import routes from './routes/index.js';
 Vue.use(VueRouter);
 
 /**
- * 路由入口
+ *
  *
  */
 export default new VueRouter({

@@ -10,15 +10,15 @@ export default {
                 type: 'object',
                 properties: {
                     street_address: {
-                        title: '街道',
+                        title: '',
                         type: 'string'
                     },
                     city: {
-                        title: '城市',
+                        title: '',
                         type: 'string'
                     },
                     state: {
-                        title: '国家',
+                        title: '',
                         type: 'string'
                     }
                 },
@@ -27,7 +27,7 @@ export default {
         },
         properties: {
             test: {
-                title: '测试字符串',
+                title: '',
                 allOf: [
                     {
                         type: 'string',
@@ -47,7 +47,7 @@ export default {
                         properties: {
                             type: {
                                 type: 'string',
-                                title: 'allOf 枚举',
+                                title: 'allOf ',
                                 enum: ['residential', 'business']
                             }
                         }
@@ -59,7 +59,7 @@ export default {
             {
                 properties: {
                     lorem: {
-                        title: 'allOf 标题',
+                        title: 'allOf ',
                         type: ['string', 'boolean'],
                         default: false,
                     },
