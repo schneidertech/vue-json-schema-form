@@ -138,7 +138,7 @@
 </template>
 
 <script>
-import VueJsonFrom from '@lljj/vue-json-schema-form';
+import VueJsonFrom from '@snema/vue-json-schema-form';
 import componentWithDialog from 'demo-common/components/component-with-dialog';
 import { openNewPage } from 'demo-common/utils/url.js';
 

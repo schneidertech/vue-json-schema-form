@@ -1,9 +1,9 @@
-# @lljj/vue2-form-core
+# @snema/vue2-form-core
 vue2  vue2 ui
 
  `props`  props
 
->  [@lljj/vue-json-schema-form](https://github.com/lljj-x/vue-json-schema-form/tree/master/packages/lib/vue2/vue2-form-element) [@lljj/vue2-form-iview3](https://github.com/lljj-x/vue-json-schema-form/tree/master/packages/lib/vue2/vue2-form-iview3)
+>  [@snema/vue-json-schema-form](https://github.com/lljj-x/vue-json-schema-form/tree/master/packages/lib/vue2/vue2-form-element) [@snema/vue2-form-iview3](https://github.com/lljj-x/vue-json-schema-form/tree/master/packages/lib/vue2/vue2-form-iview3)
 
 
 ##
@@ -13,7 +13,7 @@ npm  es6+  lib babe
 
 ```js
 babel({
-    exclude: /node_modules\/(?!(@lljj)\/).*/, //  @lljj
+    exclude: /node_modules\/(?!(@snema)\/).*/, //  @snema
     extensions: ['.js', '.vue'],
 })
 ```
@@ -22,10 +22,10 @@ babel({
 
 ```ssh
 ## npm
-npm install --save @lljj/vue2-form-core
+npm install --save @snema/vue2-form-core
 
 ## yarn
-yarn add @lljj/vue2-form-core
+yarn add @snema/vue2-form-core
 ```
 
 ##
@@ -33,7 +33,7 @@ yarn add @lljj/vue2-form-core
 ` props elementUiprops`
 
 ```js
-import createVue2Core from '@lljj/vue2-form-core';
+import createVue2Core from '@snema/vue2-form-core';
 
 const globalOptions = {
     // widget

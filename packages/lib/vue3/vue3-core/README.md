@@ -1,9 +1,9 @@
-# @lljj/vue3-form-core
+# @snema/vue3-form-core
 vue3  vue3 ui
 
  `props`  props
 
->  [@lljj/vue3-form-element](https://github.com/lljj-x/vue-json-schema-form/tree/master/packages/lib/vue3/vue3-form-element) [@lljj/vue3-form-ant](https://github.com/lljj-x/vue-json-schema-form/tree/master/packages/lib/vue3/vue3-form-ant)
+>  [@snema/vue3-form-element](https://github.com/lljj-x/vue-json-schema-form/tree/master/packages/lib/vue3/vue3-form-element) [@snema/vue3-form-ant](https://github.com/lljj-x/vue-json-schema-form/tree/master/packages/lib/vue3/vue3-form-ant)
 
 
 ##
@@ -13,7 +13,7 @@ npm  es6+  lib babe
 
 ```js
 babel({
-    exclude: /node_modules\/(?!(@lljj)\/).*/, //  @lljj
+    exclude: /node_modules\/(?!(@snema)\/).*/, //  @snema
     extensions: ['.js', '.vue'],
 })
 ```
@@ -22,10 +22,10 @@ babel({
 
 ```ssh
 ## npm
-npm install --save @lljj/vue3-form-core
+npm install --save @snema/vue3-form-core
 
 ## yarn
-yarn add @lljj/vue3-form-core
+yarn add @snema/vue3-form-core
 ```
 
 ##
@@ -33,7 +33,7 @@ yarn add @lljj/vue3-form-core
 ` props elementUiprops`
 
 ```js
-import createVue2Core from '@lljj/vue3-form-core';
+import createVue2Core from '@snema/vue3-form-core';
 
 const globalOptions = {
     // widget

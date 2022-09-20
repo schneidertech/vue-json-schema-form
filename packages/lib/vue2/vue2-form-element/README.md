@@ -1,17 +1,17 @@
-# @lljj/vue-json-schema-form
+# @snema/vue-json-schema-form
 
  [Element Ui](https://element.eleme.io/) Vue2 [JSON Schema](https://json-schema.org/understanding-json-schema/index.html)
 
->  [@lljj/vue2-form-core](https://github.com/lljj-x/vue-json-schema-form/tree/master/packages/lib/vue2/vue2-core)  ElementUi
+>  [@snema/vue2-form-core](https://github.com/lljj-x/vue-json-schema-form/tree/master/packages/lib/vue2/vue2-core)  ElementUi
 
 ##
 
 ```ssh
 ## npm
-npm install --save @lljj/vue-json-schema-form
+npm install --save @snema/vue-json-schema-form
 
 ## yarn
-yarn add @lljj/vue-json-schema-form
+yarn add @snema/vue-json-schema-form
 ```
 
 ##
@@ -25,7 +25,7 @@ yarn add @lljj/vue-json-schema-form
 
 ```js
 //
-import VueForm from '@lljj/vue-json-schema-form';
+import VueForm from '@snema/vue-json-schema-form';
 
 export default {
     name: 'Demo',

@@ -1,17 +1,17 @@
-# @lljj/vue3-form-element
+# @snema/vue3-form-element
 
  [Element Plus](https://element-plus.org/) Vue3 [JSON Schema](https://json-schema.org/understanding-json-schema/index.html)
 
->  [@lljj/vue3-form-core](https://github.com/lljj-x/vue-json-schema-form/tree/master/packages/lib/vue3/vue3-core)  ElementPlus
+>  [@snema/vue3-form-core](https://github.com/lljj-x/vue-json-schema-form/tree/master/packages/lib/vue3/vue3-core)  ElementPlus
 
 ##
 
 ```ssh
 ## npm
-npm install --save @lljj/vue3-form-element
+npm install --save @snema/vue3-form-element
 
 ## yarn
-yarn add @lljj/vue3-form-element
+yarn add @snema/vue3-form-element
 ```
 
 ##
@@ -25,7 +25,7 @@ yarn add @lljj/vue3-form-element
 
 ```js
 //
-import VueForm from '@lljj/vue3-form-element';
+import VueForm from '@snema/vue3-form-element';
 
 export default {
     name: 'Demo',

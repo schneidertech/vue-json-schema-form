@@ -2,7 +2,7 @@
  * Created by Liu.Jun on 2020/3/31 11:30 .
  */
 
-import { getDefaultFormState } from '@lljj/vue-json-schema-form';
+import { getDefaultFormState } from '@snema/vue-json-schema-form';
 import { genId } from 'demo-common/utils/id';
 
 function isEmptyObject(obj) {

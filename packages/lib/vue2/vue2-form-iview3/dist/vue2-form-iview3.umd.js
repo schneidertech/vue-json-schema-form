@@ -1,4 +1,4 @@
-/** @license @lljj/vue2-form-iview3 (c) 2020-2022 Liu.Jun License: Apache-2.0 */
+/** @license @snema/vue2-form-iview3 (c) 2020-2022 Liu.Jun License: Apache-2.0 */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('vue')) :
   typeof define === 'function' && define.amd ? define(['exports', 'vue'], factory) :

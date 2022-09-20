@@ -6,22 +6,22 @@
 
 ``` bash
 # npm
-npm install --save @lljj/vue-json-schema-form
+npm install --save @snema/vue-json-schema-form
 
 # yarn
-yarn add @lljj/vue-json-schema-form
+yarn add @snema/vue-json-schema-form
 ```
 
 * Import
 
 ```js
-import VueForm from '@lljj/vue-json-schema-form';
+import VueForm from '@snema/vue-json-schema-form';
 ```
 
 * CDN
 ```html
 # As a script served from a CDN
-<script src="//npm.elemecdn.com/@lljj/vue-json-schema-form/dist/vueJsonSchemaForm.umd.min.js"></script>
+<script src="//npm.elemecdn.com/@snema/vue-json-schema-form/dist/vueJsonSchemaForm.umd.min.js"></script>
 ```
 
 ::: tip Global import
@@ -116,7 +116,7 @@ import VueForm, {
     formUtils,
     schemaValidate,
     i18n
-} from '@lljj/vue-json-schema-form';
+} from '@snema/vue-json-schema-form';
 ```
 
 ####  VueForm

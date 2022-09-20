@@ -2,7 +2,7 @@
  * Created by Liu.Jun on 2019/11/29 11:25.
  */
 
-import createVue2Core, { fieldProps, SchemaField } from '@lljj/vue2-form-core';
+import createVue2Core, { fieldProps, SchemaField } from '@snema/vue2-form-core';
 
 import i18n from '@lljj/vjsf-utils/i18n';
 import * as vueUtils from '@lljj/vjsf-utils/vueUtils';

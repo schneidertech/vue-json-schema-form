@@ -1,4 +1,4 @@
-/** @license @lljj/vue-json-schema-form (c) 2020-2022 Liu.Jun License: Apache-2.0 */
+/** @license @snema/vue-json-schema-form (c) 2020-2022 Liu.Jun License: Apache-2.0 */
 import Vue from 'vue';
 
 function _typeof(obj) {

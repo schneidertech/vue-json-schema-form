@@ -17,38 +17,38 @@ VueUi
 * vue3 antd Vue `v-model`  `modelValue` props[](/zh/guide/#vue3-ant-v-model-%E7%89%B9%E6%AE%8A%E5%A4%84%E7%90%86)
 :::
 
-### @lljj/vue-json-schema-form
+### @snema/vue-json-schema-form
 * ui`Vue2` `ElementUi`
-* package name: `@lljj/vue-json-schema-form`
-* umd cdn[@lljj/vue-json-schema-form cdn](https://npm.elemecdn.com/@lljj/vue-json-schema-form/dist/vueJsonSchemaForm.umd.min.js)
+* package name: `@snema/vue-json-schema-form`
+* umd cdn[@snema/vue-json-schema-form cdn](https://npm.elemecdn.com/@snema/vue-json-schema-form/dist/vueJsonSchemaForm.umd.min.js)
 * umd script  `window.vueJsonSchemaForm``window.vueJsonSchemaForm.default`  `VueForm`
 * [playground](https://form.lljj.me/#/demo?type=Simple)
 
-### @lljj/vue2-form-iview3
+### @snema/vue2-form-iview3
 * ui`Vue2` `iview3`
-* package name: `@lljj/vue2-form-iview3`
-* umd cdn[@lljj/vue2-form-iview3 cdn](https://npm.elemecdn.com/@lljj/vue2-form-iview3/dist/vue2-form-iview3.umd.min.js)
+* package name: `@snema/vue2-form-iview3`
+* umd cdn[@snema/vue2-form-iview3 cdn](https://npm.elemecdn.com/@snema/vue2-form-iview3/dist/vue2-form-iview3.umd.min.js)
 * umd script  `window.vue2FormIview3``window.vue2FormIview3.default`  `vue2FormIview3`
 * [playground](https://form.lljj.me/#/demo?type=Simple&ui=VueIview3Form)
 
-### @lljj/vue3-form-element
+### @snema/vue3-form-element
 * ui`Vue3` `ElementPlus`
-* package name : `@lljj/vue3-form-element`
-* umd cdn[@lljj/vue3-form-element cdn](https://npm.elemecdn.com/@lljj/vue3-form-element/dist/vue3-form-element.umd.min.js)
+* package name : `@snema/vue3-form-element`
+* umd cdn[@snema/vue3-form-element cdn](https://npm.elemecdn.com/@snema/vue3-form-element/dist/vue3-form-element.umd.min.js)
 * umd script  `window.vue3FormElement``window.vue3FormElement.default`
 * [playground](https://form.lljj.me/v3/#/demo?type=Simple)
 
-### @lljj/vue3-form-naive
+### @snema/vue3-form-naive
 * ui`Vue3` `antdv`
-* package name : `@lljj/vue3-form-naive`
-* umd cdn[@lljj/vue3-form-naive cdn](https://npm.elemecdn.com/@lljj/vue3-form-naive/dist/vue3-form-naive.umd.min.js)
+* package name : `@snema/vue3-form-naive`
+* umd cdn[@snema/vue3-form-naive cdn](https://npm.elemecdn.com/@snema/vue3-form-naive/dist/vue3-form-naive.umd.min.js)
 * umd script  `window.vue3FormNaive``window.vue3FormNaive.default`
 * [playground](https://form.lljj.me/v3/#/demo?type=Simple&ui=VueNaiveForm)
 
-### @lljj/vue3-form-ant
+### @snema/vue3-form-ant
 * ui`Vue3` `antdv`
-* package name : `@lljj/vue3-form-ant`
-* umd cdn[@lljj/vue3-form-ant cdn](https://npm.elemecdn.com/@lljj/vue3-form-ant/dist/vue3-form-ant.umd.min.js)
+* package name : `@snema/vue3-form-ant`
+* umd cdn[@snema/vue3-form-ant cdn](https://npm.elemecdn.com/@snema/vue3-form-ant/dist/vue3-form-ant.umd.min.js)
 * umd script  `window.vue3FormAnt``window.vue3FormAnt.default`
 * [playground](https://form.lljj.me/v3/#/demo?type=Simple&ui=VueAntForm)
 
@@ -58,13 +58,13 @@ VueUi
  `modelValueComponent`
 ```js
 //  modelValue  update:modelValue v-model
-import { modelValueComponent } from '@lljj/vue3-form-ant';
+import { modelValueComponent } from '@snema/vue3-form-ant';
 const MyFixInputComponent = modelValueComponent('a-input', {
     model: 'value' // ant model
 });
 
 // naive
-import { modelValueComponent } from '@lljj/vue3-form-naive';
+import { modelValueComponent } from '@snema/vue3-form-naive';
 const MyFixInputComponent = modelValueComponent('n-input', {
     model: 'value' // naive model
 });
@@ -76,21 +76,21 @@ Widget
 :::
 
 ##
-> ** `@lljj/vue-json-schema-form` **
+> ** `@snema/vue-json-schema-form` **
 
 ### npm
 
 ``` bash
 #
-npm install --save @lljj/vue-json-schema-form
+npm install --save @snema/vue-json-schema-form
 
 # yarn
-yarn add @lljj/vue-json-schema-form
+yarn add @snema/vue-json-schema-form
 ```
 
 *
 ```js
-import VueForm from '@lljj/vue-json-schema-form';
+import VueForm from '@snema/vue-json-schema-form';
 import Vue from 'vue';
 
 //
@@ -100,7 +100,7 @@ Vue.component('VueForm', VueForm);
 ### script
 ```html
 # script
-<script src="//npm.elemecdn.com/@lljj/vue-json-schema-form/dist/vueJsonSchemaForm.umd.min.js"></script>
+<script src="//npm.elemecdn.com/@snema/vue-json-schema-form/dist/vueJsonSchemaForm.umd.min.js"></script>
 ```
 
 ## DEMO
@@ -186,7 +186,7 @@ import VueForm, {
     formUtils,
     schemaValidate,
     i18n
-} from '@lljj/vue-json-schema-form';
+} from '@snema/vue-json-schema-form';
 ```
 
 ####  VueForm

@@ -6,7 +6,7 @@ import {
     h, ref, onMounted, defineComponent
 } from 'vue';
 
-import createVue3Core, { fieldProps, SchemaField } from '@lljj/vue3-form-core';
+import createVue3Core, { fieldProps, SchemaField } from '@snema/vue3-form-core';
 
 
 import i18n from '@lljj/vjsf-utils/i18n';

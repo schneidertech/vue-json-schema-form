@@ -355,9 +355,9 @@ Field `props`
 ```
 :::
 
- `@lljj/vue-json-schema-form` props
+ `@snema/vue-json-schema-form` props
 ```js
-import { fieldProps } from  '@lljj/vue-json-schema-form';
+import { fieldProps } from  '@snema/vue-json-schema-form';
 ```
 
 ### Demo -

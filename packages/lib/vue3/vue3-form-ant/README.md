@@ -1,17 +1,17 @@
-# @lljj/vue3-form-ant
+# @snema/vue3-form-ant
 
  [Antd Vue](https://2x.antdv.com/components/overview-cn/) Vue3 [JSON Schema](https://json-schema.org/understanding-json-schema/index.html)
 
->  [@lljj/vue3-form-core](https://github.com/lljj-x/vue-json-schema-form/tree/master/packages/lib/vue3/vue3-core)  Ant Design Vue3
+>  [@snema/vue3-form-core](https://github.com/lljj-x/vue-json-schema-form/tree/master/packages/lib/vue3/vue3-core)  Ant Design Vue3
 
 ##
 
 ```ssh
 ## npm
-npm install --save @lljj/vue3-form-ant
+npm install --save @snema/vue3-form-ant
 
 ## yarn
-yarn add @lljj/vue3-form-ant
+yarn add @snema/vue3-form-ant
 ```
 
 ##
@@ -25,7 +25,7 @@ yarn add @lljj/vue3-form-ant
 
 ```js
 //
-import VueForm from '@lljj/vue3-form-ant';
+import VueForm from '@snema/vue3-form-ant';
 
 export default {
     name: 'Demo',

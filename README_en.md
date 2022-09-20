@@ -12,10 +12,10 @@ Quickly building HTML form based on `Vue`, `JSON Schema` and `ElementUi`.
 
 ``` bash
 # npm
-npm install --save @lljj/vue-json-schema-form
+npm install --save @snema/vue-json-schema-form
 
 # yarn
-yarn add @lljj/vue-json-schema-form
+yarn add @snema/vue-json-schema-form
 ```
 
 ```vue
@@ -28,7 +28,7 @@ yarn add @lljj/vue-json-schema-form
 </template>
 
 <script >
-    import VueForm from '@lljj/vue-json-schema-form';
+    import VueForm from '@snema/vue-json-schema-form';
 
     export default {
         name: 'Demo',

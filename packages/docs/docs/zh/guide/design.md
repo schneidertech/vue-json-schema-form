@@ -11,7 +11,7 @@ path `curNodePath` formData `rootFormData`
 > `curNodePath`  `userInfo.userName`
 >>
 >> ```js
->> import { vueUtils } from '@lljj/vue-json-schema-form';
+>> import { vueUtils } from '@snema/vue-json-schema-form';
 >>
 >> // get
 >> vueUtils.getPathVal(rootFormData, curNodePath);

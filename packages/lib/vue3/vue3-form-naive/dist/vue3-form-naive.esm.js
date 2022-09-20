@@ -1,4 +1,4 @@
-/** @license @lljj/vue3-form-naive (c) 2020-2022 Liu.Jun License: Apache-2.0 */
+/** @license @snema/vue3-form-naive (c) 2020-2022 Liu.Jun License: Apache-2.0 */
 import { resolveComponent as resolveComponent$1, defineComponent, h, openBlock, createBlock, toDisplayString, createCommentVNode, createVNode, renderSlot, inject, computed, ref as ref$1, watch, toRaw, getCurrentInstance, toRef, provide, onMounted } from 'vue';
 
 function _typeof(obj) {

@@ -84,7 +84,7 @@ module.exports = ({
                 normalizer: '~vue-runtime-helpers/dist/normalize-component.js'
             }),
             babel({
-                exclude: /node_modules\/(?!(@lljj)\/).*/,
+                exclude: /node_modules\/(?!(@snema)\/).*/,
                 extensions: ['.js', '.vue'],
             }),
             postcss({

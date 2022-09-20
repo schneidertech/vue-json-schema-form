@@ -63,7 +63,7 @@ module.exports = {
         };
         config.resolve.alias = {
             ...config.resolve.alias,
-            // '@lljj/vue3-form-element': '@lljj/vue3-form-element/src/index'
+            // '@snema/vue3-form-element': '@snema/vue3-form-element/src/index'
         };
     },
 

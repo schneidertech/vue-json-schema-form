@@ -4,7 +4,7 @@ module.exports = {
     ],
     presets: [
         [
-            '@lljj/babel-preset-app',
+            '@snema/babel-preset-app',
             {
                 useBuiltIns: false,
                 regenerator: true,

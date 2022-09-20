@@ -1,5 +1,5 @@
 {
-    "name": "@lljj/vue2-form-core",
+    "name": "@snema/vue2-form-core",
     "version": "1.14.0",
     "description": " Vue JsonSchemaformvue2",
     "main": "src/index.js",

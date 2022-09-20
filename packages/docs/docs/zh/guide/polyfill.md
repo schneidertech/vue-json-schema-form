@@ -12,14 +12,14 @@ es6+api String.prototype.includes api
 
 #### 1 Babel
  babel runtimecore-js@3 useBuiltIns **vue-cli **
-> babel  `node_modules`   `babel include`  `node_modules/@lljj/vue-json-schema-form`
+> babel  `node_modules`   `babel include`  `node_modules/@snema/vue-json-schema-form`
 
 *  vue-cli   [transpileDependencies](https://cli.vuejs.org/zh/config/#transpiledependencies)
 
 ```js
 {
     transpileDependencies: [
-        '@lljj/vue-json-schema-form' // +
+        '@snema/vue-json-schema-form' // +
     ]
 },
 ```
@@ -31,7 +31,7 @@ es6+api String.prototype.includes api
     loader: 'babel-loader',
     include: [
         path.resolve(__dirname,'../src'),
-        path.resolve(__dirname,'../node_modules/@lljj/vue-json-schema-form') // +
+        path.resolve(__dirname,'../node_modules/@snema/vue-json-schema-form') // +
     ]
 }
 ```
@@ -47,7 +47,7 @@ es6+api String.prototype.includes api
 >
 >
 >* polyfill
->* [@lljj/polyfill](https://github.com/lljj-x/polyfill)
+>* [@snema/polyfill](https://github.com/lljj-x/polyfill)
 
 ```js
 //  @babel/polyfill

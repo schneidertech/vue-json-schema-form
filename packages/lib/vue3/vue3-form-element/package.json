@@ -1,5 +1,5 @@
 {
-    "name": "@lljj/vue3-form-element",
+    "name": "@snema/vue3-form-element",
     "version": "1.14.0",
     "description": " Vue3 ElementPlusJsonSchemaform",
     "main": "dist/vue3-form-element.umd.min.js",
@@ -16,7 +16,7 @@
     ],
     "dependencies": {
         "@lljj/vjsf-utils": "1.14.0",
-        "@lljj/vue3-form-core": "1.14.0"
+        "@snema/vue3-form-core": "1.14.0"
     },
     "typings": "types/index.d.ts",
     "files": [
@@ -30,8 +30,8 @@
         "access": "public"
     },
     "devDependencies": {
-        "@lljj/babel-preset": "^0.1.0",
-        "@lljj/eslint-config": "0.1.0",
+        "@snema/babel-preset": "^0.1.0",
+        "@snema/eslint-config": "0.1.0",
         "babel-eslint": "^10.0.3",
         "cssnano": "^4.1.10",
         "eslint": "^5.16.0",

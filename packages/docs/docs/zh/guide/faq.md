@@ -143,7 +143,7 @@ module.exports = {
 
 ## ie9
 
-`@lljj/vue-json-schema-form`  `vue` `elementUi` `ajv`  `ie9`
+`@snema/vue-json-schema-form`  `vue` `elementUi` `ajv`  `ie9`
 
 * ie9
 1. css
@@ -153,7 +153,7 @@ flex ie9
 
 2. js
 
- polyfill `@lljj/vue-json-schema-form`  `bable-loader`
+ polyfill `@snema/vue-json-schema-form`  `bable-loader`
 [](/zh/guide/polyfill.html#script-)
 
 ##

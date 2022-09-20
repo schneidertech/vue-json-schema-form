@@ -1,17 +1,17 @@
-# @lljj/vue2-form-iview3
+# @snema/vue2-form-iview3
 
  [iview3](http://iview.talkingdata.com) Vue2 [JSON Schema](https://json-schema.org/understanding-json-schema/index.html)
 
->  [@lljj/vue2-form-core](https://github.com/lljj-x/vue-json-schema-form/tree/master/packages/lib/vue2/vue2-core)  iview3
+>  [@snema/vue2-form-core](https://github.com/lljj-x/vue-json-schema-form/tree/master/packages/lib/vue2/vue2-core)  iview3
 
 ##
 
 ```ssh
 ## npm
-npm install --save @lljj/vue2-form-iview3
+npm install --save @snema/vue2-form-iview3
 
 ## yarn
-yarn add @lljj/vue2-form-iview3
+yarn add @snema/vue2-form-iview3
 ```
 
 ##
@@ -25,7 +25,7 @@ yarn add @lljj/vue2-form-iview3
 
 ```js
 //
-import VueForm from '@lljj/vue2-form-iview3';
+import VueForm from '@snema/vue2-form-iview3';
 
 export default {
     name: 'Demo',

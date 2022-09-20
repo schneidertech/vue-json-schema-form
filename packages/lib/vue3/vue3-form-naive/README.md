@@ -1,17 +1,17 @@
-# @lljj/vue3-form-naive
+# @snema/vue3-form-naive
 
  [NaiveUi](https://www.naiveui.com/zh-CN/os-theme) Vue3 [JSON Schema](https://json-schema.org/understanding-json-schema/index.html)
 
->  [@lljj/vue3-form-core](https://github.com/lljj-x/vue-json-schema-form/tree/master/packages/lib/vue3/vue3-core)  NaiveUi
+>  [@snema/vue3-form-core](https://github.com/lljj-x/vue-json-schema-form/tree/master/packages/lib/vue3/vue3-core)  NaiveUi
 
 ##
 
 ```ssh
 ## npm
-npm install --save @lljj/vue3-form-naive
+npm install --save @snema/vue3-form-naive
 
 ## yarn
-yarn add @lljj/vue3-form-naive
+yarn add @snema/vue3-form-naive
 ```
 
 ##
@@ -25,7 +25,7 @@ yarn add @lljj/vue3-form-naive
 
 ```js
 //
-import VueForm from '@lljj/vue3-form-naive';
+import VueForm from '@snema/vue3-form-naive';
 
 export default {
     name: 'Demo',

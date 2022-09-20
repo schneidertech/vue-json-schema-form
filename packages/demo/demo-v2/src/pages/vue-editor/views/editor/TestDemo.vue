@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import VueElementForm from '@lljj/vue-json-schema-form/src/index';
+import VueElementForm from '@snema/vue-json-schema-form/src/index';
 
 export default {
     components: {

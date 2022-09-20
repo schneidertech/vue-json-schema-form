@@ -55,7 +55,7 @@
         vueUtils,
         formUtils,
         schemaValidate
-    } from '@lljj/vue-json-schema-form';
+    } from '@snema/vue-json-schema-form';
 
     export default {
         name: 'LinkImgField',

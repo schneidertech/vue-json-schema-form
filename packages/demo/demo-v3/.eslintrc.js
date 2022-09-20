@@ -12,8 +12,8 @@ module.exports = {
     },
     plugins: ['vue'],
     extends: [
-        '@lljj/eslint-config',
-        '@lljj/eslint-config/vue'
+        '@snema/eslint-config',
+        '@snema/eslint-config/vue'
     ],
     rules: {
         //

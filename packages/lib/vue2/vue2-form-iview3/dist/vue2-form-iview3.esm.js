@@ -1,4 +1,4 @@
-/** @license @lljj/vue2-form-iview3 (c) 2020-2022 Liu.Jun License: Apache-2.0 */
+/** @license @snema/vue2-form-iview3 (c) 2020-2022 Liu.Jun License: Apache-2.0 */
 import Vue from 'vue';
 
 function _typeof(obj) {

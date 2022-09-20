@@ -199,13 +199,13 @@ import EditorHeader from 'demo-common/components/EditorHeader.vue';
 import CodeEditor from 'demo-common/components/CodeEditorV2';
 import schemaTypes from 'demo-common/schemaTypes';
 
-const VueElementForm = () => import('@lljj/vue-json-schema-form');
+const VueElementForm = () => import('@snema/vue-json-schema-form');
 
 const VueIview3Form = async () => {
     // eslint-disable-next-line
     const [iview, ivewForm] = await Promise.all([
         import('demo-common/components/iView/index.js'),
-        import('@lljj/vue2-form-iview3')
+        import('@snema/vue2-form-iview3')
     ]);
 
     return ivewForm;

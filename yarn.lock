@@ -1866,9 +1866,9 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
-"@lljj/babel-preset-app@^0.0.1":
+"@snema/babel-preset-app@^0.0.1":
   version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@lljj/babel-preset-app/-/babel-preset-app-0.0.1.tgz#90d0fd972cf4ab7c94baed66ad88a5ae3cb3228f"
+  resolved "https://registry.yarnpkg.com/@snema/babel-preset-app/-/babel-preset-app-0.0.1.tgz#90d0fd972cf4ab7c94baed66ad88a5ae3cb3228f"
   integrity sha512-g8zskppJDZp8IRjX5v67h6/cz9HjdcD4DOrl+FfGRUzOjq5kHD6FLyL7ccavvRttZHpkBeTjj67OB5MIkvVIzA==
   dependencies:
     "@babel/core" "^7.11.6"
@@ -1888,9 +1888,9 @@
     core-js-compat "^3.6.5"
     semver "^7.3.2"
 
-"@lljj/babel-preset@^0.1.0":
+"@snema/babel-preset@^0.1.0":
   version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@lljj/babel-preset/-/babel-preset-0.1.2.tgz#1623e0e5ba38f14b9368f0e5bd79ad71682e63b4"
+  resolved "https://registry.yarnpkg.com/@snema/babel-preset/-/babel-preset-0.1.2.tgz#1623e0e5ba38f14b9368f0e5bd79ad71682e63b4"
   integrity sha512-pdO52pG4AX4/LrhzacPx/d3WWVIcDRI5z24GXPV7VWauyQkxUKqFRJ7VIP7Wu97NTXl+1s4HfFxk9LXC1VHa7g==
   dependencies:
     "@babel/core" "^7.1.2"
@@ -1900,16 +1900,16 @@
     "@babel/plugin-syntax-dynamic-import" "^7.0.0"
     "@babel/preset-env" "^7.1.0"
 
-"@lljj/eslint-config@0.1.0":
+"@snema/eslint-config@0.1.0":
   version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@lljj/eslint-config/-/eslint-config-0.1.0.tgz#741df255478cdee342fe80442d1e024fd044c4cd"
+  resolved "https://registry.yarnpkg.com/@snema/eslint-config/-/eslint-config-0.1.0.tgz#741df255478cdee342fe80442d1e024fd044c4cd"
   integrity sha512-RC50ddNHDPg9dP5118Y15gf6eJIJGBWotC9gUBHqdCOwbd8MTD15RZDJHdYEHmF6/9eyNdrDsdtP2apoUDe6/w==
   dependencies:
     confusing-browser-globals "^1.0.5"
 
-"@lljj/polyfill@^0.1.0":
+"@snema/polyfill@^0.1.0":
   version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@lljj/polyfill/-/polyfill-0.1.2.tgz#e46cf57b06263ace0950757d2c75ca7bfeb75d84"
+  resolved "https://registry.yarnpkg.com/@snema/polyfill/-/polyfill-0.1.2.tgz#e46cf57b06263ace0950757d2c75ca7bfeb75d84"
   integrity sha512-Mx6oZ2gE/8ppF5sqQijygYb0tzXUA+yrD/N2245q4H0la2suximfqZLvXv4wSQU+rePKeQYSuGKwaW2qV5b/Dw==
   dependencies:
     classlist.js "^1.1.20150312"
