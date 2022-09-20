@@ -3,8 +3,8 @@
  */
 
 import { h, ref, watch } from 'vue';
-import { resolveComponent } from '@lljj/vjsf-utils/vue3Utils';
-import { parseDateString } from '@lljj/vjsf-utils/utils';
+import { resolveComponent } from '@snema/vjsf-utils/vue3Utils';
+import { parseDateString } from '@snema/vjsf-utils/utils';
 
 const formatTimeStr = (dateString) => {
     const { hour, minute, second } = parseDateString(dateString, true);

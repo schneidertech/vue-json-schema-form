@@ -96,7 +96,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.9.1](https://github.com/lljj-x/vue-json-schema-form/compare/v1.9.0...v1.9.1) (2021-09-22)
 
-**Note:** Version bump only for package @lljj/vjsf-utils
+**Note:** Version bump only for package @snema/vjsf-utils
 
 
 
@@ -137,7 +137,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.6.3](https://github.com/lljj-x/vue-json-schema-form/compare/v1.6.2...v1.6.3) (2021-07-12)
 
-**Note:** Version bump only for package @lljj/vjsf-utils
+**Note:** Version bump only for package @snema/vjsf-utils
 
 
 
@@ -145,7 +145,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.6.2](https://github.com/lljj-x/vue-json-schema-form/compare/v1.6.1...v1.6.2) (2021-05-31)
 
-**Note:** Version bump only for package @lljj/vjsf-utils
+**Note:** Version bump only for package @snema/vjsf-utils
 
 
 
@@ -191,7 +191,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.1.3](https://github.com/lljj-x/vue-json-schema-form/compare/v1.1.2...v1.1.3) (2021-03-18)
 
-**Note:** Version bump only for package @lljj/vjsf-utils
+**Note:** Version bump only for package @snema/vjsf-utils
 
 
 
@@ -221,7 +221,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.6.1](https://github.com/lljj-x/vue-json-schema-form/compare/v0.6.0...v0.6.1) (2021-01-19)
 
-**Note:** Version bump only for package @lljj/vjsf-utils
+**Note:** Version bump only for package @snema/vjsf-utils
 
 
 

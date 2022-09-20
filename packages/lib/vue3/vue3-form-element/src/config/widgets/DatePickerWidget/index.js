@@ -3,9 +3,9 @@
  */
 
 import { h } from 'vue';
-import { resolveComponent } from '@lljj/vjsf-utils/vue3Utils';
+import { resolveComponent } from '@snema/vjsf-utils/vue3Utils';
 
-import { parseDateString } from '@lljj/vjsf-utils/utils';
+import { parseDateString } from '@snema/vjsf-utils/utils';
 
 function isEmptyValue(value) {
     return value === null || value === '' || (Array.isArray(value) && value.every(item => item === ''));

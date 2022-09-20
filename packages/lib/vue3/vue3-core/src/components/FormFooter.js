@@ -4,7 +4,7 @@
 
 import { h } from 'vue';
 
-import { resolveComponent } from '@lljj/vjsf-utils/vue3Utils';
+import { resolveComponent } from '@snema/vjsf-utils/vue3Utils';
 
 export default {
     name: 'FormFooter',

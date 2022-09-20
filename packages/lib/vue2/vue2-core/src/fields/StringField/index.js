@@ -2,7 +2,7 @@
  * Created by Liu.Jun on 2020/4/21 9:24.
  */
 
-import { getWidgetConfig, isSelect, optionsList } from '@lljj/vjsf-utils/formUtils';
+import { getWidgetConfig, isSelect, optionsList } from '@snema/vjsf-utils/formUtils';
 import vueProps from '../props';
 import Widget from '../../components/Widget';
 

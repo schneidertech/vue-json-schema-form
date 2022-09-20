@@ -3,7 +3,7 @@
  */
 
 import { h, computed } from 'vue';
-import { getWidgetConfig } from '@lljj/vjsf-utils/formUtils';
+import { getWidgetConfig } from '@snema/vjsf-utils/formUtils';
 import vueProps from '../../props';
 import Widget from '../../../components/Widget';
 

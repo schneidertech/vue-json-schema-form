@@ -16,7 +16,7 @@
         "iView3"
     ],
     "dependencies": {
-        "@lljj/vjsf-utils": "1.14.0",
+        "@snema/vjsf-utils": "1.14.0",
         "@snema/vue2-form-core": "1.14.0"
     },
     "typings": "types/index.d.ts",

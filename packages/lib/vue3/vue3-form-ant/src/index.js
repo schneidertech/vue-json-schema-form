@@ -7,11 +7,11 @@ import {
 } from 'vue';
 import createVue3Core, { fieldProps, SchemaField } from '@snema/vue3-form-core';
 
-import i18n from '@lljj/vjsf-utils/i18n';
-import * as vueUtils from '@lljj/vjsf-utils/vue3Utils';
-import * as formUtils from '@lljj/vjsf-utils/formUtils';
-import * as schemaValidate from '@lljj/vjsf-utils/schema/validate';
-import getDefaultFormState from '@lljj/vjsf-utils/schema/getDefaultFormState';
+import i18n from '@snema/vjsf-utils/i18n';
+import * as vueUtils from '@snema/vjsf-utils/vue3Utils';
+import * as formUtils from '@snema/vjsf-utils/formUtils';
+import * as schemaValidate from '@snema/vjsf-utils/schema/validate';
+import getDefaultFormState from '@snema/vjsf-utils/schema/getDefaultFormState';
 import WIDGET_MAP from './config/widgets/WIDGET_MAP.js';
 
 import { modelValueComponent } from './config/utils';

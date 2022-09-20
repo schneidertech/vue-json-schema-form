@@ -2,7 +2,7 @@
  * Created by Liu.Jun on 2020/5/17 10:41 .
  */
 
-import { modelValueComponent } from '@lljj/vjsf-utils/vue3Utils';
+import { modelValueComponent } from '@snema/vjsf-utils/vue3Utils';
 import CheckboxesWidget from './CheckboxesWidget';
 import RadioWidget from './RadioWidget';
 import SelectWidget from './SelectWidget';

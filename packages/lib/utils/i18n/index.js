@@ -6,10 +6,10 @@
 //
 // https://github.com/epoberezkin/ajv-i18n/tree/master/localize
 
-import localizeZh from './localize/zh';
+import localizeEn from './localize/en';
 
 export default {
-    $$currentLocalizeFn: localizeZh,
+    $$currentLocalizeFn: localizeEn,
     getCurrentLocalize() {
         return this.$$currentLocalizeFn;
     },

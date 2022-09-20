@@ -4,7 +4,7 @@
 
 import { h, computed } from 'vue';
 
-import { getWidgetConfig, isSelect, optionsList } from '@lljj/vjsf-utils/formUtils';
+import { getWidgetConfig, isSelect, optionsList } from '@snema/vjsf-utils/formUtils';
 import vueProps from '../props';
 import Widget from '../../components/Widget';
 

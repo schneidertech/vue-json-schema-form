@@ -6,11 +6,11 @@
 import Vue from 'vue';
 
 // form
-import getDefaultFormState from '@lljj/vjsf-utils/schema/getDefaultFormState';
-import { deepEquals } from '@lljj/vjsf-utils/utils';
+import getDefaultFormState from '@snema/vjsf-utils/schema/getDefaultFormState';
+import { deepEquals } from '@snema/vjsf-utils/utils';
 
 //
-import '@lljj/vjsf-utils/style/baseForm.css';
+import '@snema/vjsf-utils/style/baseForm.css';
 
 import vueProps from './props';
 

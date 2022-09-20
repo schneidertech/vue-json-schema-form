@@ -1,21 +1,21 @@
-# @lljj/vjsf-utils
+# @snema/vjsf-utils
 
 
-## @lljj/vjsf-utils/i18n
+## @snema/vjsf-utils/i18n
 
 
 
-## @lljj/vjsf-utils/schema/getDefaultFormState
+## @snema/vjsf-utils/schema/getDefaultFormState
  jsonSchema  formDataschema value
 
-## @lljj/vjsf-utils/schema/validate
+## @snema/vjsf-utils/schema/validate
 
 ```js
 import {
     ajvValidateFormData,
     validateFormDataAndTransformMsg,
     isValid
-} from '@lljj/vjsf-utils/schema/validate';
+} from '@snema/vjsf-utils/schema/validate';
 
 //  ajv schema
 ajvValidateFormData(...args);
@@ -30,11 +30,11 @@ isValid(...args);
 isValid(...args);
 ```
 
-## @lljj/vjsf-utils/arrayUtils
+## @snema/vjsf-utils/arrayUtils
 
 
-## @lljj/vjsf-utils/formUtils
+## @snema/vjsf-utils/formUtils
 
 
-## @lljj/vjsf-utils/vueUtils
+## @snema/vjsf-utils/vueUtils
 Vue

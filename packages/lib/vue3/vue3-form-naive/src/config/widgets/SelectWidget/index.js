@@ -3,7 +3,7 @@
  */
 
 import { h } from 'vue';
-import { modelValueComponent, resolveComponent } from '@lljj/vjsf-utils/vue3Utils';
+import { modelValueComponent, resolveComponent } from '@snema/vjsf-utils/vue3Utils';
 
 const baseComponent = {
     name: 'SelectWidget',

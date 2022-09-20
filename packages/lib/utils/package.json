@@ -1,5 +1,5 @@
 {
-    "name": "@lljj/vjsf-utils",
+    "name": "@snema/vjsf-utils",
     "version": "1.14.0",
     "description": "vue json schema form utils",
     "private": false,
@@ -7,7 +7,7 @@
         "access": "public"
     },
     "keywords": [
-        "@lljj/vjsf-utils",
+        "@snema/vjsf-utils",
         "vue",
         "vuejs",
         "form",

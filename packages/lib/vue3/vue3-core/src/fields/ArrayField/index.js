@@ -7,15 +7,15 @@ import {
     ref, computed, h, watch, toRaw
 } from 'vue';
 
-import getDefaultFormState from '@lljj/vjsf-utils/schema/getDefaultFormState';
+import getDefaultFormState from '@snema/vjsf-utils/schema/getDefaultFormState';
 
 import {
     allowAdditionalItems, isFixedItems, isMultiSelect
-} from '@lljj/vjsf-utils/formUtils';
-import { getPathVal, setPathVal } from '@lljj/vjsf-utils/vue3Utils';
-import { genId, lowerCase } from '@lljj/vjsf-utils/utils';
+} from '@snema/vjsf-utils/formUtils';
+import { getPathVal, setPathVal } from '@snema/vjsf-utils/vue3Utils';
+import { genId, lowerCase } from '@snema/vjsf-utils/utils';
 
-import * as arrayMethods from '@lljj/vjsf-utils/arrayUtils';
+import * as arrayMethods from '@snema/vjsf-utils/arrayUtils';
 import Widget from '../../components/Widget';
 
 import vueProps from '../props';

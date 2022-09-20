@@ -4,10 +4,10 @@
 
 import { h } from 'vue';
 
-import { computedCurPath } from '@lljj/vjsf-utils/vue3Utils';
-import { getUiOptions, replaceArrayIndex } from '@lljj/vjsf-utils/formUtils';
+import { computedCurPath } from '@snema/vjsf-utils/vue3Utils';
+import { getUiOptions, replaceArrayIndex } from '@snema/vjsf-utils/formUtils';
 
-import FieldGroupWrap from '@lljj/vjsf-utils/components/FieldGroupWrap';
+import FieldGroupWrap from '@snema/vjsf-utils/components/FieldGroupWrap';
 import SchemaField from '../../SchemaField';
 import ArrayOrderList from '../components/ArrayOrderList';
 

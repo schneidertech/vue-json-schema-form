@@ -3,7 +3,7 @@
  */
 
 import { defineComponent, h } from 'vue';
-import { resolveComponent, modelValueComponent } from '@lljj/vjsf-utils/vue3Utils';
+import { resolveComponent, modelValueComponent } from '@snema/vjsf-utils/vue3Utils';
 
 const numberTimeComponent = component => defineComponent({
     inheritAttrs: false,

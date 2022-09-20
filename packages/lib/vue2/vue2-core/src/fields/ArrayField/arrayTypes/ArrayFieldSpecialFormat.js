@@ -2,7 +2,7 @@
  * Created by Liu.Jun on 2020/9/16 10:25.
  */
 
-import { getWidgetConfig } from '@lljj/vjsf-utils/formUtils';
+import { getWidgetConfig } from '@snema/vjsf-utils/formUtils';
 import vueProps from '../../props';
 import Widget from '../../../components/Widget';
 

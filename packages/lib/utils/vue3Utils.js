@@ -8,15 +8,15 @@ export {
     nodePath2ClassName, isRootNodePath, computedCurPath, getPathVal, path2prop
 } from './vueUtils';
 
-//  . key.
+//   .  key .
 const pathSeparator = '.';
 
-// path
+//  path
 export function deletePathVal(vueData, name) {
     delete vueData[name];
 }
 
-// path
+//  path
 export function setPathVal(obj, path, value) {
     const pathArr = path.split(pathSeparator);
     for (let i = 0; i < pathArr.length; i += 1) {
@@ -35,7 +35,7 @@ export function resolveComponent(component) {
     return component;
 }
 
-// antdvnaivemoduleValuev-model
+//  antdv naive moduleValue v-model
 export const modelValueComponent = (component, {
     model = 'value'
 } = {}) => defineComponent({

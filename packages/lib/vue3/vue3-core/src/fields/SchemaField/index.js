@@ -4,10 +4,10 @@
 
 import { h } from 'vue';
 
-import { getUiField, isHiddenWidget, isSelect } from '@lljj/vjsf-utils/formUtils';
-import { nodePath2ClassName, resolveComponent } from '@lljj/vjsf-utils/vue3Utils';
-import { lowerCase } from '@lljj/vjsf-utils/utils';
-import retrieveSchema from '@lljj/vjsf-utils/schema/retriev';
+import { getUiField, isHiddenWidget, isSelect } from '@snema/vjsf-utils/formUtils';
+import { nodePath2ClassName, resolveComponent } from '@snema/vjsf-utils/vue3Utils';
+import { lowerCase } from '@snema/vjsf-utils/utils';
+import retrieveSchema from '@snema/vjsf-utils/schema/retriev';
 
 import FIELDS_MAP from '../../FIELDS_MAP';
 import vueProps from '../props';

@@ -4,11 +4,11 @@
 
 import { h } from 'vue';
 
-import { allowAdditionalItems, getUiOptions, replaceArrayIndex } from '@lljj/vjsf-utils/formUtils';
-import getDefaultFormState from '@lljj/vjsf-utils/schema/getDefaultFormState';
-import { computedCurPath } from '@lljj/vjsf-utils/vue3Utils';
-import { cutOff } from '@lljj/vjsf-utils/arrayUtils';
-import FieldGroupWrap from '@lljj/vjsf-utils/components/FieldGroupWrap';
+import { allowAdditionalItems, getUiOptions, replaceArrayIndex } from '@snema/vjsf-utils/formUtils';
+import getDefaultFormState from '@snema/vjsf-utils/schema/getDefaultFormState';
+import { computedCurPath } from '@snema/vjsf-utils/vue3Utils';
+import { cutOff } from '@snema/vjsf-utils/arrayUtils';
+import FieldGroupWrap from '@snema/vjsf-utils/components/FieldGroupWrap';
 import vueProps from '../../props';
 
 import SchemaField from '../../SchemaField';
